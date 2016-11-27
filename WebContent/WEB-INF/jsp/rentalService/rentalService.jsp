@@ -1,4 +1,4 @@
-
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html>
 <html>
@@ -30,7 +30,7 @@
 		<div id="page-wrapper" class="bg-custom">
 			<div class="wrapper wrapper-content row animated fadeInRight">
 				<div class="ibox-tools">
-					<a class="btn btn-primary" onclick="goBack()">Back To Home</a>
+					<a class="btn btn-primary" onclick="goBack()"><spring:message code="label.BackToHome" /></a>
 				</div>
 				<div class="col-md-10">
 					<div class="row ">
@@ -39,76 +39,18 @@
 							<div class="wpf-demo-6">
 								<div class="w3ls-special-text">
 									<p>
-										<sub>Day</sub>125
+										<sub><spring:message code="label.Day" /></sub>125
 									</p>
 								</div>
 								<figcaption class="view-caption">
 									<h4>Bus 1</h4>
-									<a href="#addToOrder" data-toggle="modal">Take Rent </a>
+									<a href="#addToOrder" data-toggle="modal"><spring:message code="label.TakeRent" /> </a>
 								</figcaption>
 							</div>
 						</div>
 
-						<div class="col-lg-3 col-lg-offset-1 w3ls-special-img"
-							style="background-image: url('../../resources/img/car.jpg');">
-							<div class="wpf-demo-6">
-								<div class="w3ls-special-text">
-									<p>
-										<sub>Day</sub>125
-									</p>
-								</div>
-								<figcaption class="view-caption">
-									<h4>Bus 1</h4>
-									<a href="#addToOrder" data-toggle="modal"> Take Rent </a>
-								</figcaption>
-							</div>
-						</div>
-
-						<div class="col-lg-3 col-lg-offset-1 w3ls-special-img"
-							style="background-image: url('../../resources/img/car.jpg');">
-							<div class="wpf-demo-6">
-								<div class="w3ls-special-text">
-									<p>
-										<sub>Day</sub>125
-									</p>
-								</div>
-								<figcaption class="view-caption">
-									<h4>Bus 1</h4>
-									<a href="#addToOrder" data-toggle="modal"> Take Rent </a>
-								</figcaption>
-							</div>
-						</div>
-
-
-						<div class="col-lg-3 col-lg-offset-1 w3ls-special-img"
-							style="background-image: url('../../resources/img/car.jpg');">
-							<div class="wpf-demo-6">
-								<div class="w3ls-special-text">
-									<p>
-										<sub>Day</sub>125
-									</p>
-								</div>
-								<figcaption class="view-caption">
-									<h4>Bus 1</h4>
-									<a href="#addToOrder" data-toggle="modal"> Take Rent </a>
-								</figcaption>
-							</div>
-						</div>
-
-						<div class="col-lg-3 col-lg-offset-1 w3ls-special-img"
-							style="background-image: url('../../resources/img/car.jpg');">
-							<div class="wpf-demo-6">
-								<div class="w3ls-special-text">
-									<p>
-										<sub>Day</sub>125
-									</p>
-								</div>
-								<figcaption class="view-caption">
-									<h4>Bus 1</h4>
-									<a href="#addToOrder" data-toggle="modal"> Take Rent </a>
-								</figcaption>
-							</div>
-						</div>
+					 
+						 
 
 					</div>
 				</div>

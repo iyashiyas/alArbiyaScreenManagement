@@ -1,3 +1,5 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html>
@@ -15,18 +17,18 @@
 
 	<div class="panel panel-info">
 		<div class="panel-heading">
-			<h3 class="panel-title">Choose My Language</h3>
+			<h3 class="panel-title"><spring:message code="label.ChooseMyLanguage" /></h3>
 		</div>
 		<div class="panel-body">
-			<form class="form-horizontal" method="POST">
-         
+			 
         		<div class="form-control">
-				<select class="form-group"><option>العربية</option>
-					<option>English</option>
+        	
+				<select>	<c:forEach items="${languages}" var="languages">
+				<option>${languages.languageName}</option>	</c:forEach>
 				</select>
+			
 		 
-  </div>
-			</form>
+  </div> 
 		</div>
 	</div>
 

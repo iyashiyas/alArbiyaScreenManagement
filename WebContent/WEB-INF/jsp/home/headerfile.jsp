@@ -34,7 +34,7 @@
 				style="margin-bottom: 0">
 				<div class="navbar-header">Hotel Management Software</div>
 				<ul class="nav navbar-top-links navbar-right">
-					<li><span class="m-r-sm text-muted welcome-message">Welcome
+					<li><span class="m-r-sm text-muted welcome-message"><spring:message code="label.Welcome" />
 							Mr.Customer Name</span></li>
 
 					<li class="dropdown"><a class="dropdown-toggle count-info"
@@ -46,23 +46,22 @@
 							<li class="divider"></li>
 							<li><a  >
 									<div>
-										<i class="fa fa-twitter fa-fw"></i>Your Order Accept <span
-											class="pull-right text-muted small">12 minutes ago</span>
+										<i class="fa fa-twitter fa-fw"></i><spring:message code="label.YourOrderAccept" /><span
+											class="pull-right text-muted small">12 <spring:message code="label.MinutesAgo" /></span>
 									</div>
 							</a></li>
 
 							<li class="divider"></li>
 							<li>
 								<div class="text-center link-block">
-									<a href="notifications.html"> <strong>See All
-											Alerts</strong> <i class="fa fa-angle-right"></i>
+									<a href="notifications.html"> <strong><spring:message code="label.SeeAllAlerts" /></strong> <i class="fa fa-angle-right"></i>
 									</a>
 								</div>
 							</li>
 						</ul></li>
 
 
-					<li><a> <i class="fa fa-sign-out"></i> Check Out
+					<li><a> <i class="fa fa-sign-out"></i> <spring:message code="label.CheckOut" />
 					</a></li>
 				</ul>
 

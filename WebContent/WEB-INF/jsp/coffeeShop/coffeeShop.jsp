@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html>
@@ -29,7 +30,7 @@
 		<div id="page-wrapper" class="bg-custom">
 			<div class="wrapper wrapper-content row animated fadeInRight">
 				<div class="ibox-tools">
-					<a class="btn btn-primary" onclick="goBack()">Back To Home</a>
+					<a class="btn btn-primary" onclick="goBack()"><spring:message code="label.BackToHome" /></a>
 				</div>
 				<div class="col-md-10">
 					<div class="row ">
@@ -43,90 +44,12 @@
 								</div>
 								<figcaption class="view-caption">
 									<h4>Coffee 1</h4>
-									<a href="#addToOrder" data-toggle="modal"> Order </a>
+									<a href="#addToOrder" data-toggle="modal"> <spring:message code="label.Order" /> </a>
 								</figcaption>
 							</div>
 						</div>
 
-						<div class="col-lg-3 col-lg-offset-1 w3ls-special-img"
-							style="background-image: url('../../resources/img/e2.jpg');">
-							<div class="wpf-demo-6">
-								<div class="w3ls-special-text">
-									<p>
-										<sub>sar</sub>125
-									</p>
-								</div>
-								<figcaption class="view-caption">
-									<h4>Coffee 1</h4>
-									<a href="#addToOrder" data-toggle="modal"> Order </a>
-								</figcaption>
-							</div>
-						</div>
-
-
-						<div class="col-lg-3 col-lg-offset-1 w3ls-special-img"
-							style="background-image: url('../../resources/img/e2.jpg');">
-							<div class="wpf-demo-6">
-								<div class="w3ls-special-text">
-									<p>
-										<sub>sar</sub>125
-									</p>
-								</div>
-								<figcaption class="view-caption">
-									<h4>Coffee 1</h4>
-									<a href="#addToOrder" data-toggle="modal"> Order </a>
-								</figcaption>
-							</div>
-						</div>
-
-
-						<div class="col-lg-3 col-lg-offset-1 w3ls-special-img"
-							style="background-image: url('../../resources/img/e2.jpg');">
-							<div class="wpf-demo-6">
-								<div class="w3ls-special-text">
-									<p>
-										<sub>sar</sub>125
-									</p>
-								</div>
-								<figcaption class="view-caption">
-									<h4>Coffee 1</h4>
-									<a href="#addToOrder" data-toggle="modal"> Order </a>
-								</figcaption>
-							</div>
-						</div>
-
-						<div class="col-lg-3 col-lg-offset-1 w3ls-special-img"
-							style="background-image: url('../../resources/img/e2.jpg');">
-							<div class="wpf-demo-6">
-								<div class="w3ls-special-text">
-									<p>
-										<sub>sar</sub>125
-									</p>
-								</div>
-								<figcaption class="view-caption">
-									<h4>Coffee 1</h4>
-									<a href="#addToOrder" data-toggle="modal"> Order </a>
-								</figcaption>
-							</div>
-						</div>
-
-
-						<div class="col-lg-3 col-lg-offset-1 w3ls-special-img"
-							style="background-image: url('../../resources/img/e2.jpg');">
-							<div class="wpf-demo-6">
-								<div class="w3ls-special-text">
-									<p>
-										<sub>sar</sub>125
-									</p>
-								</div>
-								<figcaption class="view-caption">
-									<h4>Coffee 1</h4>
-									<a href="#addToOrder" data-toggle="modal"> Order </a>
-								</figcaption>
-							</div>
-						</div>
-
-
+					 
 
 					</div>
 				</div>

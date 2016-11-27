@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
  <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html>
@@ -16,13 +17,13 @@
 
 	<div class="panel panel-info">
 		<div class="panel-heading">
-			<h3 class="panel-title">Request My Car</h3>
+			<h3 class="panel-title"><spring:message code="label.RequestMyCar" /></h3>
 		</div>
 		<div class="panel-body">
 			<form class="form-horizontal" method="POST">
 			
 				<div class="form-group">
-					<label for="inputEmail" class="col-lg-2 control-label">Parking ID
+					<label for="inputEmail" class="col-lg-2 control-label"><spring:message code="label.ParkingID" />
 						 </label>
 					<div class="col-lg-10">
 						<input type="text" class="form-control" name="Parking ID"
@@ -31,17 +32,17 @@
 				</div>
 				
 				<div class="form-group">
-					<label class="col-lg-2 control-label">Select Time</label>
+					<label class="col-lg-2 control-label"><spring:message code="label.SelectTime" /></label>
 					<div class="col-lg-10">
 						<div class="radio">
 							<label> <input type="radio" class="its"
-								name="selectTime" id="now" value="5" checked="checked"> Now
+								name="selectTime" id="now" value="5" checked="checked"> <spring:message code="label.Now" />
 							</label>
 						</div>
 						<div class="radio">
 							<label> <input type="radio" class="its"
 								name="selectTime" id="later" value="10">
-								Later
+								<spring:message code="label.Later" />
 							</label>
 
 						</div>
@@ -50,7 +51,7 @@
 				</div>
 
 				 <div class="form-group" id="selectTimer" style="display: none;">
-				 	<label class="col-lg-2 control-label">Select Time</label>
+				 	<label class="col-lg-2 control-label"><spring:message code="label.SelectTime" /></label>
                 <div class='input-group date' id='datetimepicker1'>
                     <input type='text' class="form-control" />
                     <span class="input-group-addon">

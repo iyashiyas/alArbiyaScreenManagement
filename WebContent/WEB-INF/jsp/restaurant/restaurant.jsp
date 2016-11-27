@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html>
@@ -31,7 +32,7 @@
   
 		<div class="wrapper wrapper-content row animated fadeInRight">
 			<div class="ibox-tools">
-				<a class="btn btn-primary" onclick="goBack()">Back To Home</a>
+				<a class="btn btn-primary" onclick="goBack()"><spring:message code="label.BackToHome" /></a>
 			</div>
 			<div class="col-md-10">
 
@@ -47,7 +48,7 @@
 							</div>
 							<figcaption class="view-caption">
 								<h4>Coffee 1</h4>
-								<a href="#addToOrder" data-toggle="modal"> Order </a>
+								<a href="#addToOrder" data-toggle="modal"> <spring:message code="label.Order" /> </a>
 							</figcaption>
 						</div>
 					</div>
@@ -69,9 +70,8 @@
 
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-					<button id="submit" type="submit" class="btn btn-success success">Request
-						Order</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal"><spring:message code="label.Cancel" /></button>
+					<button id="submit" type="submit" class="btn btn-success success"><spring:message code="label.RequestOrder" /></button>
 				</div>
 			</div>
 		</div>

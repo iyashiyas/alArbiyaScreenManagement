@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html>
 <html>
@@ -15,20 +16,19 @@
 
 	<div class="panel panel-info">
 		<div class="panel-heading">
-			<h3 class="panel-title">Request Order</h3>
+			<h3 class="panel-title"><spring:message code="label.RequestOrder" /></h3>
 		</div>
 		<div class="panel-body">
 			<form class="form-horizontal" method="POST">
 				<div class="form-group">
-					<label for="inputEmail" class="col-lg-2 control-label">Total
-						Price</label>
+					<label for="inputEmail" class="col-lg-2 control-label"><spring:message code="label.TotalPrice" /></label>
 					<div class="col-lg-10">
 						<input type="text" class="form-control" name="totalprice"
 							id="totalprice" disabled="disabled" placeholder="0.0">
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-lg-2 control-label">Unit</label>
+					<label class="col-lg-2 control-label"><spring:message code="label.Unit" /></label>
 					<div class="col-lg-10">
 						<div class="radio">
 							<label> <input type="radio" class="its"
@@ -51,7 +51,7 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-lg-2 control-label">Ingredient</label>
+					<label class="col-lg-2 control-label"><spring:message code="label.Ingredients" /></label>
 					<div class="col-lg-10">
 						<div class="checkbox">
 							<label> <input type="checkbox" class="its" name="ingrd1"
@@ -72,7 +72,7 @@
 				</div>
 
 				<div class="form-group">
-					<label class="col-lg-2 control-label">Quantity</label>
+					<label class="col-lg-2 control-label"><spring:message code="label.Quantity" /></label>
 					<div class="col-lg-10">
 						<input class="touchspin1" id="quantity" type="text" value=""
 							name="quantity">

@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html>
 <html>
@@ -14,13 +15,12 @@
 
 	<div class="panel panel-info">
 		<div class="panel-heading">
-			<h3 class="panel-title">Request A Car For Rent</h3>
+			<h3 class="panel-title"><spring:message code="label.RequestACarForRent" /></h3>
 		</div>
 		<div class="panel-body">
 			<form class="form-horizontal" method="POST">
 				<div class="form-group">
-					<label for="inputEmail" class="col-lg-2 control-label">Total
-						Price</label>
+					<label for="inputEmail" class="col-lg-2 control-label"><spring:message code="label.TotalPrice" /></label>
 					<div class="col-lg-10">
 						<input type="text" class="form-control" name="totalprice"
 							id="totalprice" disabled="disabled" placeholder="0.0">
@@ -29,7 +29,7 @@
 
 
 				<div class=" form-group">
-					<label>From</label><div class="col-lg-10">
+					<label><spring:message code="label.From" /></label><div class="col-lg-10">
 					<div class='input-group date' id='datetimepicker1'>
 						<input type='text' class="form-control " name="startDate" /> <span
 							class="input-group-addon"> <span
@@ -41,7 +41,7 @@
 
 
 				<div class=" form-group">
-					<label>To</label>
+					<label><spring:message code="label.To" /></label>
 					<div class="col-lg-10">
 					<div class='input-group date' id='datetimepicker2'>
 						<input type='text' class="form-control " name="endDate" /> <span
@@ -53,7 +53,7 @@
 				</div>
 
 				<div class="form-group">
-					<label class="col-lg-2 control-label">Quantity</label>
+					<label class="col-lg-2 control-label"><spring:message code="Quantity" /></label>
 					<div class="col-lg-10">
 						<input class="touchspin1" id="quantity" type="text" value=""
 							name="quantity">

@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html>
@@ -27,8 +28,8 @@
                             <i class="fa fa-language fa-3x"></i>
                         </div>
                         <div class="col-xs-8 text-right">
-                            <span> Language </span>
-                            <h4 >Choose Language</h4>
+                            <span> <spring:message code="label.Language" /> </span>
+                            <h4 ><spring:message code="label.ChooseLanguage" /></h4>
                         </div> 
                     </div>
                 </div>
@@ -42,8 +43,8 @@
                             <i class="fa fa-car fa-3x"></i>
                         </div>
                         <div class="col-xs-8 text-right">
-                            <span> Parking </span>
-                            <h4 >Get My car</h4>
+                            <span> <spring:message code="label.Parking" /> </span>
+                            <h4 ><spring:message code="label.GetMyCar" /></h4>
                         </div> 
                     </div>
                 </div>
@@ -58,8 +59,8 @@
                             <i class="fa fa-shopping-cart fa-3x"></i>
                         </div>
                         <div class="col-xs-8 text-right">
-                            <span> Laundry </span>
-                            <h4 >Wash My Cloth</h4>
+                            <span> <spring:message code="label.Laundry" /> </span>
+                            <h4 ><spring:message code="label.WashMyCloth" /></h4>
                         </div> 
                     </div>
                 </div>
@@ -74,8 +75,8 @@
                             <i class="fa fa-coffee fa-3x"></i>
                         </div>
                         <div class="col-xs-8 text-right">
-                            <span> Coffee Shop </span>
-                            <h4>Take My Coffee</h4>
+                            <span> <spring:message code="label.CoffeeShop" /> </span>
+                            <h4><spring:message code="label.TakeMyCoffee" /></h4>
                         </div> 
                     </div>
                 </div>
@@ -89,8 +90,8 @@
                             <i class="fa fa-cutlery fa-3x"></i>
                         </div>
                         <div class="col-xs-8 text-right">
-                            <span> Restaurant </span>
-                            <h4  >Take My Food</h4>
+                            <span> <spring:message code="label.Restaurant" /> </span>
+                            <h4  ><spring:message code="label.TakeMyFood" /></h4>
                         </div> 
                     </div>
                 </div>
@@ -105,8 +106,8 @@
                             <i class="fa fa-bus fa-3x"></i>
                         </div>
                         <div class="col-xs-8 text-right">
-                            <span> Car Rental </span>
-                            <h4  >Car for Rental</h4>
+                            <span><spring:message code="label.CarRental" /></span>
+                            <h4  ><spring:message code="label.CarForRental" /></h4>
                         </div> 
                     </div>
                 </div>
@@ -121,8 +122,8 @@
                             <i class="fa fa-archive fa-3x"></i>
                         </div>
                         <div class="col-xs-8 text-right">
-                            <span> House Keeping </span>
-                            <h4>Clean My Room</h4>
+                            <span> <spring:message code="label.HouseKeeping" /> </span>
+                            <h4><spring:message code="label.CleanMyRoom" /></h4>
                         </div> 
                     </div>
                 </div>
@@ -136,8 +137,8 @@
                             <i class="fa fa-question-circle fa-3x"></i>
                         </div>
                         <div class="col-xs-8 text-right">
-                            <span> Ask </span>
-                            <h4 >May I help You</h4>
+                            <span> <spring:message code="label.Ask" /> </span>
+                            <h4 ><spring:message code="label.MayIHelpYou" /></h4>
                         </div> 
                     </div>
                 </div>
