@@ -8,5 +8,6 @@ public class CoffeeShopController {
 	@RequestMapping(value = "/coffeeShop")
 	public String showHome() {
 		return "coffeeShop/coffeeShop";
+		
 	}
 }

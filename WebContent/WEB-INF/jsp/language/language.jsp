@@ -8,7 +8,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/touchspin/jquery.bootstrap-touchspin.min.css" />">
+<link rel="stylesheet" type="text/css"
+	href="<c:url value="/resources/css/touchspin/jquery.bootstrap-touchspin.min.css" />">
 
 
 <title>SHMS</title>
@@ -17,20 +18,20 @@
 
 	<div class="panel panel-info">
 		<div class="panel-heading">
-			<h3 class="panel-title"><spring:message code="label.ChooseMyLanguage" /></h3>
+			<h3 class="panel-title">
+				<spring:message code="label.ChooseMyLanguage" />
+			</h3>
 		</div>
 		<div class="panel-body">
-			 
-        		<div class="form-control">
-        	
-				<select>	<c:forEach items="${languages}" var="languages">
-				<option>${languages.languageName}</option>	</c:forEach>
-				</select>
-			
-		 
-  </div> 
+ 
+			<c:forEach items="${languages}" var="languages">
+			 <a href="?lang=${languages.languageCode}" class="btn btn-primary">${languages.languageName}</a> 
+			</c:forEach>
+
+
 		</div>
 	</div>
+
 
 </body>
 </html>

@@ -1,5 +1,11 @@
 package org.alArbiyaScreenManagement.service.impl;
 
-public class HomeServiceImpl {
+import org.alArbiyaScreenManagement.service.HomeService;
+import org.springframework.stereotype.Service;
+
+@Service
+public class HomeServiceImpl implements HomeService {
+
+ 
 
 }

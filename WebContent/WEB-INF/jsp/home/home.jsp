@@ -142,10 +142,10 @@
                         </div> 
                     </div>
                 </div>
-            </div>
+            </div> 
            
-                    </div>
-                    </div>
+        </div> 
+      </div>
        </div>
        </div>
 	 
@@ -155,13 +155,11 @@
 	 <div class="modal fade" id="language" tabindex="-1"
 							role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 							<div class="modal-dialog">
-							 
+							 	<div class="modal-body">
 
 										<jsp:include page="../language/language.jsp"></jsp:include>
-  
-											<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-											<button id="submit" type="submit" class="btn btn-success success">Select My Language</button>
-									 
+                                        </div>
+											 
 								</div>
 							</div>
 					  
@@ -190,6 +188,8 @@
 								 
 							</div>
 						</div>
+						
+						 
 						 
 </body>
 </html>
