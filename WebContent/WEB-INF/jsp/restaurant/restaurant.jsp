@@ -38,20 +38,22 @@
 
 				<div class="row ">
 
-					<div class="col-lg-3 col-lg-offset-1 w3ls-special-img"
-						style="background-image: url('../../resources/img/e2.jpg');">
-						<div class="wpf-demo-6">
-							<div class="w3ls-special-text">
-								<p>
-									<sub>sar</sub>125
-								</p>
+				<c:forEach items="${getHotelServiceItems}" var="getHotelServiceItems">
+						<div class="col-lg-3 col-lg-offset-1 w3ls-special-img"
+							style="background-image: url('<c:out value="${getHotelServiceItems.imageUrlName}" />');">
+							<div class="wpf-demo-6">
+								<div class="w3ls-special-text"> 
+									<p>
+										<sub>sar</sub>125
+									</p>
+								</div>
+								<figcaption class="view-caption">
+									<h4>${getHotelServiceItems.serviceItemName}</h4>
+									<a href="#addToOrder" data-toggle="modal"> <spring:message code="label.Order" /> </a>
+								</figcaption>
 							</div>
-							<figcaption class="view-caption">
-								<h4>Coffee 1</h4>
-								<a href="#addToOrder" data-toggle="modal"> <spring:message code="label.Order" /> </a>
-							</figcaption>
-						</div>
-					</div>
+						</div> 
+						</c:forEach> 
 
 				</div>
 			</div>

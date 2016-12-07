@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link rel="stylesheet" type="text/css"href="<c:url value="/resources/css/specialStyle/specialStyle.css"  />">
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/specialStyle/specialStyle.css" />">
 <title>SHMS</title>
 </head>
 <body>
@@ -25,32 +25,31 @@
 							class="nav-label">Snack</span> </a></li>
 				</ul>
 			</div>
-		</nav>
-
+		</nav> 
+		
 		<div id="page-wrapper" class="bg-custom">
 			<div class="wrapper wrapper-content row animated fadeInRight">
 				<div class="ibox-tools">
 					<a class="btn btn-primary" onclick="goBack()"><spring:message code="label.BackToHome" /></a>
-				</div>
+				</div> 
 				<div class="col-md-10">
-					<div class="row ">
+					<div class="row "> 
+						<c:forEach items="${getHotelServiceItems}" var="getHotelServiceItems">
 						<div class="col-lg-3 col-lg-offset-1 w3ls-special-img"
-							style="background-image: url('<c:url value='/resources/img/e2.jpg' />');">
+							style="background-image: url('<c:out value="${getHotelServiceItems.imageUrlName}" />');">
 							<div class="wpf-demo-6">
-								<div class="w3ls-special-text">
+								<div class="w3ls-special-text"> 
 									<p>
 										<sub>sar</sub>125
 									</p>
 								</div>
 								<figcaption class="view-caption">
-									<h4>Coffee 1</h4>
+									<h4>${getHotelServiceItems.serviceItemName}</h4>
 									<a href="#addToOrder" data-toggle="modal"> <spring:message code="label.Order" /> </a>
 								</figcaption>
 							</div>
-						</div>
-
-					 
-
+						</div> 
+						</c:forEach> 
 					</div>
 				</div>
 			</div>

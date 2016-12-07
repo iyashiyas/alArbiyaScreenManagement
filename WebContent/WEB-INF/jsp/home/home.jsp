@@ -15,12 +15,12 @@
 <body>
 <div id="wrapper">
 <jsp:include page="../home/headerfile.jsp"></jsp:include>
-	     <div class="container">
+	     <div class="container"> 
+	  
 	 <div class="col-md-10 col-md-offset-1"> 
         <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row center-block">
-             
-             <a href="#language" data-toggle="modal">
+              <a href="#language" data-toggle="modal">
             <div class="col-lg-4 col-md-offset-1">
                 <div class="widget style1 lazur-bg">
                     <div class="row">
@@ -33,7 +33,21 @@
                         </div> 
                     </div>
                 </div>
-            </div></a>
+            </div></a> 
+            <a href="${pageContext.request.contextPath}/action/showCoffeeShop?ServiceId=1">
+            <div class="col-lg-4 col-md-offset-1">
+                <div class="widget style1 lazur-bg">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <i class="fa fa-coffee fa-3x"></i>
+                        </div>
+                        <div class="col-xs-8 text-right">
+                            <span> <spring:message code="label.CoffeeShop" /> </span>
+                            <h4><spring:message code="label.TakeMyCoffee" /></h4>
+                        </div> 
+                    </div>
+                </div>
+            </div></a> 
             
              <a href="#parking" data-toggle="modal">
             <div class="col-lg-4 col-md-offset-1">
@@ -49,8 +63,24 @@
                     </div>
                 </div>
             </div>
-            </a>
+            </a> 
              
+            <a href="#houseKeeping"> 
+            <div class="col-lg-4 col-md-offset-1">
+                <div class="widget style1 lazur-bg">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <i class="fa fa-archive fa-3x"></i>
+                        </div>
+                        <div class="col-xs-8 text-right">
+                            <span> <spring:message code="label.HouseKeeping" /> </span>
+                            <h4><spring:message code="label.CleanMyRoom" /></h4>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            </a>            
+          
              <a href="${pageContext.request.contextPath}/laundry"> 
             <div class="col-lg-4 col-md-offset-1">
                 <div class="widget style1 lazur-bg">
@@ -67,21 +97,7 @@
             </div>
             </a>
             
-            <a href="${pageContext.request.contextPath}/coffeeShop">
-            <div class="col-lg-4 col-md-offset-1">
-                <div class="widget style1 lazur-bg">
-                    <div class="row">
-                        <div class="col-xs-4">
-                            <i class="fa fa-coffee fa-3x"></i>
-                        </div>
-                        <div class="col-xs-8 text-right">
-                            <span> <spring:message code="label.CoffeeShop" /> </span>
-                            <h4><spring:message code="label.TakeMyCoffee" /></h4>
-                        </div> 
-                    </div>
-                </div>
-            </div></a>
-            
+        
             <a href="${pageContext.request.contextPath}/restaurant"> 
             <div class="col-lg-4 col-md-offset-1">
                 <div class="widget style1 lazur-bg">
@@ -97,7 +113,7 @@
                 </div>
             </div>
             </a>
-             
+          
              <a href="${pageContext.request.contextPath}/rental"> 
             <div class="col-lg-4 col-md-offset-1">
                 <div class="widget style1 lazur-bg">
@@ -112,24 +128,8 @@
                     </div>
                 </div>
             </div>
-            </a>
-            
-            <a href="#houseKeeping"> 
-            <div class="col-lg-4 col-md-offset-1">
-                <div class="widget style1 lazur-bg">
-                    <div class="row">
-                        <div class="col-xs-4">
-                            <i class="fa fa-archive fa-3x"></i>
-                        </div>
-                        <div class="col-xs-8 text-right">
-                            <span> <spring:message code="label.HouseKeeping" /> </span>
-                            <h4><spring:message code="label.CleanMyRoom" /></h4>
-                        </div> 
-                    </div>
-                </div>
-            </div>
-            </a>
-          
+            </a>  
+      
              <div class="col-lg-4 col-md-offset-1">
                 <div class="widget style1 lazur-bg">
                     <div class="row">
@@ -142,16 +142,13 @@
                         </div> 
                     </div>
                 </div>
-            </div> 
-           
+            </div>  
         </div> 
       </div>
+       </div>  
        </div>
-       </div>
-	 
 	 </div>
-	 
-	 
+	  
 	 <div class="modal fade" id="language" tabindex="-1"
 							role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 							<div class="modal-dialog">
@@ -181,15 +178,13 @@
 							role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 							<div class="modal-dialog">
 							  
-										<jsp:include page="../housekeeping/housekeeping.jsp"></jsp:include>
+									<%-- 	<jsp:include page="../housekeeping/housekeeping.jsp"></jsp:include> --%>
   
 											<button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
 											<button id="submit" type="submit" class="btn btn-info  "> Ok</button>
 								 
 							</div>
 						</div>
-						
-						 
-						 
+											 
 </body>
 </html>

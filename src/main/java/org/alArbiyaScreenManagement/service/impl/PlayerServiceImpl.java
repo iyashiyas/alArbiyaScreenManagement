@@ -20,6 +20,14 @@ public class PlayerServiceImpl implements PlayerService{
 		player.setPlayerStatus("NOT CONFIGURED");
 		return playerRepository.addPlayer(player);
 	}
+	
+	@Override
+	public Player getRoomAssignedPlayer(Player player,String iPAddrress) {
+		// TODO Auto-generated method stub
+		player.setPlayerIpAddress(iPAddrress); 
+		return playerRepository.getRoomAssignedPlayer(player);
+	}
+	
 
  
  

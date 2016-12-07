@@ -44,7 +44,7 @@
 						<ul class="dropdown-menu dropdown-alerts">
 							<li>
 							<li class="divider"></li>
-							<li><a  >
+							<li><a>
 									<div>
 										<i class="fa fa-twitter fa-fw"></i><spring:message code="label.YourOrderAccept" /><span
 											class="pull-right text-muted small">12 <spring:message code="label.MinutesAgo" /></span>
@@ -68,35 +68,26 @@
 			</nav>
 		</div>
  
-	<script
-		src="<c:url value="/resources/js/jquery-2.1.1.js" />"></script>
+	<script src="<c:url value="/resources/js/jquery-2.1.1.js" />"></script>
 	<script src="<c:url value="/resources/js/jquery-ui-1.10.4.min.js" />"></script>
 
-	<script
-		src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
+	<script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
 	<script src="<c:url value="/resources/js/navbar.js" />">
 		
 	</script>
-	<script
-		src="<c:url value="/resources/js/plugins/metisMenu/jquery.metisMenu.js" />"></script>
-	<script
-		src="<c:url value="/resources/js/plugins/slimscroll/jquery.slimscroll.min.js" />"></script>
+	<script src="<c:url value="/resources/js/plugins/metisMenu/jquery.metisMenu.js" />"></script>
+	<script src="<c:url value="/resources/js/plugins/slimscroll/jquery.slimscroll.min.js" />"></script>
 	<!-- Custom and plugin javascript -->
-	<script
-		src="<c:url value="/resources/js/inspinia.js" />"></script>
-	<script
-		src="<c:url value="/resources/js/plugins/pace/pace.min.js" />"></script>
+	<script src="<c:url value="/resources/js/inspinia.js" />"></script>
+	<script src="<c:url value="/resources/js/plugins/pace/pace.min.js" />"></script>
 	<!-- iCheck -->
-	<script
-		src="<c:url value="/resources/js/plugins/iCheck/icheck.min.js" />"></script>
+	<script src="<c:url value="/resources/js/plugins/iCheck/icheck.min.js" />"></script>
 
 	<!-- Date Time Picker -->
-	<script
-		src="<c:url value="/resources/js/plugins/dateTimePicker/moment.min.js" />"></script>
-	<script
-		src="<c:url value="/resources/js/plugins/dateTimePicker/bootstrap-datetimepicker.js" />"></script>
-<script
-		src="<c:url value="/resources/js/custom.js" />"></script>
+	<script src="<c:url value="/resources/js/plugins/dateTimePicker/moment.min.js" />"></script>
+	<script src="<c:url value="/resources/js/plugins/dateTimePicker/bootstrap-datetimepicker.js" />"></script>
+<script src="<c:url value="/resources/js/custom.js" />"></script>
+
 
 </body>
 </html>
