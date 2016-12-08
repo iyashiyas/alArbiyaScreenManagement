@@ -81,7 +81,7 @@
             </div>
             </a>            
           
-             <a href="${pageContext.request.contextPath}/laundry"> 
+            <a href="${pageContext.request.contextPath}/action/showLaundry?ServiceId=5">
             <div class="col-lg-4 col-md-offset-1">
                 <div class="widget style1 lazur-bg">
                     <div class="row">
@@ -98,7 +98,7 @@
             </a>
             
         
-            <a href="${pageContext.request.contextPath}/restaurant"> 
+            <a href="${pageContext.request.contextPath}/action/showRestaurant?ServiceId=6">
             <div class="col-lg-4 col-md-offset-1">
                 <div class="widget style1 lazur-bg">
                     <div class="row">
@@ -114,7 +114,7 @@
             </div>
             </a>
           
-             <a href="${pageContext.request.contextPath}/rental"> 
+             <a href="${pageContext.request.contextPath}/action/showCarRental?ServiceId=7">
             <div class="col-lg-4 col-md-offset-1">
                 <div class="widget style1 lazur-bg">
                     <div class="row">

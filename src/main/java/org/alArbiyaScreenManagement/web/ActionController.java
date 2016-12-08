@@ -58,13 +58,10 @@ public class ActionController {
 		System.out.println(ServiceId);
 		 
 		List<HotelServicesItem> getHotelServiceItems = actionService
-				.getHotelServiceItems(ServiceId);
-
+				.getHotelServiceItems(ServiceId); 
 		Map<String, Object> attributes = new HashMap<String, Object>();
-		CoffeeShop coffeeShop = new CoffeeShop();
- 
-		attributes.put("getHotelServiceItems",getHotelServiceItems);
- 
+		CoffeeShop coffeeShop = new CoffeeShop(); 
+		attributes.put("getHotelServiceItems",getHotelServiceItems); 
 		attributes.put("coffeShop", coffeeShop); 
 		model.addAllAttributes(attributes);
 		return "coffeeShop/coffeeShop";
@@ -83,10 +80,37 @@ public class ActionController {
 		attributes.put("restaurant", restaurant); 
 		model.addAllAttributes(attributes);
 		
-		return "action/restaurant/restaurant";
+		return "restaurant/restaurant";
 	}
- 
 	
+	@RequestMapping(value = "/showCarRental", method = RequestMethod.GET)
+	public String showCarRental(Model model, @RequestParam(required=true) String ServiceId) {
+		System.out.println(ServiceId); 
+		List<HotelServicesItem> getHotelServiceItems = actionService
+				.getHotelServiceItems(ServiceId); 
+		Map<String, Object> attributes = new HashMap<String, Object>();
+		Restaurant restaurant = new Restaurant(); 
+		attributes.put("getHotelServiceItems",getHotelServiceItems); 
+		attributes.put("restaurant", restaurant); 
+		model.addAllAttributes(attributes);
+		
+		return "rentalService/rentalService";
+	}
+	
+	@RequestMapping(value = "/showLaundry", method = RequestMethod.GET)
+	public String showLaundry(Model model, @RequestParam(required=true) String ServiceId) {
+		System.out.println(ServiceId);
+	   List<HotelServicesItem> getHotelServiceItems = actionService
+				.getHotelServiceItems(ServiceId);
+    Map<String, Object> attributes = new HashMap<String, Object>();
+		Restaurant restaurant = new Restaurant(); 
+		attributes.put("getHotelServiceItems",getHotelServiceItems); 
+		attributes.put("restaurant", restaurant); 
+		model.addAllAttributes(attributes);
+		
+		return "laundry/laundry";
+	}
 	 
+	
 	 
 }
