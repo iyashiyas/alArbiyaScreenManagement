@@ -5,14 +5,14 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
- 
 
-
+import org.alArbiyaScreenManagement.model.HotelInfo;
 import org.alArbiyaScreenManagement.model.HotelServicesCategory;
 import org.alArbiyaScreenManagement.model.Language;
 import org.alArbiyaScreenManagement.model.Player;
 import org.alArbiyaScreenManagement.service.ActionService;
 import org.alArbiyaScreenManagement.service.HomeService;
+import org.alArbiyaScreenManagement.service.HotelInfoService;
 import org.alArbiyaScreenManagement.service.LanguageService;
 import org.alArbiyaScreenManagement.service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,9 +33,12 @@ public class HomeController {
 
 	@Autowired
 	PlayerService playerService;
-	
+
 	@Autowired
 	ActionService actionService;
+
+	@Autowired
+	HotelInfoService hotelInfoService;
 
 	@Autowired(required = true)
 	private HttpServletRequest request;
@@ -47,41 +50,40 @@ public class HomeController {
 		if (iPAddrress == null) {
 			iPAddrress = request.getRemoteAddr();
 			System.out.println(iPAddrress);
-		} 
-		playerService.addPlayer(player, iPAddrress); 
+		}
+		playerService.addPlayer(player, iPAddrress);
 		Player getRoomAssignedPlayer = playerService.getRoomAssignedPlayer(
-				player, iPAddrress); 
+				player, iPAddrress);
 		if (getRoomAssignedPlayer == null) {
-			 return "redirect:/notAssigned";
+			return "redirect:/notAssigned";
 		} else {
 			List<Language> languages = languageService.getEnableLanguages();
-			List<HotelServicesCategory> hotelServiceCategories = actionService.getHotelServiceCategories();
+			List<HotelInfo> hotelInfos = hotelInfoService.getHotelInfo();
+			List<HotelServicesCategory> hotelServiceCategories = actionService
+					.getHotelServiceCategories();
 			Map<String, Object> attributes = new HashMap<String, Object>();
 			attributes.put("languages", languages);
-			attributes.put("hotelServiceCategories",hotelServiceCategories);
+			attributes.put("hotelInfos", hotelInfos);
+			attributes.put("hotelServiceCategories", hotelServiceCategories);
 			model.addAllAttributes(attributes);
 			return "home/home";
 		}
 	}
 
-	/*@RequestMapping(value = "/shms", method = RequestMethod.GET)
-	public String shms(@ModelAttribute Player player) {
-		String iPAddrress = request.getHeader("X-FORWARDED-FOR");
-		if (iPAddrress == null) {
-			iPAddrress = request.getRemoteAddr();
-			System.out.println(iPAddrress);
-		}
-		
-		 * Player playerDetails = playerService.getPlayerDetails(iPAddrress);
-		 * System.out.println(playerDetails);
-		 
-		playerService.addPlayer(player, iPAddrress);
-		return "home/home";
-	}*/
+	/*
+	 * @RequestMapping(value = "/shms", method = RequestMethod.GET) public
+	 * String shms(@ModelAttribute Player player) { String iPAddrress =
+	 * request.getHeader("X-FORWARDED-FOR"); if (iPAddrress == null) {
+	 * iPAddrress = request.getRemoteAddr(); System.out.println(iPAddrress); }
+	 * 
+	 * Player playerDetails = playerService.getPlayerDetails(iPAddrress);
+	 * System.out.println(playerDetails);
+	 * 
+	 * playerService.addPlayer(player, iPAddrress); return "home/home"; }
+	 */
 	@RequestMapping(value = "/notAssigned")
 	public String shms() {
 		return "home/notAssignedPage";
 	}
-	 
-	
+
 }

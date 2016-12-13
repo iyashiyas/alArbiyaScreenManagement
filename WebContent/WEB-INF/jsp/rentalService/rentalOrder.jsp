@@ -7,8 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/touchspin/jquery.bootstrap-touchspin.min.css" />">
-
-
+ 
 <title>SHMS</title>
 </head>
 <body>
@@ -53,19 +52,17 @@
 				</div>
 
 				<div class="form-group">
-					<label class="col-lg-2 control-label"><spring:message code="Quantity" /></label>
+					<label class="col-lg-2 control-label"><spring:message code="label.Quantity" /></label>
 					<div class="col-lg-10">
 						<input class="touchspin1" id="quantity" type="text" value=""
 							name="quantity">
 					</div>
-				</div>
-
+				</div> 
 			</form>
 		</div>
 	</div>
 	<script type="text/javascript" src="<c:url value="/resources/js/plugins/touchspin/jquery.bootstrap-touchspin.min.js" /> "></script>
-
-	<script type="text/javascript">
+    <script type="text/javascript">
 		$("input[name='quantity']").TouchSpin({
 			min : 1,
 			max : 60,

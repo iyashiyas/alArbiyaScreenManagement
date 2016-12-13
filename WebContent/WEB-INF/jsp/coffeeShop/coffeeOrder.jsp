@@ -8,13 +8,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/touchspin/jquery.bootstrap-touchspin.min.css'/>">
-
-
-
 <title>SHMS</title>
 </head>
 <body>
-
 	<div class="panel panel-info">
 		<div class="panel-heading">
 			<h3 class="panel-title"><spring:message code="label.RequestOrder" /></h3>

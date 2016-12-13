@@ -32,11 +32,11 @@
 		<div class="row border-bottom">
 			<nav class="navbar navbar-static-top" role="navigation"
 				style="margin-bottom: 0">
-				<div class="navbar-header">Hotel Management Software</div>
+				<c:forEach items="${hotelInfos}" var="hotelInfos">
+				<div class="navbar-header">${hotelInfos.hotelName}</div></c:forEach>
 				<ul class="nav navbar-top-links navbar-right">
 					<li><span class="m-r-sm text-muted welcome-message"><spring:message code="label.Welcome" />
-							Mr.Customer Name</span></li>
-
+							Mr.Customer Name</span></li> 
 					<li class="dropdown"><a class="dropdown-toggle count-info"
 						data-toggle="dropdown" href="#"> <i class="fa fa-bell"></i> <span
 							class="label label-primary">0</span>
@@ -59,8 +59,7 @@
 								</div>
 							</li>
 						</ul></li>
-
-
+ 
 					<li><a> <i class="fa fa-sign-out"></i> <spring:message code="label.CheckOut" />
 					</a></li>
 				</ul>

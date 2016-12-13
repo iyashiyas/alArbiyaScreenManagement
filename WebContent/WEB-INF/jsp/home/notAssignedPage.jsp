@@ -7,21 +7,36 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/touchspin/jquery.bootstrap-touchspin.min.css" />" >
-<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/dateTimePicker/bootstrap-datetimepicker.css" />">
+
+<link
+	href="<c:url value="/resources/css/bootstrap.min.css" />"
+	rel="stylesheet">
+<link
+	href="<c:url value="/resources/css/font-awesome.css" />"
+	rel="stylesheet">
+<link
+	href="<c:url value="/resources/css/animate.css" />"
+	rel="stylesheet">
+<link id="loadBefore"
+	href="<c:url value="/resources/css/style.css" />"
+	rel="stylesheet">
+<link id="loadBefore"
+	href="<c:url value="/resources/css/common.css" />"
+	rel="stylesheet">
 
 <title>SHMS</title>
 </head>
 <body>
 <div id="wrapper">
-<jsp:include page="../home/headerfile.jsp"></jsp:include>
-	     <div class="container">
-Notassigned
+ 
+ <div class="container col-xs-4 col-xs-offset-4">
+ 
+<marquee><h2>Not Configured</h2></marquee>
 
- <script
-		src="<c:url value="/resources/js/home/header.js" />"></script>
+ <script src="<c:url value="/resources/js/home/header.js" />"></script>
  
 </div>
+
 </div>
 </body>
 </html>
