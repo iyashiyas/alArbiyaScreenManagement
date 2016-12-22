@@ -29,10 +29,10 @@
 <body>
 <div id="wrapper">
  
- <div class="container col-xs-4 col-xs-offset-4">
- 
-<marquee><h2>Not Configured</h2></marquee>
-
+ <div class="container col-xs-4 col-xs-offset-4 text-center p-md">
+ <span class="text-navy">
+<marquee><h3> <label class="label label-danger">Not Configured</label></h3></marquee>
+</span>
  <script src="<c:url value="/resources/js/home/header.js" />"></script>
  
 </div>

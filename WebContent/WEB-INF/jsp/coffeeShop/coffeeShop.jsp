@@ -14,7 +14,7 @@
 	<div id="wrapper">
 		<jsp:include page="../home/headerfile.jsp"></jsp:include>
 
-		<nav class="navbar-primary   navbar-static-side" role="navigation">
+		<nav class="navbar-primary  navbar-static-side" role="navigation">
 			<div class="sidebar-collapse">
 				<ul class="nav metismenu" id="side-menu">
 					<li><a><i class="fa fa-th-large"></i> <span

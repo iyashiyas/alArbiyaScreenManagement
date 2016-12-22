@@ -26,14 +26,12 @@
 
 <title>SHMS</title>
 </head>
-<body>
-
-	
+<body> 
 		<div class="row border-bottom">
 			<nav class="navbar navbar-static-top" role="navigation"
 				style="margin-bottom: 0">
 				<c:forEach items="${hotelInfos}" var="hotelInfos">
-				<div class="navbar-header">${hotelInfos.hotelName}</div></c:forEach>
+				<div class="navbar-header" style="margin-left: 25px;">${hotelInfos.hotelName}</div></c:forEach>
 				<ul class="nav navbar-top-links navbar-right">
 					<li><span class="m-r-sm text-muted welcome-message"><spring:message code="label.Welcome" />
 							Mr.Customer Name</span></li> 

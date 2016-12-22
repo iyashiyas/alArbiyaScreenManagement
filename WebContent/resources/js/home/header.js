@@ -3,7 +3,7 @@ $( document ).ready(function() {
   $.ajax({
     url: 'home', 
     success: function(data) {
-    return;
+    window.location.replace(response.url);
     },
     complete: function() {
       // Schedule the next request when the current one's complete
