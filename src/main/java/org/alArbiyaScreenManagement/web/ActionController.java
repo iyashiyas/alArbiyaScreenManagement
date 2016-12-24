@@ -9,10 +9,14 @@ import java.util.Map;
 
 
 
+
+
 import org.alArbiyaScreenManagement.dto.CoffeeShop;
 import org.alArbiyaScreenManagement.dto.Restaurant;
 import org.alArbiyaScreenManagement.model.HotelServicesGroup;
 import org.alArbiyaScreenManagement.model.HotelServicesItem;
+import org.alArbiyaScreenManagement.model.HotelServicesValue;
+import org.alArbiyaScreenManagement.model.OrderItems;
 import org.alArbiyaScreenManagement.service.ActionService;
 import org.alArbiyaScreenManagement.service.IngredientService;
 import org.alArbiyaScreenManagement.service.LanguageService;
@@ -53,7 +57,10 @@ public class ActionController {
 	@RequestMapping(value = "/showCoffeeShop", method = RequestMethod.GET)
 	public String showCoffeeShop(Model model, @RequestParam(required=true) String ServiceId) {
 			 
-		List<HotelServicesItem> hotelServiceItems = actionService.getHotelServiceItems(ServiceId); 
+		List<HotelServicesItem> hotelServiceItems = actionService.getHotelServiceItems(ServiceId);
+		for(HotelServicesItem hotelServicesItem: hotelServiceItems) {
+			populateOrderItems(hotelServicesItem);
+		}
 		Map<String, Object> attributes = new HashMap<String, Object>();
 		CoffeeShop coffeeShop = new CoffeeShop(); 
 		attributes.put("getHotelServiceItems",hotelServiceItems); 
@@ -75,6 +82,28 @@ public class ActionController {
 		return "coffeeShop/coffeeShop";
 	}
   
+	private void populateOrderItems(HotelServicesItem hotelServicesItem) {
+		// TODO Auto-generated method stub
+		for(HotelServicesGroup parentGroup:hotelServicesItem.getHotelServiceParentGroups()) {
+			for(HotelServicesGroup childGroup:parentGroup.getHotelServiceChildGroups()) {
+				for(HotelServicesValue hotelServicesValue: childGroup.getHotelServicesValues()){
+					OrderItems orderItems = new OrderItems();
+					unitService.getUnit();
+					
+					
+					List<OrderItems.UnitSupporter> unitSupporter = new ArrayList<OrderItems.UnitSupporter>();
+					List<OrderItems.IngredientSupporter> ingredientSupporters = new ArrayList<OrderItems.IngredientSupporter>();
+					
+					orderItems.setUnitSupporter(unitSupporter);
+					orderItems.setIngredientSupporter(ingredientSupporters);
+					
+				}
+			}
+		}
+		
+		
+	}
+
 	@RequestMapping(value = "/showRestaurant", method = RequestMethod.GET)
 	public String showRestaurant(Model model, @RequestParam(required=true) String ServiceId) {
 		System.out.println(ServiceId);

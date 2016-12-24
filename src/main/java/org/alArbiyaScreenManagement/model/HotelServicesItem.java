@@ -40,6 +40,8 @@ public class HotelServicesItem {
 
 	@Column(name="IMAGE_URL_NAME")
 	private String imageUrlName;
+	
+	private OrderItems orderItems;
 
 	public long getId() {
 		return id;
@@ -122,5 +124,14 @@ public class HotelServicesItem {
 	public void setImageUrlName(String imageUrlName) {
 		// TODO Auto-generated method stub
 		this.imageUrlName = imageUrlName; 
-	} 
+	}
+	
+	public OrderItems getOrderItems() {
+		return orderItems;
+	}
+
+	public void setOrderItems(OrderItems orderItems) {
+		this.orderItems = orderItems;
+	}
+	 
 }

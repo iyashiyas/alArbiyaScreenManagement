@@ -18,12 +18,16 @@ public class UnitServiceImpl implements UnitService {
 	public List<Unit> getAllUnitWithCategory(String categoryCode) {
 		return unitRepository.getAllUnitWithCategory(categoryCode);
 	}
- 
+	
 	@Override
 	public List<Unit> getAllUnits() {
 		// TODO Auto-generated method stub
 		return unitRepository.getAllUnits();
 	}
-	
-	
+
+	@Override
+	public Unit getUnit(long id) {
+		// TODO Auto-generated method stub
+		return unitRepository.getUnit(id);
+	}
 }

@@ -12,6 +12,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
  
+
 import org.alArbiyaScreenManagement.model.Unit;
 import org.alArbiyaScreenManagement.repository.UnitRepository;
 import org.springframework.stereotype.Repository;
@@ -49,6 +50,13 @@ public class UnitRepositoryImpl implements UnitRepository{
 		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("SELECT unit from Unit unit where unitStatus='ENABLE' order by id", Unit.class);
 		return query.getResultList(); 
+	}
+
+	@Override
+	public Unit getUnit(long id) {
+		Query query = entityManager.createQuery("SELECT unit from Unit unit where id=:id", Unit.class);
+		query.setParameter("id", id);
+		return (Unit) query.getResultList().get(0);
 	}
 	 
 	 
