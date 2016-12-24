@@ -5,7 +5,10 @@ import java.util.List;
  
 
 
+
+
 import org.alArbiyaScreenManagement.model.HotelServicesCategory;
+import org.alArbiyaScreenManagement.model.HotelServicesGroup;
 import org.alArbiyaScreenManagement.model.HotelServicesItem;
 import org.alArbiyaScreenManagement.repository.ActionRepository;
 import org.alArbiyaScreenManagement.service.ActionService;
@@ -40,6 +43,11 @@ public class ActionServiceImpl implements ActionService {
 	public List<HotelServicesItem> getHotelServiceItems(String serviceId) {
 		// TODO Auto-generated method stub
 		return actionRepository.getHotelServiceItems(serviceId);
+	}
+
+	@Override
+	public List<HotelServicesGroup> getAllParentCategories(List<Long> hotelServicesItemsIds) {
+		return actionRepository.getAllParentCategories(hotelServicesItemsIds);
 	}
 	 
 }

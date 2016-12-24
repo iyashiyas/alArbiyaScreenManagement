@@ -11,6 +11,7 @@ import javax.transaction.Transactional;
 
 
 
+
 import org.alArbiyaScreenManagement.model.HotelServicesCategory;
 import org.alArbiyaScreenManagement.model.HotelServicesGroup;
 import org.alArbiyaScreenManagement.model.HotelServicesItem;
@@ -80,9 +81,18 @@ public class ActionRepositoryImpl implements ActionRepository{
 	@Override
 	public List<HotelServicesItem> getHotelServiceItems(String serviceId) {
 		// TODO Auto-generated method stub
-		  Query query = entityManager.createQuery("SELECT hotel_service_item from HotelServicesItem hotel_service_item where hotelServicesCategory_SERVICE_CATEGORY_ID=:serviceId", HotelServicesItem.class);
-		  query.setParameter("serviceId", serviceId);
-	     return query.getResultList();
+		Query query = entityManager.createQuery("SELECT item from HotelServicesItem item where item.hotelServicesCategory.id=:serviceId", HotelServicesItem.class);
+		query.setParameter("serviceId", Long.parseLong(serviceId));
+	    return query.getResultList();
+	}
+
+	@Override
+	public List<HotelServicesGroup> getAllParentCategories(
+			List<Long> hotelServicesItemsIds) {
+		Query query = entityManager.createQuery("SELECT parentGroup from HotelServicesGroup parentGroup where parentGroup.hotelServicesItem.id in :hotelServicesItemsIds", HotelServicesGroup.class);
+		query.setParameter("hotelServicesItemsIds", hotelServicesItemsIds);
+		List<HotelServicesGroup> group = query.getResultList();
+		return query.getResultList();
 	}
 	   
 	

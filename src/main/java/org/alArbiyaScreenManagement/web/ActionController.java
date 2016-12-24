@@ -1,13 +1,17 @@
 package org.alArbiyaScreenManagement.web;
  
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
   
 
+
+
 import org.alArbiyaScreenManagement.dto.CoffeeShop;
 import org.alArbiyaScreenManagement.dto.Restaurant;
+import org.alArbiyaScreenManagement.model.HotelServicesGroup;
 import org.alArbiyaScreenManagement.model.HotelServicesItem;
 import org.alArbiyaScreenManagement.service.ActionService;
 import org.alArbiyaScreenManagement.service.IngredientService;
@@ -48,14 +52,18 @@ public class ActionController {
 
 	@RequestMapping(value = "/showCoffeeShop", method = RequestMethod.GET)
 	public String showCoffeeShop(Model model, @RequestParam(required=true) String ServiceId) {
-	 
-		System.out.println(ServiceId);
-		 
-		List<HotelServicesItem> getHotelServiceItems = actionService
-				.getHotelServiceItems(ServiceId); 
+			 
+		List<HotelServicesItem> hotelServiceItems = actionService.getHotelServiceItems(ServiceId); 
 		Map<String, Object> attributes = new HashMap<String, Object>();
 		CoffeeShop coffeeShop = new CoffeeShop(); 
-		attributes.put("getHotelServiceItems",getHotelServiceItems); 
+		attributes.put("getHotelServiceItems",hotelServiceItems); 
+		
+		List<Long> hotelServicesItemsIds = new ArrayList<Long>();
+		for(HotelServicesItem hotelServicesItem: hotelServiceItems) {
+			hotelServicesItemsIds.add(hotelServicesItem.getId());
+		}
+		List<HotelServicesGroup> parentCategories = actionService.getAllParentCategories(hotelServicesItemsIds);
+		
 		attributes.put("coffeShop", coffeeShop); 
 		model.addAllAttributes(attributes);
 		return "coffeeShop/coffeeShop";

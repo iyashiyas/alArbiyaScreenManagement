@@ -123,5 +123,4 @@ public class HotelServicesItem {
 		// TODO Auto-generated method stub
 		this.imageUrlName = imageUrlName; 
 	} 
-
 }
