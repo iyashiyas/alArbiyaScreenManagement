@@ -63,7 +63,13 @@ public class ActionController {
 			hotelServicesItemsIds.add(hotelServicesItem.getId());
 		}
 		List<HotelServicesGroup> parentCategories = actionService.getAllParentCategories(hotelServicesItemsIds);
-		
+		List<HotelServicesGroup> uniqueParentCategories = new ArrayList<HotelServicesGroup>();
+		for(HotelServicesGroup hotelServicesGroup: parentCategories) {
+			if(!uniqueParentCategories.contains(hotelServicesGroup)) {
+				uniqueParentCategories.add(hotelServicesGroup);
+			}
+		}
+		attributes.put("uniqueParentCategories", uniqueParentCategories);
 		attributes.put("coffeShop", coffeeShop); 
 		model.addAllAttributes(attributes);
 		return "coffeeShop/coffeeShop";

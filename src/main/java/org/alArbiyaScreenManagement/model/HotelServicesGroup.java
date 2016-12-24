@@ -103,7 +103,24 @@ public class HotelServicesGroup {
 		}
 	}
 	
-	
+	@Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        HotelServicesGroup hotelServicesGroup = (HotelServicesGroup) o;
+
+        if (hotelServicesGroup.getServiceGroupName().equals(this.getServiceGroupName())) return true;
+
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+    	int result = 17;
+        result = 31 * result + serviceGroupName.hashCode();
+        return result;
+    }
 	
 	
 }
