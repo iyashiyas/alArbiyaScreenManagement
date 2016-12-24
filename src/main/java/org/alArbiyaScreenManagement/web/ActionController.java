@@ -90,7 +90,7 @@ public class ActionController {
 		for(HotelServicesGroup parentGroup:hotelServicesItem.getHotelServiceParentGroups()) {
 			for(HotelServicesGroup childGroup:parentGroup.getHotelServiceChildGroups()) {
 				for(HotelServicesValue hotelServicesValue: childGroup.getHotelServicesValues()){
-					if(hotelServicesValue.getFieldName()=="UNITID") {
+					if(hotelServicesValue.getFieldName().equals("UNITID")) {
 						Unit unit = unitService.getUnit(Long.parseLong(hotelServicesValue.getFieldValue()));
 						
 						UnitSupporter supporter = new UnitSupporter();
@@ -99,7 +99,7 @@ public class ActionController {
 						//supporter.setUnitPrice(unitPrice);
 						unitSupporter.add(supporter);
 					} 
-					if(hotelServicesValue.getFieldName() == "INGREDIENTID") {
+					if(hotelServicesValue.getFieldName().equals("INGREDIENTID")) {
 						Ingredient ingredient = ingredientService.getIngredient(Long.parseLong(hotelServicesValue.getFieldValue()));
 						
 						IngredientSupporter supporter = new IngredientSupporter();

@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="HOTEL_SERVICES_ITEM")
@@ -41,6 +42,7 @@ public class HotelServicesItem {
 	@Column(name="IMAGE_URL_NAME")
 	private String imageUrlName;
 	
+	@Transient
 	private OrderItems orderItems;
 
 	public long getId() {
