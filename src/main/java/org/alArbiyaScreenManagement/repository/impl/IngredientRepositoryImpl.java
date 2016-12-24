@@ -14,7 +14,9 @@ import javax.persistence.criteria.Root;
  
 
 
+
 import org.alArbiyaScreenManagement.model.Ingredient;
+import org.alArbiyaScreenManagement.model.Unit;
 import org.alArbiyaScreenManagement.repository.IngredientRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -51,5 +53,13 @@ public class IngredientRepositoryImpl implements IngredientRepository{
 		Query query = entityManager.createQuery("SELECT ingredient from Ingredient ingredient where ingredientStatus='ENABLE' order by id", Ingredient.class);
 		return query.getResultList(); 
 	}
+
+	@Override
+	public Ingredient getIngredient(long parseLong) {
+		Query query = entityManager.createQuery("SELECT ingredient from Ingredient ingredient where id=:id", Ingredient.class);
+		query.setParameter("id", parseLong);
+		return (Ingredient) query.getResultList().get(0);
+	}
+	 
  
 }

@@ -24,4 +24,10 @@ public class IngredientServiceImpl implements IngredientService {
 		// TODO Auto-generated method stub
 		return ingredientRepository.getAllIngredients();
 	}
+
+	@Override
+	public Ingredient getIngredient(long parseLong) {
+		// TODO Auto-generated method stub
+		return ingredientRepository.getIngredient(parseLong);
+	}
 }

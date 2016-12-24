@@ -5,18 +5,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-  
-
-
-
-
-
 import org.alArbiyaScreenManagement.dto.CoffeeShop;
 import org.alArbiyaScreenManagement.dto.Restaurant;
 import org.alArbiyaScreenManagement.model.HotelServicesGroup;
 import org.alArbiyaScreenManagement.model.HotelServicesItem;
 import org.alArbiyaScreenManagement.model.HotelServicesValue;
+import org.alArbiyaScreenManagement.model.Ingredient;
+import org.alArbiyaScreenManagement.model.IngredientSupporter;
 import org.alArbiyaScreenManagement.model.OrderItems;
+import org.alArbiyaScreenManagement.model.Unit;
+import org.alArbiyaScreenManagement.model.UnitSupporter;
 import org.alArbiyaScreenManagement.service.ActionService;
 import org.alArbiyaScreenManagement.service.IngredientService;
 import org.alArbiyaScreenManagement.service.LanguageService;
@@ -59,6 +57,7 @@ public class ActionController {
 			 
 		List<HotelServicesItem> hotelServiceItems = actionService.getHotelServiceItems(ServiceId);
 		for(HotelServicesItem hotelServicesItem: hotelServiceItems) {
+			System.out.println("coming");
 			populateOrderItems(hotelServicesItem);
 		}
 		Map<String, Object> attributes = new HashMap<String, Object>();
@@ -84,23 +83,37 @@ public class ActionController {
   
 	private void populateOrderItems(HotelServicesItem hotelServicesItem) {
 		// TODO Auto-generated method stub
+		OrderItems orderItems = new OrderItems();
+		List<UnitSupporter> unitSupporter = new ArrayList<UnitSupporter>();
+		List<IngredientSupporter> ingredientSupporters = new ArrayList<IngredientSupporter>();
+		
 		for(HotelServicesGroup parentGroup:hotelServicesItem.getHotelServiceParentGroups()) {
 			for(HotelServicesGroup childGroup:parentGroup.getHotelServiceChildGroups()) {
 				for(HotelServicesValue hotelServicesValue: childGroup.getHotelServicesValues()){
-					OrderItems orderItems = new OrderItems();
-					unitService.getUnit();
-					
-					
-					List<OrderItems.UnitSupporter> unitSupporter = new ArrayList<OrderItems.UnitSupporter>();
-					List<OrderItems.IngredientSupporter> ingredientSupporters = new ArrayList<OrderItems.IngredientSupporter>();
-					
+					if(hotelServicesValue.getFieldName()=="UNITID") {
+						Unit unit = unitService.getUnit(Long.parseLong(hotelServicesValue.getFieldValue()));
+						
+						UnitSupporter supporter = new UnitSupporter();
+						supporter.setUnitId(unit.getId());
+						supporter.setUnitName(unit.getUnitName());
+						//supporter.setUnitPrice(unitPrice);
+						unitSupporter.add(supporter);
+					} 
+					if(hotelServicesValue.getFieldName() == "INGREDIENTID") {
+						Ingredient ingredient = ingredientService.getIngredient(Long.parseLong(hotelServicesValue.getFieldValue()));
+						
+						IngredientSupporter supporter = new IngredientSupporter();
+						supporter.setIngredientId(ingredient.getId());
+						supporter.setIngredientName(ingredient.getIngredientName());
+						//supporter.setUnitPrice(unitPrice);
+						ingredientSupporters.add(supporter);
+					}
 					orderItems.setUnitSupporter(unitSupporter);
 					orderItems.setIngredientSupporter(ingredientSupporters);
-					
 				}
 			}
 		}
-		
+		hotelServicesItem.setOrderItems(orderItems);
 		
 	}
 
