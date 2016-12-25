@@ -18,10 +18,9 @@
 		<nav class="navbar-primary   navbar-static-side" role="navigation">
 			<div class="sidebar-collapse">
 				<ul class="nav metismenu" id="side-menu">
-<c:forEach items="${uniqueParentCategories}"
-						var="uniqueParentCategories"> 
+<c:forEach items="${uniqueParentCategories}" var="uniqueParentCategories"> 
 					<li><a><i class="fa fa-th-large"></i> <span
-								class="nav-label">${uniqueParentCategories.serviceGroupName}</span> </a></li>
+								class="nav-label">${uniqueParentCategories.serviceGroupName}</span></a></li>
 			 
 					</c:forEach>
 				</ul>
@@ -38,16 +37,17 @@
 				<div class="col-md-10">
 
 					<div class="row ">
-
-						<c:forEach items="${getHotelServiceItems}"
-							var="getHotelServiceItems">
+		  <c:forEach items="${getHotelServiceItems}" var="getHotelServiceItems">
 							<div class="col-lg-3 col-lg-offset-1 w3ls-special-img"
 								style="background-image: url('<c:out value="${getHotelServiceItems.imageUrlName}" />');">
 								<div class="wpf-demo-6">
 									<div class="w3ls-special-text">
-										<p>
-											<sub>sar</sub>125
-										</p>
+										
+						                <c:forEach items="${getHotelServiceItems.orderItems.unitSupporter}" var="unitSupporter">
+									 	<p>
+											<sub>sar</sub>${unitSupporter.unitPrice}
+											</p>
+											</c:forEach>
 									</div>
 									<figcaption class="view-caption">
 										<h4>${getHotelServiceItems.serviceItemName}</h4>
@@ -57,7 +57,7 @@
 									</figcaption>
 								</div>
 							</div>
-						</c:forEach> 
+						</c:forEach>
 					</div>
 				</div>
 			</div>

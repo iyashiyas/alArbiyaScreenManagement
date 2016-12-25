@@ -24,49 +24,37 @@
 							id="totalprice" disabled="disabled" placeholder="0.0">
 					</div>
 				</div>
-				<div class="form-group">
+						<div class="form-group">
 					<label class="col-lg-2 control-label"><spring:message code="label.Unit" /></label>
 					<div class="col-lg-10">
-						<div class="radio">
-							<label> <input type="radio" class="its"
-								name="optionsRadios" id="optionsRadios1" value="5">
-								Small
-							</label>
-						</div>
-						<div class="radio">
-							<label> <input type="radio" class="its"
-								name="optionsRadios" id="optionsRadios2" value="10">
-								Normal
-							</label>
-						</div>
-						<div class="radio">
-							<label> <input type="radio" class="its"
-								name="optionsRadios" id="optionsRadios2" value="15">
-								Medium
-							</label>
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-lg-2 control-label"><spring:message code="label.Ingredients" /></label>
-					<div class="col-lg-10">
+					<c:forEach items="${getHotelServiceItems}" var="getHotelServiceItems">
+						<c:forEach items="${getHotelServiceItems.orderItems.unitSupporter}" var="unitSupporter">
 						<div class="checkbox">
 							<label> <input type="checkbox" class="its" name="ingrd1"
-								id="optionsRadios1" value="1"> sauce
+								id="optionsRadios1" value="1">   
+								${unitSupporter.unitName} - ${unitSupporter.unitPrice} 
 							</label>
 						</div>
-						<div class="checkbox">
-							<label> <input type="checkbox" class="its" name="ingrd12"
-								id="optionsRadios2" value="2"> sugar
-							</label>
-						</div>
-						<div class="checkbox">
-							<label> <input type="checkbox" class="its" name="ingrd13"
-								id="optionsRadios2" value="1"> ketchup
-							</label>
-						</div>
+						</c:forEach> 	</c:forEach>
 					</div>
-				</div> 
+				</div>
+				
+				<div class="form-group">
+					<label class="col-lg-2 control-label"><spring:message code="label.Ingredient" /></label>
+					<div class="col-lg-10">
+					<c:forEach items="${getHotelServiceItems}" var="getHotelServiceItems">
+						<div class="checkbox">
+							<label> <input type="checkbox" class="its" name="ingrd1"
+								id="optionsRadios1" value="1">  
+								<c:forEach items="${getHotelServiceItems.orderItems.ingredientSupporter}" var="ingredientSupporter">
+								${ingredientSupporter.ingredientName} - ${ingredientSupporter.ingredientPrice}
+								</c:forEach>
+								 
+							</label>
+						</div>
+						</c:forEach> 
+					</div>
+				</div>
 				<div class="form-group">
 					<label class="col-lg-2 control-label"><spring:message code="label.Quantity" /></label>
 					<div class="col-lg-10">

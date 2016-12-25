@@ -50,17 +50,38 @@
 				</div> --%>
 				
 				<div class="form-group">
-					<label class="col-lg-2 control-label"><spring:message code="label.Ingredients" /></label>
+					<label class="col-lg-2 control-label"><spring:message code="label.Unit" /></label>
+					<div class="col-lg-10">
+					<c:forEach items="${getHotelServiceItems}" var="getHotelServiceItems">
+						<c:forEach items="${getHotelServiceItems.orderItems.unitSupporter}" var="unitSupporter">
+						<div class="checkbox">
+							<label> <input type="checkbox" class="its" name="ingrd1"
+								id="optionsRadios1" value="1">   
+								${unitSupporter.unitName} - ${unitSupporter.unitPrice}
+								
+							</label>
+						</div>
+						</c:forEach> 	</c:forEach>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-lg-2 control-label"><spring:message code="label.Ingredient" /></label>
 					<div class="col-lg-10">
 					<c:forEach items="${getHotelServiceItems}" var="getHotelServiceItems">
 						<div class="checkbox">
 							<label> <input type="checkbox" class="its" name="ingrd1"
-								id="optionsRadios1" value="1"> ${getHotelServiceItems.serviceItemName}
+								id="optionsRadios1" value="1">  
+								<c:forEach items="${getHotelServiceItems.orderItems.ingredientSupporter}" var="ingredientSupporter">
+								${ingredientSupporter.ingredientName} - ${ingredientSupporter.ingredientPrice}
+								</c:forEach>
+								 
 							</label>
 						</div>
 						</c:forEach> 
 					</div>
 				</div>
+				
 
 				<div class="form-group">
 					<label class="col-lg-2 control-label"><spring:message code="label.Quantity" /></label>

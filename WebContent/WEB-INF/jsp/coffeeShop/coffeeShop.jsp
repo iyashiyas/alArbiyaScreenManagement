@@ -41,9 +41,15 @@
 								style="background-image: url('<c:out value="${getHotelServiceItems.imageUrlName}" />');">
 								<div class="wpf-demo-6">
 									<div class="w3ls-special-text">
-										<p>
-											<sub>sar</sub>125
-										</p>
+									
+									 
+						                <c:forEach items="${getHotelServiceItems.orderItems.unitSupporter}" var="unitSupporter">
+									 	<p>
+											<sub>sar</sub>${unitSupporter.unitPrice}
+											</p>
+											</c:forEach>
+										 
+										
 									</div>
 									<figcaption class="view-caption">
 										<h4>${getHotelServiceItems.serviceItemName}</h4>

@@ -7,9 +7,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/specialStyle/specialStyle.cs" />">
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/specialStyle/specialStyle.css" />">
 <link href="<c:url value="/resources/css/dateTimePicker/bootstrap-datetimepicker.css" />" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/touchspin/jquery.bootstrap-touchspin.min.css" />">
+<link rel="stylesheet"  href="<c:url value="/resources/css/touchspin/jquery.bootstrap-touchspin.min.css" />">
 
 <title>SHMS</title>
 </head>
@@ -31,6 +31,7 @@
 		</nav>
 
 	 
+
 		<div id="page-wrapper" class="bg-custom">
 			<div class="wrapper wrapper-content row animated fadeInRight">
 				<div class="ibox-tools">
@@ -41,12 +42,7 @@
 						<c:forEach items="${getHotelServiceItems}" var="getHotelServiceItems">
 						<div class="col-lg-3 col-lg-offset-1 w3ls-special-img"
 							style="background-image: url('<c:out value="${getHotelServiceItems.imageUrlName}" />');">
-							<div class="wpf-demo-6">
-								<div class="w3ls-special-text"> 
-									<p>
-										<sub>sar</sub>125
-									</p>
-								</div>
+							<div class="wpf-demo-6"> 
 								<figcaption class="view-caption">
 									<h4>${getHotelServiceItems.serviceItemName}</h4>
 									<a href="#addToOrder" data-toggle="modal"> <spring:message code="label.Order" /> </a>
