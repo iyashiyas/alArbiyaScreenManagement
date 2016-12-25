@@ -38,8 +38,7 @@ public class ActionController {
 	UnitService unitService;
 	@Autowired
 	IngredientService ingredientService;
-
-	
+ 
 	@RequestMapping(method = RequestMethod.GET)
 	public String showAction(
 			Model model,
@@ -74,6 +73,7 @@ public class ActionController {
 				uniqueParentCategories.add(hotelServicesGroup);
 			}
 		}
+	 
 		attributes.put("uniqueParentCategories", uniqueParentCategories);
 		attributes.put("coffeShop", coffeeShop); 
 		model.addAllAttributes(attributes);

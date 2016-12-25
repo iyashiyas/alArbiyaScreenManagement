@@ -18,13 +18,12 @@
 		<nav class="navbar-primary   navbar-static-side" role="navigation">
 			<div class="sidebar-collapse">
 				<ul class="nav metismenu" id="side-menu">
-
+<c:forEach items="${uniqueParentCategories}"
+						var="uniqueParentCategories"> 
 					<li><a><i class="fa fa-th-large"></i> <span
-							class="nav-label">Indian</span> </a></li>
-					<li><a><i class="fa fa-th-large"></i> <span
-							class="nav-label">Chinese</span> </a></li>
-					<li><a><i class="fa fa-th-large"></i> <span
-							class="nav-label">West</span> </a></li>
+								class="nav-label">${uniqueParentCategories.serviceGroupName}</span> </a></li>
+			 
+					</c:forEach>
 				</ul>
 			</div>
 		</nav>

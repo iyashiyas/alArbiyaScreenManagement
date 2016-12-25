@@ -44,8 +44,7 @@ public class HomeController {
 	private HttpServletRequest request;
 
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
-	public String showHome(Model model, @ModelAttribute Player player) {
-
+	public String showHome(Model model, @ModelAttribute Player player) { 
 		String iPAddrress = request.getHeader("X-FORWARDED-FOR");
 		if (iPAddrress == null) {
 			iPAddrress = request.getRemoteAddr();
@@ -57,11 +56,14 @@ public class HomeController {
 		if (getRoomAssignedPlayer == null) {
 			return "redirect:/notAssigned";
 		} else {
+		    
+			List<Player> getPlayerRooms = playerService.getPlayerRooms(iPAddrress);  
 			List<Language> languages = languageService.getEnableLanguages();
 			List<HotelInfo> hotelInfos = hotelInfoService.getHotelInfo();
 			List<HotelServicesCategory> hotelServiceCategories = actionService
 					.getHotelServiceCategories();
 			Map<String, Object> attributes = new HashMap<String, Object>();
+			attributes.put("getPlayerRooms", getPlayerRooms);
 			attributes.put("languages", languages);
 			attributes.put("hotelInfos", hotelInfos);
 			attributes.put("hotelServiceCategories", hotelServiceCategories);

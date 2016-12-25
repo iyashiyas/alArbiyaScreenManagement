@@ -1,5 +1,7 @@
 package org.alArbiyaScreenManagement.service.impl;
 
+import java.util.List;
+
 import org.alArbiyaScreenManagement.model.Player;
 import org.alArbiyaScreenManagement.repository.PlayerRepository;
 import org.alArbiyaScreenManagement.service.PlayerService;
@@ -27,6 +29,14 @@ public class PlayerServiceImpl implements PlayerService{
 		player.setPlayerIpAddress(iPAddrress); 
 		return playerRepository.getRoomAssignedPlayer(player);
 	}
+
+	@Override
+	public List<Player> getPlayerRooms(String iPAddrress) {
+		// TODO Auto-generated method stub
+		return playerRepository.getPlayerRooms(iPAddrress);
+	} 
+
+ 
 	
 
  

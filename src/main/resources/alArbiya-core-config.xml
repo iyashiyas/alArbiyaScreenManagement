@@ -28,7 +28,7 @@
      <mvc:annotation-driven/>
      
      
-     <bean id="jsonConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"></bean>
+   <bean id="jsonConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean>
 	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 			<property name="messageConverters">
 			  <list>
@@ -36,7 +36,6 @@
 			  </list>
 		</property>
 	</bean>
-	
 		<!-- Internationalization -->
 	<bean id="messageSource"
         class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
@@ -57,7 +56,6 @@
     </mvc:interceptors>
     <!-- end internationaliazation  -->
     
-     
      <!-- Use @Transaction annotations for managing transactions -->
   	<tx:annotation-driven transaction-manager="myTxManager" />
   	<context:annotation-config/>

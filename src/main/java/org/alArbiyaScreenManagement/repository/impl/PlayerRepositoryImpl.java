@@ -4,8 +4,10 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
  
+import org.alArbiyaScreenManagement.model.Language;
 import org.alArbiyaScreenManagement.model.Player;
 import org.alArbiyaScreenManagement.repository.PlayerRepository;
 import org.springframework.stereotype.Repository;
@@ -42,8 +44,14 @@ public class PlayerRepositoryImpl implements PlayerRepository{
 		List<Player> playerdetails = query.setParameter("iPAddrress", player.getPlayerIpAddress()).getResultList();
 		return playerdetails.isEmpty() ? null : playerdetails.get(0);
 	}
-	
+      
 
- 
-	 
+@SuppressWarnings("unchecked")
+@Override
+public List<Player> getPlayerRooms(String ipAddress) {
+	// TODO Auto-generated method stub
+	Query query = entityManager.createQuery("SELECT player from Player player WHERE player.playerIpAddress=:ipAddress", Player.class);
+	query.setParameter("ipAddress", ipAddress);
+    return query.getResultList();
+}
 }
