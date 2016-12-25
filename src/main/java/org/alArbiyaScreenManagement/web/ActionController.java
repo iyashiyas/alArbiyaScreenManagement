@@ -57,7 +57,6 @@ public class ActionController {
 			 
 		List<HotelServicesItem> hotelServiceItems = actionService.getHotelServiceItems(ServiceId);
 		for(HotelServicesItem hotelServicesItem: hotelServiceItems) {
-			System.out.println("coming");
 			populateOrderItems(hotelServicesItem);
 		}
 		Map<String, Object> attributes = new HashMap<String, Object>();
@@ -91,7 +90,7 @@ public class ActionController {
 			for(HotelServicesGroup childGroup:parentGroup.getHotelServiceChildGroups()) {
 				for(HotelServicesValue hotelServicesValue: childGroup.getHotelServicesValues()){
 					if(hotelServicesValue.getFieldName().equals("UNITID")) {
-						Unit unit = unitService.getUnit(Long.parseLong(hotelServicesValue.getFieldValue()));
+						Unit unit = unitService.getUnit(Long.parseLong(hotelServicesValue.getExternalId()));
 						
 						UnitSupporter supporter = new UnitSupporter();
 						supporter.setUnitId(unit.getId());
@@ -100,7 +99,7 @@ public class ActionController {
 						unitSupporter.add(supporter);
 					} 
 					if(hotelServicesValue.getFieldName().equals("INGREDIENTID")) {
-						Ingredient ingredient = ingredientService.getIngredient(Long.parseLong(hotelServicesValue.getFieldValue()));
+						Ingredient ingredient = ingredientService.getIngredient(Long.parseLong(hotelServicesValue.getExternalId()));
 						
 						IngredientSupporter supporter = new IngredientSupporter();
 						supporter.setIngredientId(ingredient.getId());
