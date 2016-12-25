@@ -96,7 +96,7 @@ public class ActionController {
 						UnitSupporter supporter = new UnitSupporter();
 						supporter.setUnitId(unit.getId());
 						supporter.setUnitName(unit.getUnitName());
-						//supporter.setUnitPrice(unitPrice);
+						supporter.setUnitPrice(Long.parseLong(hotelServicesValue.getItemPrice()));
 						unitSupporter.add(supporter);
 					} 
 					if(hotelServicesValue.getFieldName().equals("INGREDIENTID")) {
@@ -105,7 +105,7 @@ public class ActionController {
 						IngredientSupporter supporter = new IngredientSupporter();
 						supporter.setIngredientId(ingredient.getId());
 						supporter.setIngredientName(ingredient.getIngredientName());
-						//supporter.setUnitPrice(unitPrice);
+						supporter.setIngredientPrice(Long.parseLong(hotelServicesValue.getItemPrice()));
 						ingredientSupporters.add(supporter);
 					}
 					orderItems.setUnitSupporter(unitSupporter);
