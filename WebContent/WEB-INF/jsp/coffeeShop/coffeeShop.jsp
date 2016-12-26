@@ -72,12 +72,7 @@
 
 			<jsp:include page="../coffeeShop/coffeeOrder.jsp"></jsp:include>
 
-			<button type="button" class="btn btn-default" data-dismiss="modal">
-				<spring:message code="label.Cancel" />
-			</button>
-			<button id="submit" type="submit" class="btn btn-success success">
-				<spring:message code="label.RequestOrder" />
-			</button>
+			
 		</div>
 	</div>
 

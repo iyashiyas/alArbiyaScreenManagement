@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+ 
 import org.alArbiyaScreenManagement.dto.CarRental;
 import org.alArbiyaScreenManagement.dto.CoffeeShop;
 import org.alArbiyaScreenManagement.dto.Laundry;
@@ -14,6 +14,7 @@ import org.alArbiyaScreenManagement.model.HotelServicesItem;
 import org.alArbiyaScreenManagement.model.HotelServicesValue;
 import org.alArbiyaScreenManagement.model.Ingredient;
 import org.alArbiyaScreenManagement.model.IngredientSupporter;
+import org.alArbiyaScreenManagement.model.Orders;
 import org.alArbiyaScreenManagement.model.OrderItems;
 import org.alArbiyaScreenManagement.model.Unit;
 import org.alArbiyaScreenManagement.model.UnitSupporter;
@@ -24,6 +25,7 @@ import org.alArbiyaScreenManagement.service.UnitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model; 
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -78,9 +80,10 @@ public class ActionController {
 				uniqueParentCategories.add(hotelServicesGroup);
 			}
 		}
-	 
+	    
 		attributes.put("uniqueParentCategories", uniqueParentCategories);
 		attributes.put("coffeShop", coffeeShop); 
+		attributes.put("newOrder", new Orders());
 		model.addAllAttributes(attributes);
 		return "coffeeShop/coffeeShop";
 	}
@@ -211,12 +214,16 @@ List<HotelServicesItem> hotelServiceItems = actionService.getHotelServiceItems(S
 		}
 	 
 		attributes.put("uniqueParentCategories", uniqueParentCategories);
-		
 		attributes.put("laundry", laundry); 
 		model.addAllAttributes(attributes);
 		
 		return "laundry/laundry";
 	}
 	    
+	@RequestMapping(value="/addOrder", method=RequestMethod.POST)
+	public String addOrder(@ModelAttribute Orders order){
+		actionService.addOrder(order);
+		return "redirect:/home";
+	}
 	 
 }

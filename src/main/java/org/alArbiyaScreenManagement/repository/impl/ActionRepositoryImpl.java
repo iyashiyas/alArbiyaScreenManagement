@@ -8,14 +8,12 @@ import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
    
-
-
-
-
+ 
 import org.alArbiyaScreenManagement.model.HotelServicesCategory;
 import org.alArbiyaScreenManagement.model.HotelServicesGroup;
 import org.alArbiyaScreenManagement.model.HotelServicesItem;
 import org.alArbiyaScreenManagement.model.HotelServicesValue;
+import org.alArbiyaScreenManagement.model.Orders;
 import org.alArbiyaScreenManagement.repository.ActionRepository;
 import org.springframework.stereotype.Repository;
 
@@ -93,6 +91,13 @@ public class ActionRepositoryImpl implements ActionRepository{
 		query.setParameter("hotelServicesItemsIds", hotelServicesItemsIds);
 		List<HotelServicesGroup> group = query.getResultList();
 		return query.getResultList();
+	}
+
+	@Override
+	public Orders addOrder(Orders order) {
+		// TODO Auto-generated method stub
+		entityManager.merge(order);
+		return order;
 	}
 	   
 	
