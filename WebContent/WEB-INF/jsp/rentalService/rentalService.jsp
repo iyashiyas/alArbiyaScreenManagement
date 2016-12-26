@@ -29,9 +29,7 @@
 				</ul>
 			</div>
 		</nav>
-
-	 
-
+  
 		<div id="page-wrapper" class="bg-custom">
 			<div class="wrapper wrapper-content row animated fadeInRight">
 				<div class="ibox-tools">
@@ -63,8 +61,7 @@
 
 			<jsp:include page="../rentalService/rentalOrder.jsp"></jsp:include>
 
-			<button type="button" class="btn btn-default" data-dismiss="modal"> <spring:message code="label.cancel" /></button>
-			<button id="submit" type="submit" class="btn btn-success success"> <spring:message code="label.RequestOrder" /></button>
+			
 		</div>
 	</div>
 

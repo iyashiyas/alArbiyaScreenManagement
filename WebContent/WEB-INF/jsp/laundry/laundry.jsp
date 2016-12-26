@@ -57,7 +57,7 @@
 		aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 
-			<jsp:include page="../coffeeShop/coffeeOrder.jsp"></jsp:include>
+			<jsp:include page="../laundry/laundryOrder.jsp"></jsp:include>
 
 			<button type="button" class="btn btn-default" data-dismiss="modal"><spring:message code="label.cancel" /></button>
 			<button id="submit" type="submit" class="btn btn-success success"><spring:message code="label.RequestOrder" /></button>

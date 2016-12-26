@@ -30,28 +30,7 @@
 							id="totalprice" disabled="disabled" value="" placeholder="0.0">
 					</div>
 				</div> 
-				<div class=" form-group">
-					<label><spring:message code="label.From" /></label>
-					<div class="col-lg-10">
-						<div class='input-group date' id='datetimepicker1'>
-							<input type='text' class="form-control " name="startDate" /> <span
-								class="input-group-addon"> <span
-								class="glyphicon glyphicon-calendar"></span>
-							</span>
-						</div>
-					</div>
-				</div> 
-				<div class=" form-group">
-					<label><spring:message code="label.To" /></label>
-					<div class="col-lg-10">
-						<div class='input-group date' id='datetimepicker2'>
-							<input type='text' class="form-control " name="endDate" /> <span
-								class="input-group-addon"> <span
-								class="glyphicon glyphicon-calendar"></span>
-							</span>
-						</div>
-					</div>
-				</div> 
+				  
 				<div class="form-group">
 					<label class="col-lg-2 control-label"><spring:message
 							code="label.Quantity" /></label>
@@ -67,7 +46,8 @@
 				   <input type="hidden" value="1" name="deliveryStatus">
 				   <input type="hidden" value="1" name="unit.id">
                    <input type="hidden" value="1" name="ingredients.id">
-                   
+                   <button type="button" class="btn btn-default" data-dismiss="modal"> <spring:message code="label.cancel" /></button>
+			<button id="submit" type="submit" class="btn btn-success success"> <spring:message code="label.RequestOrder" /></button>
 			</form:form>
 		</div>
 	</div>
