@@ -42,8 +42,7 @@ public class ActionController {
 	UnitService unitService;
 	@Autowired
 	IngredientService ingredientService;
-	
- 
+	 
 	@RequestMapping(method = RequestMethod.GET)
 	public String showAction(
 			Model model,
@@ -164,7 +163,7 @@ public class ActionController {
 List<HotelServicesItem> hotelServiceItems = actionService.getHotelServiceItems(ServiceId);
 		
 		for(HotelServicesItem hotelServicesItem: hotelServiceItems) {
-			populateOrderItems(hotelServicesItem);
+			/*populateOrderItems(hotelServicesItem);*/
 		}
 		Map<String, Object> attributes = new HashMap<String, Object>();
 		CarRental carRental = new CarRental(); 
@@ -195,7 +194,7 @@ List<HotelServicesItem> hotelServiceItems = actionService.getHotelServiceItems(S
 	List<HotelServicesItem> hotelServiceItems = actionService.getHotelServiceItems(ServiceId);
 		
 		for(HotelServicesItem hotelServicesItem: hotelServiceItems) {
-			populateOrderItems(hotelServicesItem);
+		/*	populateOrderItems(hotelServicesItem);*/
 		}
 		Map<String, Object> attributes = new HashMap<String, Object>();
 		Laundry laundry = new Laundry(); 

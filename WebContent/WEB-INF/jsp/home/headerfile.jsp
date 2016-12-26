@@ -34,7 +34,7 @@
 				<div class="navbar-header" style="margin-left: 25px;">${hotelInfos.hotelName}</div></c:forEach>
 				<ul class="nav navbar-top-links navbar-right">
 					<li><span class="m-r-sm text-muted welcome-message">
-							<c:forEach items="${getPlayerRooms}" var="roomDetails"> Room Number </c:forEach></span></li> 
+							 <label id="roomNumber"></label></span></li> 
 					<li><span class="m-r-sm text-muted welcome-message"><spring:message code="label.Welcome" />
 							Mr.Customer Name</span></li> 
 					<li class="dropdown"><a class="dropdown-toggle count-info"
@@ -86,6 +86,7 @@
 	<script src="<c:url value="/resources/js/plugins/dateTimePicker/moment.min.js" />"></script>
 	<script src="<c:url value="/resources/js/plugins/dateTimePicker/bootstrap-datetimepicker.js" />"></script>
 <script src="<c:url value="/resources/js/custom.js" />"></script>
+<script src="<c:url value="/resources/js/header/header.js" />"></script>
 
 
 </body>

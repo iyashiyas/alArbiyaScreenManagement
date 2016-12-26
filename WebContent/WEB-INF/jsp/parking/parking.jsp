@@ -1,6 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
  <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,8 +21,8 @@
 			<h3 class="panel-title"><spring:message code="label.RequestMyCar" /></h3>
 		</div>
 		<div class="panel-body">
-			<form class="form-horizontal" method="POST">
-			
+			 
+			<form:form class="form-horizontal" modelAttribute="newOrder"  method="POST" action="${pageContext.request.contextPath}/action/addOrder">
 				<div class="form-group">
 					<label for="inputEmail" class="col-lg-2 control-label"><spring:message code="label.ParkingID" />
 						 </label>
@@ -58,10 +59,18 @@
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
                 </div>
-                </div>
-
-
-			</form>
+                </div>  
+				   <input type="hidden" value="1" name="room.id">
+				   <input type="hidden" value="1" name="requestedTime">
+				   <input type="hidden" value="1" name="orderStatus">
+				   <input type="hidden" value="1" name="deliveryStatus"> 
+				   	<button type="button" class="btn btn-info" data-dismiss="modal">
+				<spring:message code="label.Close" />
+			</button>
+			<button id="submit" type="submit" class="btn btn-info  ">
+				<spring:message code="label.GetMyCar" />
+			</button>
+			</form:form>
 		</div>
 	</div>
 	<script type="text/javascript" src="<c:url value="/resources/js/plugins/dateTimePicker/callDateTimepicker.js" />"></script>

@@ -85,8 +85,7 @@ public class ActionRepositoryImpl implements ActionRepository{
 	}
 
 	@Override
-	public List<HotelServicesGroup> getAllParentCategories(
-			List<Long> hotelServicesItemsIds) {
+	public List<HotelServicesGroup> getAllParentCategories(List<Long> hotelServicesItemsIds) {
 		Query query = entityManager.createQuery("SELECT parentGroup from HotelServicesGroup parentGroup where parentGroup.hotelServicesItem.id in :hotelServicesItemsIds", HotelServicesGroup.class);
 		query.setParameter("hotelServicesItemsIds", hotelServicesItemsIds);
 		List<HotelServicesGroup> group = query.getResultList();

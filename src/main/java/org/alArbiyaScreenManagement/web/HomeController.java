@@ -21,6 +21,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class HomeController {
@@ -50,6 +51,7 @@ public class HomeController {
 			iPAddrress = request.getRemoteAddr();
 			System.out.println(iPAddrress);
 		}
+		 
 		playerService.addPlayer(player, iPAddrress);
 		Player getRoomAssignedPlayer = playerService.getRoomAssignedPlayer(
 				player, iPAddrress);
@@ -88,4 +90,17 @@ public class HomeController {
 		return "home/notAssignedPage";
 	}
 
+	  
+	@RequestMapping(value="/header", method=RequestMethod.GET)
+	public @ResponseBody List<Player> header() {
+		String iPAddrress = request.getHeader("X-FORWARDED-FOR");
+		if (iPAddrress == null) {
+			iPAddrress = request.getRemoteAddr(); 
+		} 
+		return playerService.getPlayerRooms(iPAddrress);
+	}
+	
+
+	 
+  
 }

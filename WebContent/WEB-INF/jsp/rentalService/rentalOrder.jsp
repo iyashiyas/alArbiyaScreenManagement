@@ -59,15 +59,13 @@
 						<input class="touchspin1" id="quantity" type="text" value=""
 							name="quantity">
 					</div>
-				</div>
-				
+				</div> 
 				   <input type="hidden" value="1" name="room.id">
 				   <input type="hidden" value="1" name="requestedTime">
 				   <input type="hidden" value="1" name="orderStatus">
 				   <input type="hidden" value="1" name="deliveryStatus">
 				   <input type="hidden" value="1" name="unit.id">
-                   <input type="hidden" value="1" name="ingredients.id">
-                   
+                   <input type="hidden" value="1" name="ingredients.id"> 
 			</form:form>
 		</div>
 	</div>
@@ -79,8 +77,7 @@
 			max : 60,
 			step : 1,
 			boostat : 5,
-			maxboostedstep : 10,
-
+			maxboostedstep : 10, 
 		});
 	</script>
 </body>
