@@ -19,10 +19,11 @@
 			<div class="sidebar-collapse">
 				<ul class="nav metismenu" id="side-menu">
 					<c:forEach items="${uniqueParentCategories}"
-						var="uniqueParentCategories"> 
-					<li><a><i class="fa fa-th-large"></i> <span
-								class="nav-label">${uniqueParentCategories.serviceGroupName}</span> </a></li>
-			 
+						var="uniqueParentCategories">
+						<li><a><i class="fa fa-th-large"></i> <span
+								class="nav-label">${uniqueParentCategories.serviceGroupName}</span>
+						</a></li>
+
 					</c:forEach>
 				</ul>
 			</div>
@@ -41,15 +42,13 @@
 								style="background-image: url('<c:out value="${getHotelServiceItems.imageUrlName}" />');">
 								<div class="wpf-demo-6">
 									<div class="w3ls-special-text">
-									
-									 
-						                <c:forEach items="${getHotelServiceItems.orderItems.unitSupporter}" var="unitSupporter">
-									 	<p>
-											<sub>sar</sub>${unitSupporter.unitPrice}
+                                       <c:forEach
+											items="${getHotelServiceItems.orderItems.unitSupporter}"
+											var="unitSupporter">
+											<p>
+												<sub>sar</sub>${unitSupporter.unitPrice}
 											</p>
-											</c:forEach>
-										 
-										
+										</c:forEach>
 									</div>
 									<figcaption class="view-caption">
 										<h4>${getHotelServiceItems.serviceItemName}</h4>
@@ -65,14 +64,10 @@
 			</div>
 		</div>
 	</div>
-
 	<div class="modal fade" id="addToOrder" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-
-			<jsp:include page="../coffeeShop/coffeeOrder.jsp"></jsp:include>
-
-			
+		<div class="modal-dialog"> 
+			<jsp:include page="../coffeeShop/coffeeOrder.jsp"></jsp:include> 
 		</div>
 	</div>
 

@@ -149,7 +149,7 @@ public class ActionController {
 		}
 	 
 		attributes.put("uniqueParentCategories", uniqueParentCategories);
-		
+		attributes.put("newOrder", new Orders());
 		attributes.put("restaurant", restaurant); 
 		model.addAllAttributes(attributes);
 		
@@ -181,7 +181,7 @@ List<HotelServicesItem> hotelServiceItems = actionService.getHotelServiceItems(S
 			}
 		} 
 		attributes.put("uniqueParentCategories", uniqueParentCategories);
-		 
+		attributes.put("newOrder", new Orders());
 		attributes.put("carRental", carRental); 
 		model.addAllAttributes(attributes);
 		
@@ -211,7 +211,7 @@ List<HotelServicesItem> hotelServiceItems = actionService.getHotelServiceItems(S
 				uniqueParentCategories.add(hotelServicesGroup);
 			}
 		}
-	 
+		attributes.put("newOrder", new Orders());
 		attributes.put("uniqueParentCategories", uniqueParentCategories);
 		attributes.put("laundry", laundry); 
 		model.addAllAttributes(attributes);

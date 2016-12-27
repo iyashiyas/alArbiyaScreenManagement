@@ -42,6 +42,9 @@ public class Orders {
 	
 	@Column(name="DELIVERED_TIME")
 	private String deliveredTime;
+	
+	@Column(name="QUANTITY")
+	private String quantity;
 	 
 	@OneToOne
 	@JoinColumn(name="ROOM_ID", nullable=false)
@@ -103,7 +106,6 @@ public class Orders {
 	public void setOrderStatus(String orderStatus) {
 		this.orderStatus = orderStatus;
 	}
-
  
 	public String getAcceptTime() {
 		return acceptTime;
@@ -144,5 +146,13 @@ public class Orders {
 
 	public void setTotalPrice(String totalPrice) {
 		this.totalPrice = totalPrice;
+	}
+
+	public String getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(String quantity) {
+		this.quantity = quantity;
 	}
 }

@@ -20,7 +20,7 @@
 			</h3>
 		</div>
 		<div class="panel-body">
-			<form:form class="form-horizontal" modelAttribute="newOrder"  method="POST" action="${pageContext.request.contextPath}/action/addOrder">
+			<form:form class="form-horizontal" modelAttrie="newOrder"  method="POST" action="${pageContext.request.contextPath}/action/addOrder">
 				<div class="form-group">
 					<label for="inputEmail" class="col-lg-2 control-label"><spring:message
 							code="label.TotalPrice" /></label>
@@ -61,11 +61,10 @@
 					</div>
 				</div> 
 				   <input type="hidden" value="1" name="room.id">
-				   <input type="hidden" value="1" name="requestedTime">
-				   <input type="hidden" value="1" name="orderStatus">
-				   <input type="hidden" value="1" name="deliveryStatus">
-				   <input type="hidden" value="1" name="unit.id">
-                   <input type="hidden" value="1" name="ingredients.id"> 
+	 
+			<button type="button" class="btn btn-default" data-dismiss="modal"> <spring:message code="label.cancel" /></button>
+			<button id="submit" type="submit" class="btn btn-success success"> <spring:message code="label.RequestOrder" /></button>
+			
 			</form:form>
 		</div>
 	</div>

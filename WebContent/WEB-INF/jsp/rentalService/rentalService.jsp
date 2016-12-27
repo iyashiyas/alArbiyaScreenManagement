@@ -43,7 +43,7 @@
 							<div class="wpf-demo-6"> 
 								<figcaption class="view-caption">
 									<h4>${getHotelServiceItems.serviceItemName}</h4>
-									<a href="#addToOrder" data-toggle="modal"> <spring:message code="label.Order" /> </a>
+									<a href="#rentalOrder" data-toggle="modal"> <spring:message code="label.Order" /> </a>
 								</figcaption>
 							</div>
 						</div> 
@@ -51,17 +51,13 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		 
+		</div> 
 	</div>
 
-	<div class="modal fade" id="addToOrder" tabindex="-1" role="dialog"
+	<div class="modal fade" id="rentalOrder" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-
-			<jsp:include page="../rentalService/rentalOrder.jsp"></jsp:include>
-
-			
+		<div class="modal-dialog"> 
+			<jsp:include page="../rentalService/rentalOrder.jsp"></jsp:include> 
 		</div>
 	</div>
 

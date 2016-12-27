@@ -1,8 +1,12 @@
 package org.alArbiyaScreenManagement.service.impl;
 
  
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
  
+
 
 
 
@@ -55,6 +59,10 @@ public class ActionServiceImpl implements ActionService {
 	@Override
 	public Orders addOrder(Orders order) {
 		// TODO Auto-generated method stub
+		order.setOrderStatus("ORDERED");
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Date date = new Date(); 
+	  order.setRequestedTime(dateFormat.format(date)); 
 		return actionRepository.addOrder(order);
 	}
 	 

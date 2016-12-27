@@ -35,17 +35,13 @@
 					<label class="col-lg-2 control-label"><spring:message
 							code="label.Quantity" /></label>
 					<div class="col-lg-10">
-						<input class="touchspin1" id="quantity" type="text" value=""
-							name="quantity">
+						<form:input class="touchspin1" id="quantity" type="text" value=""
+							name="quantity" path="quantity" />
 					</div>
 				</div>
 				
-				   <input type="hidden" value="1" name="room.id">
-				   <input type="hidden" value="1" name="requestedTime">
-				   <input type="hidden" value="1" name="orderStatus">
-				   <input type="hidden" value="1" name="deliveryStatus">
-				   <input type="hidden" value="1" name="unit.id">
-                   <input type="hidden" value="1" name="ingredients.id">
+				   <input type="hidden" name="room.id">
+				  
                    <button type="button" class="btn btn-default" data-dismiss="modal"> <spring:message code="label.cancel" /></button>
 			<button id="submit" type="submit" class="btn btn-success success"> <spring:message code="label.RequestOrder" /></button>
 			</form:form>

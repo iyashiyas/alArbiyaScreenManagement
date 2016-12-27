@@ -21,75 +21,46 @@
 				<div class="form-group">
 					<label for="inputEmail" class="col-lg-2 control-label"><spring:message code="label.TotalPrice" /></label>
 					<div class="col-lg-10">
-						<input type="text" class="form-control" name="totalPrice"
-							id="totalprice" disabled="disabled" placeholder="0.0">
+						<form:input type="text" class="form-control" name="totalPrice"
+							id="totalprice" disabled="disabled" placeholder="0.0" path="totalPrice" />
 					</div>
 				</div>
-				
-			<%-- 	<div class="form-group">
-					<label class="col-lg-2 control-label"><spring:message code="label.Unit" /></label>
+			  
+			 <div class="form-group">
+					<label class="col-lg-2 control-label"><spring:message
+							code="label.Ingredient" /></label>
 					<div class="col-lg-10">
-						<div class="radio">
-							<label> <input type="radio" class="its"
-								name="optionsRadios" id="optionsRadios1" value="5">
-								Small
-							</label>
-						</div>
-						<div class="radio">
-							<label> <input type="radio" class="its"
-								name="optionsRadios" id="optionsRadios2" value="10">
-								Normal
-							</label>
-						</div>
-						<div class="radio">
-							<label> <input type="radio" class="its"
-								name="optionsRadios" id="optionsRadios2" value="15">
-								Medium
-							</label>
-						</div>
-					</div>
-				</div> --%>
-				
-				<div class="form-group">
-					<label class="col-lg-2 control-label"><spring:message code="label.Unit" /></label>
-					<div class="col-lg-10">
-					<c:forEach items="${getHotelServiceItems}" var="getHotelServiceItems">
-						<c:forEach items="${getHotelServiceItems.orderItems.unitSupporter}" var="unitSupporter">
-						<div class="checkbox">
-							<label> <input type="checkbox" class="its" name="ingrd1"
-								id="optionsRadios1" value="1">   
-								${unitSupporter.unitName} - ${unitSupporter.unitPrice}
-								
-							</label>
-						</div>
-						</c:forEach> 	</c:forEach>
+						<c:forEach items="${getHotelServiceItems}" var="getHotelServiceItems">
+						 
+							<div class="checkbox">
+								<label> 
+										<form:checkboxes class="option" name="ingredients[0].id"
+											id="ingredientCheckBox" items="${getHotelServiceItems.orderItems.ingredientSupporter}" itemValue="ingredientId" itemLabel="ingredientName"  path="ingredients[0].id" />    
+								  </label>
+							</div>
+ 
+						</c:forEach>
 					</div>
 				</div>
-				
+				 
 				<div class="form-group">
-					<label class="col-lg-2 control-label"><spring:message code="label.Ingredient" /></label>
+					<label class="col-lg-2 control-label"><spring:message
+							code="label.Unit" /></label>
 					<div class="col-lg-10">
-					<c:forEach items="${getHotelServiceItems}" var="getHotelServiceItems">
-						<div class="checkbox">
-							<label> <input type="checkbox" class="its" name="ingrd1"
-								id="optionsRadios1" value="1">  
-								<c:forEach items="${getHotelServiceItems.orderItems.ingredientSupporter}" var="ingredientSupporter">
-								${ingredientSupporter.ingredientName} - ${ingredientSupporter.ingredientPrice}
-								</c:forEach>
-								 
-							</label>
-						</div>
-						</c:forEach> 
+						<c:forEach items="${getHotelServiceItems}" var="getHotelServiceItems"> 
+							<div class="checkbox">
+								<label> 
+										<form:checkboxes class="option"  name="unit[0].id"
+											id="checkboxUnit" items="${getHotelServiceItems.orderItems.unitSupporter}" itemValue="unitId" itemLabel="unitName"  path="unit[0].id" />    
+								  </label>
+							</div>
+ 
+						</c:forEach>
 					</div>
 				</div>
 				  
-				   <input type="hidden" value="1" name="room.id">
-				   <input type="hidden" value="1" name="requestedTime">
-				   <input type="hidden" value="1" name="orderStatus">
-				   <input type="hidden" value="1" name="deliveryStatus">
-				   <input type="hidden" value="1" name="unit.id">
-                   <input type="hidden" value="1" name="ingredients.id">
-                 
+				   <input type="hidden" name="room.id">
+				   
 				<div class="form-group">
 					<label class="col-lg-2 control-label"><spring:message code="label.Quantity" /></label>
 					<div class="col-lg-10">

@@ -34,7 +34,7 @@
 				<div class="navbar-header" style="margin-left: 25px;">${hotelInfos.hotelName}</div></c:forEach>
 				<ul class="nav navbar-top-links navbar-right">
 					<li><span class="m-r-sm text-muted welcome-message">
-							 <label id="roomNumber"></label></span></li> 
+							 <label id="roomNumber" for="roomCode"></label></span></li> 
 					<li><span class="m-r-sm text-muted welcome-message"><spring:message code="label.Welcome" />
 							Mr.Customer Name</span></li> 
 					<li class="dropdown"><a class="dropdown-toggle count-info"
