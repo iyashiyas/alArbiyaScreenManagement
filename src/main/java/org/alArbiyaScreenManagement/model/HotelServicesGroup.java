@@ -120,7 +120,5 @@ public class HotelServicesGroup {
     	int result = 17;
         result = 31 * result + serviceGroupName.hashCode();
         return result;
-    }
-	
-	
+    } 
 }

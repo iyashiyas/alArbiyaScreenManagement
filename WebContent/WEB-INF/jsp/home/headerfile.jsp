@@ -36,7 +36,7 @@
 					<li><span class="m-r-sm text-muted welcome-message">
 							 <label id="roomNumber" for="roomCode"></label></span></li> 
 					<li><span class="m-r-sm text-muted welcome-message"><spring:message code="label.Welcome" />
-							Mr.Customer Name</span></li> 
+						 Mr.Customer Name</span></li> 
 					<li class="dropdown"><a class="dropdown-toggle count-info"
 						data-toggle="dropdown" href="#"> <i class="fa fa-bell"></i> <span
 							class="label label-primary">0</span>
@@ -58,10 +58,7 @@
 									</a>
 								</div>
 							</li>
-						</ul></li>
- 
-					<li><a> <i class="fa fa-sign-out"></i> <spring:message code="label.CheckOut" />
-					</a></li>
+						</ul></li> 
 				</ul>
 
 			</nav>

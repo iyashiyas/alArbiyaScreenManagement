@@ -38,7 +38,28 @@
 									</div>
 								</div>
 							</div>
-						</a> <a href="${pageContext.request.contextPath}/action/showCoffeeShop?ServiceId=1">
+						</a> 
+						
+							<a href="#checkout" data-toggle="modal">
+							<div class="col-lg-4 col-md-offset-1">
+								<div class="widget style1 lazur-bg">
+									<div class="row">
+										<div class="col-xs-4">
+											<i class="fa fa-sign-out fa-3x"></i>
+										</div>
+										<div class="col-xs-8 text-right">
+											<span> <spring:message code="label.CheckOut" />
+											</span>
+											<h4>
+												<spring:message code="label.CheckOut" />
+											</h4>
+										</div>
+									</div>
+								</div>
+							</div>
+						</a>
+						   
+						<a href="${pageContext.request.contextPath}/action/showCoffeeShop?ServiceId=1">
 							<div class="col-lg-4 col-md-offset-1">
 								<div class="widget style1 lazur-bg">
 									<div class="row">
@@ -177,6 +198,17 @@
 		
 		</div>
 	</div>
+	
+	
+	<div class="modal fade" id="checkout" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<jsp:include page="../checkout/checkout.jsp"></jsp:include>
+		
+		</div>
+	</div>
+	
+	
 	<div class="modal fade" id="housekeeping" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">

@@ -30,69 +30,24 @@
 						<form:input type="text" class="form-control" name="totalPrice"
 							id="totalprice" disabled="disabled" path="totalPrice" />
 					</div>
-				</div>
-				<%-- <div class="form-group">
+				</div>  
+				 <div class="form-group">
 					<label class="col-lg-2 control-label"><spring:message
 							code="label.Unit" /></label>
 					<div class="col-lg-10">
-						<c:forEach items="${getHotelServiceItems}"
-							var="getHotelServiceItems">
-							<c:forEach
-								items="${getHotelServiceItems.orderItems.unitSupporter}"
-								var="unitSupporter">
-								<div class="checkbox">
-									<label> <form:checkboxes class="option"
-										name="unit[0].id" items="${unitSupporter}" itemValue="unitPrice" id="optionsRadios1"
-										rel="${unitSupporter.unitPrice}"
-										value="${unitSupporter.unitId}" path="unit[0].id" />
-										${unitSupporter.unitName} - ${unitSupporter.unitPrice} 
-									</label>
-								</div>
-							</c:forEach>
-						</c:forEach>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label class="col-lg-2 control-label"><spring:message
-							code="label.Ingredient" /></label>
-					<div class="col-lg-10">
-						<c:forEach items="${getHotelServiceItems}"
-							var="getHotelServiceItems">
+						<c:forEach items="${getHotelServiceItems}" var="getHotelServiceItems"> 
 							<div class="checkbox">
-								<label><c:forEach
-										items="${getHotelServiceItems.orderItems.ingredientSupporter}"
-										var="ingredientSupporter">
-										<form:checkboxes class="option" name="ingredients[0].id"
-											id="optionsRadios1" items="${ingredientSupporter}" itemValue="ingredientId" rel="${ingredientSupporter.ingredientPrice}"
-											value="${ingredientSupporter.ingredientId}" path="ingredients[0].id" />   
-								${ingredientSupporter.ingredientName} - ${ingredientSupporter.ingredientPrice}
-								</c:forEach> </label>
+								<label> 
+										<form:checkboxes class="option"  name="ingredients[0].id"
+											id="checkboxUnit" items="${getHotelServiceItems.orderItems.ingredientSupporter}" itemValue="ingredientId" itemLabel="ingredientName"  path="ingredients[0].id" />    
+								  </label>
 							</div>
+ 
 						</c:forEach>
 					</div>
-				</div> --%>
+				</div> 
 
-				<div class="form-group">
-					<label class="col-lg-2 control-label"><spring:message
-							code="label.Ingredient" /></label>
-					<div class="col-lg-10">
-						<c:forEach items="${getHotelServiceItems}"
-							var="getHotelServiceItems">
-
-							<div class="checkbox">
-								<label> <form:checkboxes class="option"
-										id="ingredientCheckBox"
-										items="${getHotelServiceItems.orderItems.ingredientSupporter}"
-										itemValue="ingredientId" itemLabel="ingredientName"
-										path="ingredients[0].id" />
-								</label>
-							</div>
-						</c:forEach>
-					</div>
-				</div>
-
-				<%-- <div class="form-group">
+				 <div class="form-group">
 					<label class="col-lg-2 control-label"><spring:message
 							code="label.Unit" /></label>
 					<div class="col-lg-10">
@@ -106,8 +61,8 @@
  
 						</c:forEach>
 					</div>
-				</div>
-				   --%>
+				</div> 
+				   
 				<input type="hidden" id="roomId" name="room.id">
 				<div class="form-group">
 					<label class="col-lg-2 control-label"><spring:message
@@ -145,7 +100,7 @@
 			function recalculate() {
 				var sum = 0;
 				$("input[type=checkbox]:checked").each(function() {
-					sum += parseInt($(this).map("itemValue"));
+					sum += parseInt($(this).attr("itemValue"));
 				});
 				$("#totalprice").val(sum);
 			}

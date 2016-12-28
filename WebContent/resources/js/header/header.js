@@ -12,6 +12,7 @@ $( document ).ready(function() {
         	  $("#roomNumber").html(getPlayerRooms.room.roomCode);  
         	   
         	  $("#roomId").val(getPlayerRooms.room.id);
+        	    
         	});
         },
         error:function(xmlHttpRequest, textStatus, errorThrown){

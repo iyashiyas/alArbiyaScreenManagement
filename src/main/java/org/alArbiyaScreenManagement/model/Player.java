@@ -25,7 +25,7 @@ public class Player {
 	  
 	@OneToOne
 	@JoinColumn(name="ROOM_ID", nullable=true)
-	private Room room;
+	private Room room; 
 
 	public long getId() {
 		return id;

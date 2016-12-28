@@ -7,9 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
-
+ 
 @Entity
 @Table(name="HOTEL_INFO")
 public class HotelInfo {

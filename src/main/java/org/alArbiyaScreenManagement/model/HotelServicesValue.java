@@ -6,8 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
-
+  
 @Entity
 @Table(name="HOTEL_SERVICES_VALUES")
 public class HotelServicesValue {

@@ -22,8 +22,7 @@
 			</h3>
 		</div>
 		<div class="panel-body">
-			<form class="form-horizontal" method="POST">
-
+			<form class="form-horizontal" method="POST"> 
 				 <div class="form-group">
 					<label class="col-lg-2 control-label"><spring:message code="label.Unit" /></label>
 					<div class="col-lg-10">
@@ -46,8 +45,7 @@
 							</label>
 						</div>
 					</div>
-				</div>
-				 
+				</div> 
 			</form>
 		</div>
 	</div>
