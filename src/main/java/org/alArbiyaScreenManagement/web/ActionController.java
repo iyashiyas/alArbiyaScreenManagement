@@ -59,8 +59,7 @@ public class ActionController {
 	public String showCoffeeShop(Model model, @RequestParam(required=true) String ServiceId) {
 			 
 		List<HotelServicesItem> hotelServiceItems = actionService.getHotelServiceItems(ServiceId);
-		
-		
+		 
 		for(HotelServicesItem hotelServicesItem: hotelServiceItems) {
 			populateOrderItems(hotelServicesItem);
 		}
@@ -85,8 +84,7 @@ public class ActionController {
 		attributes.put("newOrder", new Orders());
 		model.addAllAttributes(attributes);
 		return "coffeeShop/coffeeShop";
-	}
-  
+	} 
 	private void populateOrderItems(HotelServicesItem hotelServicesItem) {
 		// TODO Auto-generated method stub
 		OrderItems orderItems = new OrderItems();
@@ -190,7 +188,9 @@ List<HotelServicesItem> hotelServiceItems = actionService.getHotelServiceItems(S
 	
 	@RequestMapping(value = "/showLaundry", method = RequestMethod.GET)
 	public String showLaundry(Model model, @RequestParam(required=true) String ServiceId) {
+		
 		System.out.println(ServiceId);
+		
 	List<HotelServicesItem> hotelServiceItems = actionService.getHotelServiceItems(ServiceId);
 		
 		for(HotelServicesItem hotelServicesItem: hotelServiceItems) {

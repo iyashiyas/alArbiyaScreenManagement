@@ -126,12 +126,10 @@ public class HotelServicesItem {
 	public void setImageUrlName(String imageUrlName) {
 		// TODO Auto-generated method stub
 		this.imageUrlName = imageUrlName; 
-	}
-	
+	} 
 	public OrderItems getOrderItems() {
 		return orderItems;
-	}
-
+	} 
 	public void setOrderItems(OrderItems orderItems) {
 		this.orderItems = orderItems;
 	}

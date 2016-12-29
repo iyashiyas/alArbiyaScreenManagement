@@ -97,6 +97,5 @@ public class Unit {
 	
 	public void setUnitLanguages(List<UnitLanguage> unitLanguages) {
 		this.unitLanguages = unitLanguages;
-	} 
-	
+	}  
 }

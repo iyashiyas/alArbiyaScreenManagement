@@ -57,9 +57,7 @@ public class HotelServicesCategory {
 	public void setServiceCategoryName(String serviceCategoryName) {
 		this.serviceCategoryName = serviceCategoryName;
 	}
-
-	 
-
+  
 	public String getServiceCategoryDescription() {
 		return serviceCategoryDescription;
 	}
