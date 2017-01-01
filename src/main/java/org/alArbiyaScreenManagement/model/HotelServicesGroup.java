@@ -121,4 +121,7 @@ public class HotelServicesGroup {
         result = 31 * result + serviceGroupName.hashCode();
         return result;
     } 
+    public boolean isEmpty() {
+		return (this.getServiceGroupName() == null || this.getServiceGroupName().isEmpty());
+	}
 }

@@ -8,46 +8,45 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel="stylesheet" type="text/css"
-	href="<c:url value="/resources/css/specialStyle/specialStyle.css" /> ">
+	href="<c:url value="/resources/css/specialStyle/specialStyle.css" />">
 <title>SHMS</title>
 </head>
 <body>
 	<div id="wrapper">
 		<jsp:include page="../home/headerfile.jsp"></jsp:include>
-
-		<nav class="navbar-primary   navbar-static-side" role="navigation">
+		<nav class="navbar-primary  navbar-static-side" role="navigation">
 			<div class="sidebar-collapse">
 				<ul class="nav metismenu" id="side-menu">
-<c:forEach items="${uniqueParentCategories}" var="uniqueParentCategories"> 
-					<li><a><i class="fa fa-th-large"></i> <span
-								class="nav-label">${uniqueParentCategories.serviceGroupName}</span></a></li>
-			 
+					<c:forEach items="${uniqueParentCategories}"
+						var="uniqueParentCategories">
+						<li><a><i class="fa fa-th-large"></i> <span
+								class="nav-label">${uniqueParentCategories.serviceGroupName}</span>
+						</a></li>
 					</c:forEach>
 				</ul>
 			</div>
 		</nav>
-
 		<div id="page-wrapper" class="bg-custom">
-
 			<div class="wrapper wrapper-content row animated fadeInRight">
 				<div class="ibox-tools">
 					<a class="btn btn-primary" onclick="goBack()"><spring:message
 							code="label.BackToHome" /></a>
 				</div>
 				<div class="col-md-10">
-
 					<div class="row ">
-		  <c:forEach items="${getHotelServiceItems}" var="getHotelServiceItems">
+						<c:forEach items="${getHotelServiceItems}"
+							var="getHotelServiceItems">
 							<div class="col-lg-3 col-lg-offset-1 w3ls-special-img"
 								style="background-image: url('<c:out value="${getHotelServiceItems.imageUrlName}" />');">
 								<div class="wpf-demo-6">
 									<div class="w3ls-special-text">
-										
-						                <c:forEach items="${getHotelServiceItems.orderItems.unitSupporter}" var="unitSupporter">
-									 	<p>
-											<sub>sar</sub>${unitSupporter.unitPrice}
+										<c:forEach
+											items="${getHotelServiceItems.orderItems.unitSupporter}"
+											var="unitSupporter">
+											<p>
+												<sub>sar</sub>${unitSupporter.unitPrice}
 											</p>
-											</c:forEach>
+										</c:forEach>
 									</div>
 									<figcaption class="view-caption">
 										<h4>${getHotelServiceItems.serviceItemName}</h4>
@@ -63,28 +62,11 @@
 			</div>
 		</div>
 	</div>
-
 	<div class="modal fade" id="addToOrder" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
-			<div class="modal-content">
-
-				<div class="modal-header"> <spring:message code="label.RequestForm" /></div>
-				<div class="modal-body">
-					<jsp:include page="../restaurant/restaurantOrder.jsp"></jsp:include>
-
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">
-						<spring:message code="label.Cancel" />
-					</button>
-					<button id="submit" type="submit" class="btn btn-success success">
-						<spring:message code="label.RequestOrder" />
-					</button>
-				</div>
-			</div>
+			<jsp:include page="../restaurant/restaurantOrder.jsp"></jsp:include>
 		</div>
 	</div>
-	
 </body>
 </html>

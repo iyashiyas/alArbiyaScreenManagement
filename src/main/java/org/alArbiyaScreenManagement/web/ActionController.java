@@ -105,7 +105,6 @@ public class ActionController {
 					} 
 					if(hotelServicesValue.getFieldName().equals("INGREDIENTID")) {
 						Ingredient ingredient = ingredientService.getIngredient(Long.parseLong(hotelServicesValue.getExternalId()));
-						
 						IngredientSupporter supporter = new IngredientSupporter();
 						supporter.setIngredientId(ingredient.getId());
 						supporter.setIngredientName(ingredient.getIngredientName());
@@ -117,16 +116,14 @@ public class ActionController {
 				}
 			}
 		}
-		hotelServicesItem.setOrderItems(orderItems);
-		
+		hotelServicesItem.setOrderItems(orderItems); 
 	}
 
 	@RequestMapping(value = "/showRestaurant", method = RequestMethod.GET)
 	public String showRestaurant(Model model, @RequestParam(required=true) String ServiceId) {
-		System.out.println(ServiceId);
-	  
+			 
 		List<HotelServicesItem> hotelServiceItems = actionService.getHotelServiceItems(ServiceId);
-		
+		 
 		for(HotelServicesItem hotelServicesItem: hotelServiceItems) {
 			populateOrderItems(hotelServicesItem);
 		}
@@ -145,14 +142,13 @@ public class ActionController {
 				uniqueParentCategories.add(hotelServicesGroup);
 			}
 		}
-	 
+	    
 		attributes.put("uniqueParentCategories", uniqueParentCategories);
-		attributes.put("newOrder", new Orders());
 		attributes.put("restaurant", restaurant); 
+		attributes.put("newOrder", new Orders());
 		model.addAllAttributes(attributes);
-		
 		return "restaurant/restaurant";
-	}
+	} 
 	
 	@RequestMapping(value = "/showCarRental", method = RequestMethod.GET)
 	public String showCarRental(Model model, @RequestParam(required=true) String ServiceId) {

@@ -38,8 +38,7 @@
 						<c:forEach items="${getHotelServiceItems}" var="getHotelServiceItems">
 						<div class="col-lg-3 col-lg-offset-1 w3ls-special-img"
 							style="background-image: url('<c:out value="${getHotelServiceItems.imageUrlName}" />');">
-							<div class="wpf-demo-6">
-						 
+							<div class="wpf-demo-6"> 
 								<figcaption class="view-caption">
 									<h4>${getHotelServiceItems.serviceItemName}</h4>
 									<a href="#addToOrder" data-toggle="modal"> <spring:message code="label.Order" /> </a>
@@ -51,17 +50,13 @@
 				</div>
 			</div>
 		</div>
-	</div>
-
+	</div> 
+	
 	<div class="modal fade" id="addToOrder" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-
+		<div class="modal-dialog"> 
 			<jsp:include page="../laundry/laundryOrder.jsp"></jsp:include>
-
-			<button type="button" class="btn btn-default" data-dismiss="modal"><spring:message code="label.cancel" /></button>
-			<button id="submit" type="submit" class="btn btn-success success"><spring:message code="label.RequestOrder" /></button>
-		</div>
+ 		</div>
 	</div>
 
 

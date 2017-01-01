@@ -33,20 +33,19 @@
 				</div>  
 				 <div class="form-group">
 					<label class="col-lg-2 control-label"><spring:message
-							code="label.Unit" /></label>
+							code="label.Ingredient" /></label>
 					<div class="col-lg-10">
 						<c:forEach items="${getHotelServiceItems}" var="getHotelServiceItems"> 
 							<div class="checkbox">
 								<label> 
 										<form:checkboxes class="option"  name="ingredients[0].id"
-											id="checkboxUnit" items="${getHotelServiceItems.orderItems.ingredientSupporter}" itemValue="ingredientId" itemLabel="ingredientName"  path="ingredients[0].id" />    
+											id="checkboxUnit" items="${getHotelServiceItems.orderItems.ingredientSupporter}" itemValue="ingredientId" itemLabel="ingredientName" path="ingredients[0].id" />    
 								  </label>
-							</div>
+							</div> 
  
 						</c:forEach>
 					</div>
-				</div> 
-
+				</div>  
 				 <div class="form-group">
 					<label class="col-lg-2 control-label"><spring:message
 							code="label.Unit" /></label>
@@ -54,16 +53,14 @@
 						<c:forEach items="${getHotelServiceItems}" var="getHotelServiceItems"> 
 							<div class="checkbox">
 								<label> 
-										<form:checkboxes class="option"  name="unit[0].id"
-											id="checkboxUnit" items="${getHotelServiceItems.orderItems.unitSupporter}" itemValue="unitId" itemLabel="unitName"  path="unit[0].id" />    
+								 <form:checkboxes class="option" name="unit[0].id" id="checkboxUnit" items="${getHotelServiceItems.orderItems.unitSupporter}" itemValue="unitId" rel="${unitPrice}"  itemLabel="unitName"  path="unit[0].id" />    
 								  </label>
-							</div>
- 
+							</div> 
 						</c:forEach>
 					</div>
-				</div> 
-				   
+				</div>  
 				<input type="hidden" id="roomId" name="room.id">
+			    <input type="hidden" value="1" name="hotelServiceCategories.hotelServicesCategoryId">
 				<div class="form-group">
 					<label class="col-lg-2 control-label"><spring:message
 							code="label.Quantity" /></label>
@@ -92,8 +89,8 @@
 			maxboostedstep : 10,
 		});
 	</script>
-	<script type="text/javascript">
-		$(document).ready(function() {
+	<!-- <script type="text/javascript">
+	  	$(document).ready(function() {
 			$("input[type=checkbox]").change(function() {
 				recalculate();
 			});
@@ -111,7 +108,26 @@
 				$("#totalprice").val(totalprice);
 			});
 
+		});  
+		
+		
+	</script> -->
+	<script type="text/javascript">
+	$("input[type=checkbox]").change(function(){
+		  recalculate();
 		});
+
+
+		function recalculate(){
+		    var sum = 0;
+
+		    $("input[type=checkbox]:checked").each(function(){
+		      sum += parseInt($(this).attr("rel"));
+		    });
+
+		    alert(sum);
+		}
 	</script>
+	
 </body>
 </html>

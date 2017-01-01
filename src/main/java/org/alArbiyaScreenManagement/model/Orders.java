@@ -13,6 +13,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name="ORDERS")
 public class Orders {
@@ -49,16 +51,20 @@ public class Orders {
 	@OneToOne
 	@JoinColumn(name="ROOM_ID", nullable=false)
 	private Room room;
+	
+	@JsonBackReference
+	@OneToOne
+	@JoinColumn(name="SERVICE_CATEGORY_ID", nullable=true)
+	private HotelServicesCategory hotelServiceCategories;
 	 
-	 @ManyToMany(fetch=FetchType.EAGER)
-	@JoinTable(name = "ORDER_INGREDIENT", joinColumns = @JoinColumn(name = "ORDER_ID", referencedColumnName = "ORDER_ID"), inverseJoinColumns = @JoinColumn(name = "INGREDIENT_ID", referencedColumnName = "INGREDIENT_ID"))
+	@ManyToMany(fetch=FetchType.EAGER)
+	@JoinTable(name = "ORDER_INGREDIENT", joinColumns = @JoinColumn(name = "ORDER_ID", referencedColumnName = "ORDER_ID",nullable=true), inverseJoinColumns = @JoinColumn(name = "INGREDIENT_ID", referencedColumnName = "INGREDIENT_ID",nullable=true))
 	private List<Ingredient> ingredients;
     
 	@ManyToMany(fetch=FetchType.EAGER)
-	@JoinTable(name = "ORDER_UNIT", joinColumns = @JoinColumn(name = "ORDER_ID", referencedColumnName = "ORDER_ID"), inverseJoinColumns = @JoinColumn(name = "UNIT_ID", referencedColumnName = "UNIT_ID"))
+	@JoinTable(name = "ORDER_UNIT", joinColumns = @JoinColumn(name = "ORDER_ID", referencedColumnName = "ORDER_ID",nullable=true), inverseJoinColumns = @JoinColumn(name = "UNIT_ID", referencedColumnName = "UNIT_ID",nullable=true))
 	private List<Unit> unit;
-		 
-
+		  
 	public List<Ingredient> getIngredients() {
 		return ingredients;
 	}
@@ -154,5 +160,14 @@ public class Orders {
 
 	public void setQuantity(String quantity) {
 		this.quantity = quantity;
+	}
+
+	public HotelServicesCategory getHotelServiceCategories() {
+		return hotelServiceCategories;
+	}
+
+	public void setHotelServiceCategories(
+			HotelServicesCategory hotelServiceCategories) {
+		this.hotelServiceCategories = hotelServiceCategories;
 	}
 }

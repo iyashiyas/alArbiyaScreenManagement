@@ -62,7 +62,7 @@ public class ActionServiceImpl implements ActionService {
 		order.setOrderStatus("ORDERED");
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date(); 
-	  order.setRequestedTime(dateFormat.format(date)); 
+	    order.setRequestedTime(dateFormat.format(date)); 
 		return actionRepository.addOrder(order);
 	}
 	 

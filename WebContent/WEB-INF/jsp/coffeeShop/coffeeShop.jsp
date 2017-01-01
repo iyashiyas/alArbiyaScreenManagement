@@ -13,8 +13,7 @@
 </head>
 <body>
 	<div id="wrapper">
-		<jsp:include page="../home/headerfile.jsp"></jsp:include>
-
+		<jsp:include page="../home/headerfile.jsp"></jsp:include>  
 		<nav class="navbar-primary  navbar-static-side" role="navigation">
 			<div class="sidebar-collapse">
 				<ul class="nav metismenu" id="side-menu">
@@ -22,8 +21,7 @@
 						var="uniqueParentCategories">
 						<li><a><i class="fa fa-th-large"></i> <span
 								class="nav-label">${uniqueParentCategories.serviceGroupName}</span>
-						</a></li>
-
+						</a></li> 
 					</c:forEach>
 				</ul>
 			</div>
@@ -69,8 +67,6 @@
 		<div class="modal-dialog"> 
 			<jsp:include page="../coffeeShop/coffeeOrder.jsp"></jsp:include> 
 		</div>
-	</div>
-
-
+	</div> 
 </body>
 </html>

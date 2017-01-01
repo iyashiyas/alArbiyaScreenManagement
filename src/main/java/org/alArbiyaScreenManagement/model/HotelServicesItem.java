@@ -133,5 +133,7 @@ public class HotelServicesItem {
 	public void setOrderItems(OrderItems orderItems) {
 		this.orderItems = orderItems;
 	}
-	 
+	public boolean isEmpty() {
+		return (this.getServiceItemName() == null || this.getServiceItemName().isEmpty());
+	}
 }

@@ -61,7 +61,7 @@
 					</div>
 				</div> 
 				   <input type="hidden" value="1" name="room.id">
-	 
+	               <input type="hidden" value="7" name="hotelServiceCategories.hotelServicesCategoryId">
 			<button type="button" class="btn btn-default" data-dismiss="modal"> <spring:message code="label.cancel" /></button>
 			<button id="submit" type="submit" class="btn btn-success success"> <spring:message code="label.RequestOrder" /></button>
 			
