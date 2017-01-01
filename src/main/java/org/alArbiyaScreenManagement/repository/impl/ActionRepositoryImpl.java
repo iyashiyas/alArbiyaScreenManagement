@@ -1,5 +1,6 @@
 package org.alArbiyaScreenManagement.repository.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -9,11 +10,16 @@ import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
    
  
+
+
+
 import org.alArbiyaScreenManagement.model.HotelServicesCategory;
 import org.alArbiyaScreenManagement.model.HotelServicesGroup;
 import org.alArbiyaScreenManagement.model.HotelServicesItem;
 import org.alArbiyaScreenManagement.model.HotelServicesValue;
+import org.alArbiyaScreenManagement.model.Ingredient;
 import org.alArbiyaScreenManagement.model.Orders;
+import org.alArbiyaScreenManagement.model.Unit;
 import org.alArbiyaScreenManagement.repository.ActionRepository;
 import org.springframework.stereotype.Repository;
 
@@ -94,6 +100,24 @@ public class ActionRepositoryImpl implements ActionRepository{
 	@Override
 	public Orders addOrder(Orders order) {
 		// TODO Auto-generated method stub
+		List<Ingredient> ingredients = order.getIngredients();
+		List<Unit> units = order.getUnit();
+		order.setIngredients(new ArrayList<Ingredient>());
+		if(ingredients != null ) {
+			for(Ingredient ingredient : ingredients){
+				if(ingredient.getId() != 0)
+				order.getIngredients().add(ingredient);
+			}
+		}
+		
+		order.setUnit(new ArrayList<Unit>());
+		if(units != null ) {
+			for(Unit unit : units){
+				if(unit.getId() != 0)
+				order.getUnit().add(unit);
+			}
+		}
+		
 		entityManager.merge(order);
 		return order;
 	}

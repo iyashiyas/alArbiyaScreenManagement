@@ -71,7 +71,8 @@
 													<div class="col-lg-10">
 														<div class="checkbox">
 															<c:forEach items="${getHotelServiceItem.orderItems.ingredientSupporter}" var="ingredient" varStatus="loop">
-																<form:checkbox class="option" label="${ingredient.ingredientName }" name="ingredients[${loop.index}].id" path="ingredients[${loop.index}].id" value="${ingredient.ingredientId }" price="${ingredient.ingredientPrice }"/>
+																<input type="checkbox" class="option" name="ingredients[${loop.index}].id" value="${ingredient.ingredientId }" price="${ingredient.ingredientPrice }"/>
+																${ingredient.ingredientName } 
 															</c:forEach>
 														</div> 
 													</div>
@@ -81,7 +82,8 @@
 													<div class="col-lg-10">
 														<div class="checkbox">
 															<c:forEach items="${getHotelServiceItem.orderItems.unitSupporter}" var="unit" varStatus="loop">
-																<form:checkbox class="option" label="${unit.unitName }" name="unit[${loop.index}].id" path="unit[${loop.index}].id" value="${unit.unitId }" price="${unit.unitPrice }"/>
+																<input type="checkbox" class="option" name="unit[${loop.index}].id" value="${unit.unitId }" price="${unit.unitPrice }"/>
+																${unit.unitName }
 															</c:forEach>
 														</div> 
 													</div>
