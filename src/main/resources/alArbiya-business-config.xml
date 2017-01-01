@@ -23,7 +23,14 @@
          </property>
          <property name="persistenceUnitName" value="alArbiyaScreenManagement"/>
          <property name="packagesToScan" value="org.alArbiyaScreenManagement"/>
-         
+         <property name="jpaProperties">
+	        <props>
+	            <prop key="hibernate.hbm2ddl.auto">update</prop> 
+	            <prop key="hibernate.connection.characterEncoding">utf-8</prop>
+	            <prop key="hibernate.connection.CharSet">utf-8</prop>
+                <prop key="hibernate.connection.useUnicode">true</prop>
+	        </props> 
+    	</property>
 	</bean>
    
 	<!-- Add Transaction support -->
