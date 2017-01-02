@@ -4,13 +4,16 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Restaurant {
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+public class Restaurant {
+	
 	private String category;
 	private String itemName;
 	private String description;
 	private String status;
 	private String hotelServiceCategoryId;
+	private CommonsMultipartFile multipartFile;
 	private List<CoffeeeShopLanguageHelper> languageHelper;
 	private List<String> languageName;
 	private List<CoffeeeShopUnitHelper> unitHelper;
@@ -130,6 +133,14 @@ public class Restaurant {
 
 	public void setIngredientPrice(List<BigDecimal> ingredientPrice) {
 		this.ingredientPrice = ingredientPrice;
+	}
+
+	public CommonsMultipartFile getMultipartFile() {
+		return multipartFile;
+	}
+
+	public void setMultipartFile(CommonsMultipartFile multipartFile) {
+		this.multipartFile = multipartFile;
 	} 
 	 
 }

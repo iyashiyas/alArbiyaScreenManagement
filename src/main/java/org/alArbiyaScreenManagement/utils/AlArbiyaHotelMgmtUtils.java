@@ -141,7 +141,6 @@ public class AlArbiyaHotelMgmtUtils {
 		hotelServicesItem.setServiceItemDescription(restaurant.getDescription());
 		hotelServicesItem.setHotelServicesCategory(hotelServicesCategory);
 		hotelServicesItem.setServiceItemStatus(restaurant.getStatus());
-	 
 		
 		HotelServicesGroup parentServicesGroup = new HotelServicesGroup();
 		parentServicesGroup.setServiceGroupName(restaurant.getCategory());

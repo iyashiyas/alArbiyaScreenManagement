@@ -38,7 +38,7 @@
 							<div class="checkbox">
 								<label> 
 									<c:forEach items="${param.getHotelServiceItem.orderItems.ingredientSupporter}" var="ingredient" varStatus="loop">
-										<form:checkbox class="option" label="${ingredient.ingredientName }" name="ingredients[${loop.index}].id" path="ingredients[${loop.index}].id" value="${ingredient.ingredientId }" price="${ingredient.ingredientPrice }"/>
+										<form:checkbox class="option" label="${ingredient.ingredientName }" name="ingredients[${loop.index}].id" path="ingredients[${loop.index}].id" value="${ingredient.ingredientId }" data-price="${ingredient.ingredientPrice }"/>
 									</c:forEach>
 										    
 								  </label>
@@ -53,7 +53,7 @@
 								<label> 
 									
 									<c:forEach items="${param.getHotelServiceItem.orderItems.unitSupporter}" var="unit" varStatus="loop">
-										<form:checkbox class="option" label="${unit.unitName }" name="unit[${loop.index}].id" path="unit[${loop.index}].id" value="${ingredient.unitId }" price="${ingredient.unitPrice }"/>
+										<form:checkbox class="option" label="${unit.unitName }" name="unit[${loop.index}].id" path="unit[${loop.index}].id" value="${ingredient.unitId }" data-price="${ingredient.unitPrice }"/>
 									</c:forEach>
 										    
 								  </label>
@@ -61,7 +61,7 @@
 					</div>
 				</div>
 				 <input type="hidden" id="roomId" name="room.id" value="1">
-			    <!--<input type="hidden" value="1" name="hotelServiceCategories.hotelServicesCategoryId"> -->
+			 <input type="hidden" value="1" name="hotelServiceCategories.hotelServicesCategoryId"> 
 				<div class="form-group">
 					<label class="col-lg-2 control-label"><spring:message
 							code="label.Quantity" /></label>
@@ -114,18 +114,20 @@
 		
 	</script> -->
 	<script type="text/javascript">
-	$("input[type=checkbox]").change(function(){
-		  recalculate();
-		});
+	$('.option').on("change", function () {
+	  /*   var links = []; //array for links */
+	    var totalPrice = 0;
 
+	    $('.option:checked').each(function () {
+	      /*   links.push($(this).data('link')); //get links */
+	        totalPrice += parseInt($(this).data('price'), 10);
+	        alert(totalprice);
+	    });
 
-		function recalculate(){
-		    var sum = 0;
-		    $("input[type=checkbox]:checked").each(function(){
-		      sum += parseInt($(this).attr("rel"));
-		    });
-		    alert(sum);
-		}
+	  /*   $('.price').html(totalPrice); */
+	    alert(totalprice);
+	  /*   $("a").attr("href", links.join(",")); // change link */
+	});
 	</script>
 	
 </body>

@@ -21,7 +21,8 @@
 		</div>
 		<div class="panel-body">
 			<form:form class="form-horizontal" modelAttribute="newOrder"
-				method="POST" action="${pageContext.request.contextPath}/action/addOrder">
+				method="POST"
+				action="${pageContext.request.contextPath}/action/addOrder">
 				<div class="form-group">
 					<label for="inputEmail" class="col-lg-2 control-label"><spring:message
 							code="label.TotalPrice" /></label>
@@ -30,34 +31,37 @@
 							id="totalprice" disabled="disabled" path="totalPrice" />
 					</div>
 				</div>  
-				 <div class="form-group">
+				  <div class="form-group">
 					<label class="col-lg-2 control-label"><spring:message
 							code="label.Ingredient" /></label>
 					<div class="col-lg-10">
-						<c:forEach items="${getHotelServiceItems}" var="getHotelServiceItems"> 
 							<div class="checkbox">
 								<label> 
-							 <form:checkboxes items="${getHotelServiceItems.orderItems.ingredientSupporter}" itemValue="ingredientId" itemLabel="ingredientName" path="ingredients[0].id" />    
+									<c:forEach items="${param.getHotelServiceItem.orderItems.ingredientSupporter}" var="ingredient" varStatus="loop">
+										<form:checkbox class="option" label="${ingredient.ingredientName }" name="ingredients[${loop.index}].id" path="ingredients[${loop.index}].id" value="${ingredient.ingredientId }" price="${ingredient.ingredientPrice }"/>
+									</c:forEach>
+										    
 								  </label>
-							</div>  
-						</c:forEach>
+							</div> 
 					</div>
-				</div>
+				</div>  
 				 <div class="form-group">
 					<label class="col-lg-2 control-label"><spring:message
 							code="label.Unit" /></label>
 					<div class="col-lg-10">
-						<c:forEach items="${getHotelServiceItems}" var="getHotelServiceItems"> 
 							<div class="checkbox">
 								<label> 
-								 <form:checkboxes items="${getHotelServiceItems.orderItems.unitSupporter}" itemValue="unitId" itemLabel="unitName" path="unit[0].id" />    
+									
+									<c:forEach items="${param.getHotelServiceItem.orderItems.unitSupporter}" var="unit" varStatus="loop">
+										<form:checkbox class="option" label="${unit.unitName }" name="unit[${loop.index}].id" path="unit[${loop.index}].id" value="${ingredient.unitId }" price="${ingredient.unitPrice }"/>
+									</c:forEach>
+										    
 								  </label>
 							</div> 
-						</c:forEach>
 					</div>
-				</div>  
-				<input type="hidden" id="roomId" name="room.id">
-			    <input type="hidden" value="1" name="hotelServiceCategories.hotelServicesCategoryId">
+				</div>
+				 <input type="hidden" id="roomId" name="room.id" value="1">
+			    <!--<input type="hidden" value="1" name="hotelServiceCategories.hotelServicesCategoryId"> -->
 				<div class="form-group">
 					<label class="col-lg-2 control-label"><spring:message
 							code="label.Quantity" /></label>
@@ -86,8 +90,8 @@
 			maxboostedstep : 10,
 		});
 	</script>
-	<script type="text/javascript">
-		$(document).ready(function() {
+	<!-- <script type="text/javascript">
+	  	$(document).ready(function() {
 			$("input[type=checkbox]").change(function() {
 				recalculate();
 			});
@@ -105,7 +109,24 @@
 				$("#totalprice").val(totalprice);
 			});
 
+		});  
+		
+		
+	</script> -->
+	<script type="text/javascript">
+	$("input[type=checkbox]").change(function(){
+		  recalculate();
 		});
+
+
+		function recalculate(){
+		    var sum = 0;
+		    $("input[type=checkbox]:checked").each(function(){
+		      sum += parseInt($(this).attr("rel"));
+		    });
+		    alert(sum);
+		}
 	</script>
+	
 </body>
 </html>

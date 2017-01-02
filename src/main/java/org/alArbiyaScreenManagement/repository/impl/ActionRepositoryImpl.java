@@ -76,7 +76,7 @@ public class ActionRepositoryImpl implements ActionRepository{
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<HotelServicesCategory> getHotelServiceCategories() {
-		 Query query = entityManager.createQuery("SELECT hotel_service_category from HotelServicesCategory hotel_service_category where categoryStatus='ENABLED'", HotelServicesCategory.class);
+		 Query query = entityManager.createQuery("SELECT hotel_service_category from HotelServicesCategory hotel_service_category", HotelServicesCategory.class);
 		return query.getResultList();
 	} 
 	
