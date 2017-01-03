@@ -152,12 +152,10 @@ public class ActionController {
 	
 	@RequestMapping(value = "/showCarRental", method = RequestMethod.GET)
 	public String showCarRental(Model model, @RequestParam(required=true) String ServiceId) {
-		System.out.println(ServiceId); 
- 
-List<HotelServicesItem> hotelServiceItems = actionService.getHotelServiceItems(ServiceId);
-		
+		List<HotelServicesItem> hotelServiceItems = actionService.getHotelServiceItems(ServiceId);
+		 
 		for(HotelServicesItem hotelServicesItem: hotelServiceItems) {
-			/*populateOrderItems(hotelServicesItem);*/
+			populateOrderItems(hotelServicesItem);
 		}
 		Map<String, Object> attributes = new HashMap<String, Object>();
 		CarRental carRental = new CarRental(); 
@@ -173,11 +171,13 @@ List<HotelServicesItem> hotelServiceItems = actionService.getHotelServiceItems(S
 			if(!uniqueParentCategories.contains(hotelServicesGroup)) {
 				uniqueParentCategories.add(hotelServicesGroup);
 			}
-		} 
+		}
+	    
 		attributes.put("uniqueParentCategories", uniqueParentCategories);
-		attributes.put("newOrder", new Orders());
 		attributes.put("carRental", carRental); 
+		attributes.put("newOrder", new Orders());
 		model.addAllAttributes(attributes);
+		
 		
 		return "rentalService/rentalService";
 	}
@@ -185,12 +185,10 @@ List<HotelServicesItem> hotelServiceItems = actionService.getHotelServiceItems(S
 	@RequestMapping(value = "/showLaundry", method = RequestMethod.GET)
 	public String showLaundry(Model model, @RequestParam(required=true) String ServiceId) {
 		
-		System.out.println(ServiceId);
-		
-	List<HotelServicesItem> hotelServiceItems = actionService.getHotelServiceItems(ServiceId);
-		
+		List<HotelServicesItem> hotelServiceItems = actionService.getHotelServiceItems(ServiceId);
+		 
 		for(HotelServicesItem hotelServicesItem: hotelServiceItems) {
-		/*	populateOrderItems(hotelServicesItem);*/
+			populateOrderItems(hotelServicesItem);
 		}
 		Map<String, Object> attributes = new HashMap<String, Object>();
 		Laundry laundry = new Laundry(); 
@@ -207,9 +205,10 @@ List<HotelServicesItem> hotelServiceItems = actionService.getHotelServiceItems(S
 				uniqueParentCategories.add(hotelServicesGroup);
 			}
 		}
-		attributes.put("newOrder", new Orders());
+	    
 		attributes.put("uniqueParentCategories", uniqueParentCategories);
 		attributes.put("laundry", laundry); 
+		attributes.put("newOrder", new Orders());
 		model.addAllAttributes(attributes);
 		
 		return "laundry/laundry";

@@ -16,7 +16,7 @@
 	<div id="wrapper">
 		<jsp:include page="../home/headerfile.jsp"></jsp:include>
 		<nav class="navbar-primary  navbar-static-side" role="navigation">
-			<div class="sidebar-collapse">
+		 <div class="sidebar-collapse">
 				<ul class="nav metismenu" id="side-menu">
 					<c:forEach items="${uniqueParentCategories}"
 						var="uniqueParentCategories">
@@ -25,7 +25,7 @@
 						</a></li>
 					</c:forEach>
 				</ul>
-			</div>
+		 </div>
 		</nav>
 		<div id="page-wrapper" class="bg-custom">
 			<div class="wrapper wrapper-content row animated fadeInRight">
@@ -50,7 +50,7 @@
 													value="${singleUnitPrice +  unitSupporter.unitPrice}"></c:set>
 											</c:forEach>
 											<p>
-												<sub>sar</sub>${singleUnitPrice}</p>
+										<sub>sar</sub>${singleUnitPrice}</p>
 										</div>
 										<figcaption class="view-caption">
 											<h4>${getHotelServiceItem.serviceItemName}</h4>
@@ -73,6 +73,7 @@
 													method="POST"
 													action="${pageContext.request.contextPath}/action/addOrder">
 													<div class="form-group">
+													<input type="hidden" name="hotelServicesItem.id" value="${getHotelServiceItem.id}">
 														<label for="inputEmail" class="col-lg-2 control-label"><spring:message
 																code="label.TotalPrice" /></label>
 														<div class="col-lg-10">
@@ -109,7 +110,7 @@
 																var="unit" varStatus="loop">
 																<div class="checkbox">
 
-																	<input type="checkbox" id="checkbox" class="option"
+																	<input type="checkbox" id="checkbox"  class="option"
 																		name="unit[${loop.index}].id" value="${unit.unitId }"
 																		data-price="${unit.unitPrice }" /> ${unit.unitName }
 																</div>
@@ -172,7 +173,7 @@
 	} */
 </style>
 <script type="text/javascript">
-/* $( document ).ready(function() {
+/* $( document).ready(function() {
 	$(".totalPrice").val(""); 
 var total = 0;
 	$('.option').on('change',function() { 
@@ -191,6 +192,19 @@ var total = 0;
 	        });
 	        $(".totalPrice").val(sum);
 	    });
-	});
+	    
+	    var $inputquantity = $('.quantity')
+	    $inputquantity.on('change',function()
+	    {
+	    	var sum1= $(".totalPrice").val();
+	    	   $inputquantity.each(function() {
+	    	 
+	    		   sum1*=parseInt(this.value);
+	    	   });
+	    	   $(".totalPrice").val(sum1);
+	    	   }); 
+	    });
+	    
+ 
 </script>
 </html>

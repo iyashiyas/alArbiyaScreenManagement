@@ -12,6 +12,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+ 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -56,7 +57,12 @@ public class Orders {
 	@OneToOne
 	@JoinColumn(name="SERVICE_CATEGORY_ID", nullable=true)
 	private HotelServicesCategory hotelServiceCategories;
-	 
+	
+	@JsonBackReference
+	@OneToOne
+	@JoinColumn(name="SERVICE_ITEM_ID", nullable=false)
+	private HotelServicesItem hotelServicesItem;
+	
 	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name = "ORDER_INGREDIENT", joinColumns = @JoinColumn(name = "ORDER_ID", referencedColumnName = "ORDER_ID",nullable=true), inverseJoinColumns = @JoinColumn(name = "INGREDIENT_ID", referencedColumnName = "INGREDIENT_ID",nullable=true))
 	private List<Ingredient> ingredients;
@@ -169,5 +175,13 @@ public class Orders {
 	public void setHotelServiceCategories(
 			HotelServicesCategory hotelServiceCategories) {
 		this.hotelServiceCategories = hotelServiceCategories;
+	}
+
+	public HotelServicesItem getHotelServicesItem() {
+		return hotelServicesItem;
+	}
+
+	public void setHotelServicesItem(HotelServicesItem hotelServicesItem) {
+		this.hotelServicesItem = hotelServicesItem;
 	}
 }
