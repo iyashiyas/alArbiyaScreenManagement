@@ -44,8 +44,7 @@
 							<label> <input type="radio" class="its"
 								name="selectTime" id="later" value="10">
 								<spring:message code="label.Later" />
-							</label>
-
+							</label> 
 						</div>
 
 					</div>
@@ -60,11 +59,10 @@
                     </span>
                 </div>
                 </div>  
-				   <input type="hidden" value="1" name="room.id">
-				   <input type="hidden" value="1" name="requestedTime">
-				   <input type="hidden" value="1" name="orderStatus">
-				   <input type="hidden" value="1" name="deliveryStatus"> 
-				   	<button type="button" class="btn btn-info" data-dismiss="modal">
+					<input type="hidden" id="roomId" name="room.id" value="1">
+													<input type="hidden" value="3"
+														name="hotelServiceCategories.hotelServicesCategoryId">
+												   	<button type="button" class="btn btn-info" data-dismiss="modal">
 				<spring:message code="label.Close" />
 			</button>
 			<button id="submit" type="submit" class="btn btn-info  ">
@@ -88,7 +86,6 @@
 		            }
 		        });
 		    });
-		
 		 
 		 $(document).ready(function() {
 			   $('input[name="selectTime"]').click(function() {

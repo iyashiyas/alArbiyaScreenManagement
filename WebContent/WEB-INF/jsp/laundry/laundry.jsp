@@ -47,15 +47,14 @@
 												items="${getHotelServiceItem.orderItems.unitSupporter}"
 												var="unitSupporter">
 												<c:set var="singleUnitPrice"
-													value="${singleUnitPrice + unitSupporter.unitPrice}"></c:set>
+													value="${singleUnitPrice +  unitSupporter.unitPrice}"></c:set>
 											</c:forEach>
 											<p>
 										<sub>sar</sub>${singleUnitPrice}</p>
 										</div>
 										<figcaption class="view-caption">
 											<h4>${getHotelServiceItem.serviceItemName}</h4>
-											<a class="showOrderForm"> <spring:message
-													code="label.Order" /></a>
+											<a class="showOrderForm"> <spring:message code="label.Order" /></a>
 										</figcaption>
 									</div>
 								</div>
@@ -89,8 +88,8 @@
 															<c:forEach
 																items="${getHotelServiceItem.orderItems.unitSupporter}"
 																var="unit" varStatus="loop">
-																<div class="checkbox">
-                                                                       <input type="checkbox" id="checkbox"  class="option"
+																<div class="checkbox"> 
+																	<input type="checkbox" id="checkbox"  class="option"
 																		name="unit[${loop.index}].id" value="${unit.unitId }"
 																		data-price="${unit.unitPrice }" /> ${unit.unitName }
 																</div>

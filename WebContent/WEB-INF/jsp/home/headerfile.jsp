@@ -22,8 +22,7 @@
 	rel="stylesheet">
 <link id="loadBefore"
 	href="<c:url value="/resources/css/common.css" />"
-	rel="stylesheet">
-
+	rel="stylesheet"> 
 <title>SHMS</title>
 </head>
 <body> 
@@ -36,7 +35,7 @@
 					<li><span class="m-r-sm text-muted welcome-message">
 							 <label id="roomNumber" for="roomCode"></label></span></li> 
 					<li><span class="m-r-sm text-muted welcome-message"><spring:message code="label.Welcome" />
-						 Mr.Customer Name</span></li> 
+						 <label id="customerName" for="customerName"></label></span></li> 
 					<li class="dropdown"><a class="dropdown-toggle count-info"
 						data-toggle="dropdown" href="#"> <i class="fa fa-bell"></i> <span
 							class="label label-primary">0</span>

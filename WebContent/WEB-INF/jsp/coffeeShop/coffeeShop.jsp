@@ -95,8 +95,7 @@
 																		name="ingredients[${loop.index}].id"
 																		value="${ingredient.ingredientId }"
 																		data-price="${ingredient.ingredientPrice }" />
-																	${ingredient.ingredientName }
-
+																	${ingredient.ingredientName } 
 																</div>
 															</c:forEach>
 														</div>
@@ -118,8 +117,7 @@
 														</div>
 													</div>
 													<input type="hidden" id="roomId" name="room.id" value="1">
-													<input type="hidden" value="1"
-														name="hotelServiceCategories.hotelServicesCategoryId">
+													<input type="hidden" value="1" name="hotelServiceCategories.hotelServicesCategoryId">
 																<div class="form-group">
 														<label for="inputEmail" class="col-lg-2 control-label"><spring:message
 																code="label.Quantity" /></label>

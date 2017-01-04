@@ -184,7 +184,7 @@ public class ActionController {
 	
 	@RequestMapping(value = "/showLaundry", method = RequestMethod.GET)
 	public String showLaundry(Model model, @RequestParam(required=true) String ServiceId) {
-		
+		 
 		List<HotelServicesItem> hotelServiceItems = actionService.getHotelServiceItems(ServiceId);
 		 
 		for(HotelServicesItem hotelServicesItem: hotelServiceItems) {
@@ -210,7 +210,6 @@ public class ActionController {
 		attributes.put("laundry", laundry); 
 		attributes.put("newOrder", new Orders());
 		model.addAllAttributes(attributes);
-		
 		return "laundry/laundry";
 	}
 	    

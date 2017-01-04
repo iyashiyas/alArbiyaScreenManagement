@@ -6,11 +6,13 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.alArbiyaScreenManagement.model.Booking;
 import org.alArbiyaScreenManagement.model.HotelInfo;
 import org.alArbiyaScreenManagement.model.HotelServicesCategory;
 import org.alArbiyaScreenManagement.model.Language;
 import org.alArbiyaScreenManagement.model.Player;
 import org.alArbiyaScreenManagement.service.ActionService;
+import org.alArbiyaScreenManagement.service.BookingService;
 import org.alArbiyaScreenManagement.service.HomeService;
 import org.alArbiyaScreenManagement.service.HotelInfoService;
 import org.alArbiyaScreenManagement.service.LanguageService;
@@ -21,6 +23,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -40,6 +43,9 @@ public class HomeController {
 
 	@Autowired
 	HotelInfoService hotelInfoService;
+	
+	@Autowired
+    BookingService bookingService;
 
 	@Autowired(required = true)
 	private HttpServletRequest request;
@@ -89,8 +95,7 @@ public class HomeController {
 	public String shms() {
 		return "home/notAssignedPage";
 	}
-
-	  
+ 
 	@RequestMapping(value="/header", method=RequestMethod.GET)
 	public @ResponseBody List<Player> header() {
 		String iPAddrress = request.getHeader("X-FORWARDED-FOR");
@@ -100,7 +105,11 @@ public class HomeController {
 		return playerService.getPlayerRooms(iPAddrress);
 	}
 	
-
+	@RequestMapping(value="/roomCustomerName", method=RequestMethod.GET)
+	public @ResponseBody List<Booking> roomCustomerName(@RequestParam(required=false) String roomId) {
+		 
+		return bookingService.roomCustomerName(roomId);
+	}
 	 
   
 }

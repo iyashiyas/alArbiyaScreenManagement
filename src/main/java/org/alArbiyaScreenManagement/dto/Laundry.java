@@ -3,7 +3,7 @@ package org.alArbiyaScreenManagement.dto;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-
+ 
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 public class Laundry {
@@ -18,8 +18,9 @@ public class Laundry {
 	private List<String> languageName;
 	private List<CoffeeeShopUnitHelper> unitHelper;
 	private List<BigDecimal> unitPrice;
- 
-	
+	private List<CoffeeeShopIngredientHelper> ingredientHelper;
+	private List<BigDecimal> ingredientPrice;
+  
 	public List<CoffeeeShopLanguageHelper> getLanguageHelper() {
 		if(languageHelper==null) {
 			languageHelper = new ArrayList<CoffeeeShopLanguageHelper>();
@@ -117,5 +118,29 @@ public class Laundry {
 
 	public void setMultipartFile(CommonsMultipartFile multipartFile) {
 		this.multipartFile = multipartFile;
+	} 
+	
+	public List<CoffeeeShopIngredientHelper> getIngredientHelper() {
+		if(ingredientHelper==null){
+			ingredientHelper = new ArrayList<CoffeeeShopIngredientHelper>();
+			ingredientHelper.add(new CoffeeeShopIngredientHelper());
+		}
+		return ingredientHelper;
+	}
+
+	public void setIngredientHelper(
+			List<CoffeeeShopIngredientHelper> ingredientHelper) {
+		this.ingredientHelper = ingredientHelper;
+	}
+	public List<BigDecimal> getIngredientPrice() {
+		if(ingredientPrice == null) {
+			ingredientPrice = new ArrayList<BigDecimal>();
+			ingredientPrice.add(new BigDecimal(0.0));
+		}
+		return ingredientPrice;
+	}
+
+	public void setIngredientPrice(List<BigDecimal> ingredientPrice) {
+		this.ingredientPrice = ingredientPrice;
 	} 
 }
