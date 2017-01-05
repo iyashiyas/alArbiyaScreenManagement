@@ -84,7 +84,7 @@ public class ActionRepositoryImpl implements ActionRepository{
 	@Override
 	public List<HotelServicesItem> getHotelServiceItems(String serviceId) {
 		// TODO Auto-generated method stub
-		Query query = entityManager.createQuery("SELECT item from HotelServicesItem item where item.hotelServicesCategory.id=:serviceId", HotelServicesItem.class);
+		Query query = entityManager.createQuery("SELECT item from HotelServicesItem item where item.hotelServicesCategory.id=:serviceId and item.serviceItemStatus='ENABLED'", HotelServicesItem.class);
 		query.setParameter("serviceId", Long.parseLong(serviceId));
 	    return query.getResultList();
 	}

@@ -15,8 +15,7 @@
 <title>SHMS</title>
 </head>
 <body>
-	<div id="wrapper">
-	<img src="/alArbiyaHotelManagement/images/2017-01-04 05-07-16.jpeg" alt="profile">
+	<div id="wrapper"> 
 		<jsp:include page="../home/headerfile.jsp"></jsp:include>
 		<div class="container"> 
 			<div class="col-md-10 col-md-offset-1">

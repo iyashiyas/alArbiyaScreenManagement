@@ -39,7 +39,7 @@
 					<div class="row "> 
 						<c:forEach items="${getHotelServiceItems}" var="getHotelServiceItems">
 						<div class="col-lg-3 col-lg-offset-1 w3ls-special-img"
-							style="background-image: url('<c:out value="${getHotelServiceItems.imageUrlName}" />');">
+							style="background-image: url('/alArbiyaHotelManagement/images/CareRental/${getHotelServiceItems.imageUrlName}');">
 							<div class="wpf-demo-6"> 
 								<figcaption class="view-caption">
 									<h4>${getHotelServiceItems.serviceItemName}</h4>

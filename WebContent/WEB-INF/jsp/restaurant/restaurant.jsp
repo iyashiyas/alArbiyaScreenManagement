@@ -39,7 +39,7 @@
 							var="getHotelServiceItem">
 							<div class="hotelServiceItem">
 								<div class="col-lg-3 col-lg-offset-1 w3ls-special-img"
-									style="background-image: url('<c:out value="${getHotelServiceItem.imageUrlName}" />');">
+									style="background-image: url('/alArbiyaHotelManagement/images/restaurant/${getHotelServiceItem.imageUrlName}');">
 									<div class="wpf-demo-6">
 										<div class="w3ls-special-text">
 											<c:set var="singleUnitPrice" value="${0 }"></c:set>
