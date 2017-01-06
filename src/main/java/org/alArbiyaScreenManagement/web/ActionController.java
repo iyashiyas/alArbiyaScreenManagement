@@ -85,39 +85,6 @@ public class ActionController {
 		model.addAllAttributes(attributes);
 		return "coffeeShop/coffeeShop";
 	} 
-	private void populateOrderItems(HotelServicesItem hotelServicesItem) {
-		// TODO Auto-generated method stub
-		OrderItems orderItems = new OrderItems();
-		List<UnitSupporter> unitSupporter = new ArrayList<UnitSupporter>();
-		List<IngredientSupporter> ingredientSupporters = new ArrayList<IngredientSupporter>();
-		
-		for(HotelServicesGroup parentGroup:hotelServicesItem.getHotelServiceParentGroups()) {
-			for(HotelServicesGroup childGroup:parentGroup.getHotelServiceChildGroups()) {
-				for(HotelServicesValue hotelServicesValue: childGroup.getHotelServicesValues()){
-					if(hotelServicesValue.getFieldName().equals("UNITID")) {
-						Unit unit = unitService.getUnit(Long.parseLong(hotelServicesValue.getExternalId()));
-						
-						UnitSupporter supporter = new UnitSupporter();
-						supporter.setUnitId(unit.getId());
-						supporter.setUnitName(unit.getUnitName());
-						supporter.setUnitPrice(Long.parseLong(hotelServicesValue.getItemPrice()));
-						unitSupporter.add(supporter);
-					} 
-					if(hotelServicesValue.getFieldName().equals("INGREDIENTID")) {
-						Ingredient ingredient = ingredientService.getIngredient(Long.parseLong(hotelServicesValue.getExternalId()));
-						IngredientSupporter supporter = new IngredientSupporter();
-						supporter.setIngredientId(ingredient.getId());
-						supporter.setIngredientName(ingredient.getIngredientName());
-						supporter.setIngredientPrice(Long.parseLong(hotelServicesValue.getItemPrice()));
-						ingredientSupporters.add(supporter);
-					}
-					orderItems.setUnitSupporter(unitSupporter);
-					orderItems.setIngredientSupporter(ingredientSupporters);
-				}
-			}
-		}
-		hotelServicesItem.setOrderItems(orderItems); 
-	}
 
 	@RequestMapping(value = "/showRestaurant", method = RequestMethod.GET)
 	public String showRestaurant(Model model, @RequestParam(required=true) String ServiceId) {
@@ -213,6 +180,40 @@ public class ActionController {
 		return "laundry/laundry";
 	}
 	    
+	private void populateOrderItems(HotelServicesItem hotelServicesItem) {
+		// TODO Auto-generated method stub
+		OrderItems orderItems = new OrderItems();
+		List<UnitSupporter> unitSupporter = new ArrayList<UnitSupporter>();
+		List<IngredientSupporter> ingredientSupporters = new ArrayList<IngredientSupporter>();
+		
+		for(HotelServicesGroup parentGroup:hotelServicesItem.getHotelServiceParentGroups()) {
+			for(HotelServicesGroup childGroup:parentGroup.getHotelServiceChildGroups()) {
+				for(HotelServicesValue hotelServicesValue: childGroup.getHotelServicesValues()){
+					if(hotelServicesValue.getFieldName().equals("UNITID")) {
+						Unit unit = unitService.getUnit(Long.parseLong(hotelServicesValue.getExternalId()));
+						
+						UnitSupporter supporter = new UnitSupporter();
+						supporter.setUnitId(unit.getId());
+						supporter.setUnitName(unit.getUnitName());
+						supporter.setUnitPrice(Long.parseLong(hotelServicesValue.getItemPrice()));
+						unitSupporter.add(supporter);
+					} 
+					if(hotelServicesValue.getFieldName().equals("INGREDIENTID")) {
+						Ingredient ingredient = ingredientService.getIngredient(Long.parseLong(hotelServicesValue.getExternalId()));
+						IngredientSupporter supporter = new IngredientSupporter();
+						supporter.setIngredientId(ingredient.getId());
+						supporter.setIngredientName(ingredient.getIngredientName());
+						supporter.setIngredientPrice(Long.parseLong(hotelServicesValue.getItemPrice()));
+						ingredientSupporters.add(supporter);
+					}
+					orderItems.setUnitSupporter(unitSupporter);
+					orderItems.setIngredientSupporter(ingredientSupporters);
+				}
+			}
+		}
+		hotelServicesItem.setOrderItems(orderItems); 
+	}
+	
 	@RequestMapping(value="/addOrder", method=RequestMethod.POST)
 	public String addOrder(@ModelAttribute Orders order){
 		actionService.addOrder(order);

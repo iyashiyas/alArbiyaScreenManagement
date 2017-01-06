@@ -73,6 +73,7 @@
 													method="POST"
 													action="${pageContext.request.contextPath}/action/addOrder">
 													<div class="form-group">
+													<input type="hidden" name="hotelServicesItem.id" value="${getHotelServiceItem.id}">
 														<label for="inputEmail" class="col-lg-2 control-label"><spring:message
 																code="label.TotalPrice" /></label>
 														<div class="col-lg-10">
