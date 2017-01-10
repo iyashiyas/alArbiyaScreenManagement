@@ -35,6 +35,10 @@ public class PlayerServiceImpl implements PlayerService{
 		// TODO Auto-generated method stub
 		return playerRepository.getPlayerRooms(iPAddrress);
 	} 
+	
+	public Long getRoomIdForIp(String iPAddrress) {
+		return playerRepository.getRoomIdForIp(iPAddrress);
+	}
 
  
 	

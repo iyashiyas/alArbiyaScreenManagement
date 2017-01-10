@@ -7,6 +7,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
  
+
 import org.alArbiyaScreenManagement.model.Player;
 import org.alArbiyaScreenManagement.repository.PlayerRepository;
 import org.springframework.stereotype.Repository;
@@ -52,5 +53,11 @@ public List<Player> getPlayerRooms(String ipAddress) {
 	Query query = entityManager.createQuery("select ply from Player ply WHERE ply.playerIpAddress=:ipAddress", Player.class);
     query.setParameter("ipAddress", ipAddress);
     return query.getResultList();
+}
+@Override
+public Long getRoomIdForIp(String iPAddrress) {
+	Query query = entityManager.createQuery("select room.id from Player ply WHERE ply.playerIpAddress=:ipAddress", Long.class);
+    query.setParameter("ipAddress", iPAddrress);
+    return (Long) query.getResultList().get(0);
 }
 }

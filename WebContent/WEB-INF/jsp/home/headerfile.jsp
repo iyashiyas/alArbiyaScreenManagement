@@ -84,6 +84,12 @@
 <script src="<c:url value="/resources/js/custom.js" />"></script>
 <script src="<c:url value="/resources/js/header/header.js" />"></script>
 
+<script type="text/javascript">
+	$(document).ready(function() {
+		
+	})
+</script>
+
 
 </body>
 </html>

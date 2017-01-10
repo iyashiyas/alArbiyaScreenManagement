@@ -2,7 +2,6 @@ package org.alArbiyaScreenManagement.service;
 
 import java.util.List;
 
-import org.alArbiyaScreenManagement.model.Booking;
 import org.alArbiyaScreenManagement.model.Player;
 
 public interface PlayerService {
@@ -13,6 +12,6 @@ public interface PlayerService {
 
 	public List<Player> getPlayerRooms(String iPAddrress);
 
-	 
+	public Long getRoomIdForIp(String iPAddrress);
   
 }

@@ -11,6 +11,8 @@ public interface PlayerRepository {
 	Player getRoomAssignedPlayer(Player player);
 
 	List<Player> getPlayerRooms(String iPAddrress);
+
+	Long getRoomIdForIp(String iPAddrress);
 	
 	
  
