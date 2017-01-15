@@ -8,4 +8,6 @@ public interface NotificationService {
 	
 	public List<Notification> getNotification(long roomId);
 
+	public void updateNotifications(Long roomId);
+
 }

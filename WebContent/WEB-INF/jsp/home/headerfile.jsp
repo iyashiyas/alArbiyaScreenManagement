@@ -29,6 +29,9 @@
 		<div class="row border-bottom">
 			<nav class="navbar navbar-static-top" role="navigation"
 				style="margin-bottom: 0">
+				<div class="notifications">
+					<div id="message"></div>
+				</div>
 				<c:forEach items="${hotelInfos}" var="hotelInfos">
 				<div class="navbar-header" style="margin-left: 25px;">${hotelInfos.hotelName}</div></c:forEach>
 				<ul class="nav navbar-top-links navbar-right">
@@ -86,10 +89,73 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
+		setInterval(function() {
+			var message = "";
+			$.ajax({
+		        type:'GET',
+		        contentType: "application/json",
+		        url:'/alArbiyaScreenManagement/notifications',
+		        dataType: "json",
+		        success: function(data){ 
+		        	if(data.length==0) {
+		        		$("#message").html("")
+		        	} else {
+		        		message = "Your order for name "
+		    	        	$.each(data, function (i, notification) {
+		    	        		message += notification.serviceItemName+" ,";
+		    	        	});
+		    	        	message += " was accepted will delivered quickly"
+		    	        	message += "<input id='updateNotification' type='button' value='Ok'>";
+		    	        	$("#message").html("")
+		    	        	
+		    	        	$("#message").html(message);
+		        	}
+		        	
+		        },
+		        error:function(xmlHttpRequest, textStatus, errorThrown){
+		            if(xmlHttpRequest.readyState=0 || xmlHttpRequest.status == 0)
+		                return;
+		        },
+		    });
+		}, 5000)
 		
+		$('body').on('click', "#updateNotification", function() {
+			$.ajax({
+		        type:'POST',
+		        contentType: "application/json",
+		        url:'/alArbiyaScreenManagement/notifications/updateNotifications',
+		        dataType: "json",
+		        success: function(data){ 
+		        	$("#message").html("")
+		        },
+		        error:function(xmlHttpRequest, textStatus, errorThrown){
+		            if(xmlHttpRequest.readyState=0 || xmlHttpRequest.status == 0)
+		                return;
+		        },
+		    });
+		})
 	})
 </script>
 
-
+<style>
+	#message {
+	
+		float: left;
+	    width: 75%;
+	    background-color: #ffffff;
+	    font-family: Calibri;
+	    margin-left: 10%;
+	    text-align: center;
+	    font-size: 16px;
+	
+	}
+	
+	#updateNotification {
+	
+		margin-left: 15px;
+	    margin-top: 3px;
+	    margin-bottom: 3px;
+	}
+</style>
 </body>
 </html>

@@ -18,4 +18,10 @@ public class NotificationServiceImpl implements NotificationService{
 		return notificationRepository.getNotification(roomId);
 	}
 
+	@Override
+	public void updateNotifications(Long roomId) {
+		notificationRepository.updateNotifications(roomId);
+		
+	}
+
 }
