@@ -219,7 +219,7 @@ public class ActionController {
 	public String addOrder(@ModelAttribute Orders order){
 		System.out.println("room ID"+order.getRoom().getId());
 		actionService.addOrder(order);
-		return "redirect:/home";
+		return "redirect:/showHomePage";
 	}
 	 
 }

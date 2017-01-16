@@ -65,7 +65,7 @@ public class HomeController {
 			model.addAttribute("configured", "notconfigured");
 			return "redirect:/notAssigned";
 		} else { 
-			return "home/authenticationPage";
+			return "redirect:/authenticationPage";
 		}
 	}
 	@RequestMapping(value = "/checkAuthenticationPassword", method = RequestMethod.GET)
@@ -80,19 +80,26 @@ public class HomeController {
 			return "home/authenticationPage";
 		}
 		else
-		{
-		 
-			List<Language> languages = languageService.getEnableLanguages();
-			List<HotelInfo> hotelInfos = hotelInfoService.getHotelInfo();
-			List<HotelServicesCategory> hotelServiceCategories = actionService.getHotelServiceCategories(); 
-			attributes.put("languages", languages);
-			attributes.put("hotelInfos", hotelInfos);
-			attributes.put("hotelServiceCategories", hotelServiceCategories);
-			model.addAllAttributes(attributes);
-		return "home/home";
+		{ 
+			return "redirect:/showHomePage";
 		}
 		 
 	}
+	
+	
+	@RequestMapping(value = "/showHomePage")
+	public String showHomePage(Model model) {
+		Map<String, Object> attributes = new HashMap<String, Object>();
+		List<Language> languages = languageService.getEnableLanguages();
+		List<HotelInfo> hotelInfos = hotelInfoService.getHotelInfo();
+		List<HotelServicesCategory> hotelServiceCategories = actionService.getHotelServiceCategories(); 
+		attributes.put("languages", languages);
+		attributes.put("hotelInfos", hotelInfos);
+		attributes.put("hotelServiceCategories", hotelServiceCategories);
+		model.addAllAttributes(attributes); 
+		return "home/home";
+	}
+	
 	
 
 	/*
@@ -109,6 +116,11 @@ public class HomeController {
 	@RequestMapping(value = "/notAssigned")
 	public String shms() {
 		return "home/notAssignedPage";
+	}
+	
+	@RequestMapping(value = "/authenticationPage")
+	public String authenticationPage() {
+		return "home/authenticationPage";
 	}
  
 	@RequestMapping(value="/header", method=RequestMethod.GET)

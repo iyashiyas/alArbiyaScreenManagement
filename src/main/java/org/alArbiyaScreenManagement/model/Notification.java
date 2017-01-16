@@ -26,7 +26,10 @@ public class Notification {
 	
 	@Column(name="READ_STATUS")
 	private String readStatus;
-
+    
+	@Column(name="ORDER_STATUS")
+	private String orderStatus;
+	
 	public long getId() {
 		return id;
 	}
@@ -65,6 +68,14 @@ public class Notification {
 
 	public void setReadStatus(String readStatus) {
 		this.readStatus = readStatus;
+	}
+
+	public String getOrderStatus() {
+		return orderStatus;
+	}
+
+	public void setOrderStatus(String orderStatus) {
+		this.orderStatus = orderStatus;
 	}
 	
 }

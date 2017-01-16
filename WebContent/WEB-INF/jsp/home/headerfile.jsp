@@ -29,9 +29,7 @@
 		<div class="row border-bottom">
 			<nav class="navbar navbar-static-top" role="navigation"
 				style="margin-bottom: 0">
-				<div class="notifications">
-					<div id="message"></div>
-				</div>
+			
 				<c:forEach items="${hotelInfos}" var="hotelInfos">
 				<div class="navbar-header" style="margin-left: 25px;">${hotelInfos.hotelName}</div></c:forEach>
 				<ul class="nav navbar-top-links navbar-right">
@@ -64,7 +62,22 @@
 				</ul>
 
 			</nav>
+						
+		
 		</div>
+		<!-- 	<div class="notifications">
+					
+				</div> -->
+				
+	 <div class="row" id="notifications">
+    <div class="col-md-4 col-md-offset-5">
+     <div class="well well-lg">
+  <div id="message"></div>
+  </div> 
+    </div>
+</div>
+		
+				
  <input type="hidden" id="ro" class="roomId">
 	<script src="<c:url value="/resources/js/jquery-2.1.1.js" />"></script>
 	<script src="<c:url value="/resources/js/jquery-ui-1.10.4.min.js" />"></script>
@@ -90,7 +103,17 @@
 
  
 <script type="text/javascript">
+
+ 
+
 	$(document).ready(function() {
+		 var audioElement = document.createElement('audio');
+		    audioElement.setAttribute('src', '/alArbiyaHotelManagement/images/notify.MP3');
+		  
+		    //audioElement.load()
+		    $.get();
+		    
+		 $("#notifications").hide();
 		setInterval(function() {
 			var message = "";
 			$.ajax({
@@ -100,14 +123,19 @@
 		        dataType: "json",
 		        success: function(data){ 
 		        	if(data.length==0) {
+		        		
+		        		 $("#notifications").hide();
+		        		
 		        		$("#message").html("")
 		        	} else {
+		        		 audioElement.play();
+		        		 $("#notifications").show(); 
 		        		message = "Your order for name "
 		    	        	$.each(data, function (i, notification) {
 		    	        		message += notification.serviceItemName+" ,";
 		    	        	});
 		    	        	message += " was accepted will delivered quickly"
-		    	        	message += "<input id='updateNotification' type='button' value='Ok'>";
+		    	        	message += "<input id='updateNotification' class='btn btn-success' type='button' value='Ok'>";
 		    	        	$("#message").html("")
 		    	        	
 		    	        	$("#message").html(message);
@@ -122,12 +150,13 @@
 		}, 5000)
 		
 		$('body').on('click', "#updateNotification", function() {
+			 $("#notifications").hide();
 			$.ajax({
 		        type:'POST',
 		        contentType: "application/json",
 		        url:'/alArbiyaScreenManagement/notifications/updateNotifications',
 		        dataType: "json",
-		        success: function(data){ 
+		        success: function(data){  
 		        	$("#message").html("")
 		        },
 		        error:function(xmlHttpRequest, textStatus, errorThrown){
@@ -142,20 +171,14 @@
 <script src="<c:url value="/resources/js/home/roomCustomerName.js" />"></script>
   
 <style>
-	#message {
-	
-		float: left;
-	    width: 75%;
-	    background-color: #ffffff;
-	    font-family: Calibri;
-	    margin-left: 10%;
-	    text-align: center;
-	    font-size: 16px;
-	
+  	   
+	#notifications
+	{
+	display: none;
 	}
 	
 	#updateNotification {
-	
+	    
 		margin-left: 15px;
 	    margin-top: 3px;
 	    margin-bottom: 3px;

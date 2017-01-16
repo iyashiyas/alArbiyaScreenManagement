@@ -92,4 +92,8 @@ public class HotelServicesCategory {
 		this.hotelServicesItems = hotelServicesItems;
 	}
 	
+	
+	public boolean isEmpty() {
+		return (this.getServiceCategoryName() == null || this.getServiceCategoryName().isEmpty());
+	}
 }
