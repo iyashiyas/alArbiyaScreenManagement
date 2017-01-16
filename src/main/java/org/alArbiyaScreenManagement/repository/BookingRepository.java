@@ -8,4 +8,6 @@ public interface BookingRepository {
 
 	List<Booking> roomCustomerName(String roomId);
 
+	Booking authenticate(long roomId, int password);
+
 }

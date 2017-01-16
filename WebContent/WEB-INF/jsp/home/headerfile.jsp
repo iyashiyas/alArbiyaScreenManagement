@@ -65,7 +65,7 @@
 
 			</nav>
 		</div>
- 
+ <input type="hidden" id="ro" class="roomId">
 	<script src="<c:url value="/resources/js/jquery-2.1.1.js" />"></script>
 	<script src="<c:url value="/resources/js/jquery-ui-1.10.4.min.js" />"></script>
 
@@ -85,8 +85,10 @@
 	<script src="<c:url value="/resources/js/plugins/dateTimePicker/moment.min.js" />"></script>
 	<script src="<c:url value="/resources/js/plugins/dateTimePicker/bootstrap-datetimepicker.js" />"></script>
 <script src="<c:url value="/resources/js/custom.js" />"></script>
+ 
 <script src="<c:url value="/resources/js/header/header.js" />"></script>
 
+ 
 <script type="text/javascript">
 	$(document).ready(function() {
 		setInterval(function() {
@@ -136,7 +138,9 @@
 		})
 	})
 </script>
-
+ 
+<script src="<c:url value="/resources/js/home/roomCustomerName.js" />"></script>
+  
 <style>
 	#message {
 	

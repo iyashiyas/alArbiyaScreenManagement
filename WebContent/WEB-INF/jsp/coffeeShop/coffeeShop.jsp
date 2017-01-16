@@ -72,6 +72,9 @@
 												<form:form class="form-horizontal" modelAttribute="newOrder"
 													method="POST"
 													action="${pageContext.request.contextPath}/action/addOrder">
+													<input type="hidden" id="roomId" value="2" class="roomId" name="room.id">
+													<input type="hidden" value="1" name="hotelServiceCategories.hotelServicesCategoryId">
+													 
 													<div class="form-group">
 													<input type="hidden" name="hotelServicesItem.id" value="${getHotelServiceItem.id}">
 														<label for="inputEmail" class="col-lg-2 control-label"><spring:message
@@ -116,8 +119,6 @@
 															</c:forEach>
 														</div>
 													</div>
-													<input type="hidden" id="roomId" name="room.id" value="1">
-													<input type="hidden" value="1" name="hotelServiceCategories.hotelServicesCategoryId">
 																<div class="form-group">
 														<label for="inputEmail" class="col-lg-2 control-label"><spring:message
 																code="label.Quantity" /></label>
@@ -146,10 +147,8 @@
 				</div>
 			</div>
 		</div>
-	</div>
-
-</body>
-<script type="text/javascript">
+	</div> 
+	<script type="text/javascript">
 	$('.showOrderForm').click(function() {
 
 		var $parent = $(this).parents('.hotelServiceItem')
@@ -186,7 +185,7 @@ var total = 0;
 	        var sum = 0;
 	        $inputs.each(function() {
 	           if(this.checked)
-	               sum += parseInt(this.value);
+	               sum += parseInt($(this).data('price'), 10);
 	        });
 	        $(".totalPrice").val(sum);
 	    });
@@ -205,4 +204,6 @@ var total = 0;
 	    
  
 </script>
+<script src="<c:url value="/resources/js/custom.js" />"></script>
+</body> 
 </html>

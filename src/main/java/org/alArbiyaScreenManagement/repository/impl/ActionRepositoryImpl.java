@@ -87,8 +87,7 @@ public class ActionRepositoryImpl implements ActionRepository{
 		Query query = entityManager.createQuery("SELECT item from HotelServicesItem item where item.hotelServicesCategory.id=:serviceId and item.serviceItemStatus='ENABLED'", HotelServicesItem.class);
 		query.setParameter("serviceId", Long.parseLong(serviceId));
 	    return query.getResultList();
-	}
-
+	} 
 	@Override
 	public List<HotelServicesGroup> getAllParentCategories(List<Long> hotelServicesItemsIds){
 		Query query = entityManager.createQuery("SELECT parentGroup from HotelServicesGroup parentGroup where parentGroup.hotelServicesItem.id in :hotelServicesItemsIds", HotelServicesGroup.class);
@@ -98,7 +97,7 @@ public class ActionRepositoryImpl implements ActionRepository{
 	}
 
 	@Override
-	public Orders addOrder(Orders order) {
+	public Orders addOrder(Orders order) { 
 		// TODO Auto-generated method stub
 		List<Ingredient> ingredients = order.getIngredients();
 		List<Unit> units = order.getUnit();
@@ -116,8 +115,7 @@ public class ActionRepositoryImpl implements ActionRepository{
 				if(unit.getId() != 0)
 				order.getUnit().add(unit);
 			}
-		}
-		
+		} 
 		entityManager.merge(order);
 		return order;
 	}

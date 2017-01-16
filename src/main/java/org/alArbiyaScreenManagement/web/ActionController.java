@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
  
+
 import org.alArbiyaScreenManagement.dto.CarRental;
 import org.alArbiyaScreenManagement.dto.CoffeeShop;
 import org.alArbiyaScreenManagement.dto.Laundry;
@@ -216,6 +217,7 @@ public class ActionController {
 	
 	@RequestMapping(value="/addOrder", method=RequestMethod.POST)
 	public String addOrder(@ModelAttribute Orders order){
+		System.out.println("room ID"+order.getRoom().getId());
 		actionService.addOrder(order);
 		return "redirect:/home";
 	}

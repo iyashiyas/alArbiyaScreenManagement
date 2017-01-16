@@ -58,6 +58,7 @@ public class ActionServiceImpl implements ActionService {
 
 	@Override
 	public Orders addOrder(Orders order) {
+		System.out.println("roomid is == "+ order.getRoom().getId());
 		// TODO Auto-generated method stub
 		order.setOrderStatus("ORDERED");
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");

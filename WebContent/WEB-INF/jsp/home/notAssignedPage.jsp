@@ -33,10 +33,10 @@
  <span class="text-navy">
 <marquee><h3> <label class="label label-danger">Not Configured</label></h3></marquee>
 </span>
- <script src="<c:url value="/resources/js/home/header.js" />"></script>
- 
 </div>
+</div>
+<script src="<c:url value="/resources/js/jquery-2.1.1.js" />"></script>
+<script src="<c:url value="/resources/js/home/notAssigned.js" />"></script>
 
-</div>
 </body>
 </html>

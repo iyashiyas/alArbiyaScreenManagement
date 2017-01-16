@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="HOTEL_SERVICES_CATEGORY")
 public class HotelServicesCategory {
@@ -31,6 +33,7 @@ public class HotelServicesCategory {
 	@Column(name="SERVICE_CATEGORY_ICON_NAME")
 	private String serviceCategoryIconName;
 	
+ 
 	@OneToMany(mappedBy = "hotelServicesCategory", fetch=FetchType.EAGER, cascade = CascadeType.MERGE)
 	private List<HotelServicesItem> hotelServicesItems;
  

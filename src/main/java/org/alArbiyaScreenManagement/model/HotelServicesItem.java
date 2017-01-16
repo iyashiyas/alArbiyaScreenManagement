@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-
+  
 @Entity
 @Table(name="HOTEL_SERVICES_ITEM")
 public class HotelServicesItem {
@@ -29,16 +29,16 @@ public class HotelServicesItem {
 	
 	@Column(name="SERVICE_ITEM_DESCRIPTION")
 	private String serviceItemDescription;
-	
+	 
 	@OneToMany(mappedBy = "hotelServicesItem", fetch=FetchType.EAGER, cascade = CascadeType.MERGE)
 	private List<HotelServicesGroup> hotelServiceParentGroups;
-	
+	  
 	@OneToMany(mappedBy="hotelServicesItem", cascade={CascadeType.MERGE}, fetch=FetchType.EAGER, orphanRemoval=true) 
 	private List<ServiceLanguage> serviceLanguages;
-	
+	 
 	@ManyToOne
 	private HotelServicesCategory hotelServicesCategory;
-
+ 
 	@Column(name="IMAGE_URL_NAME")
 	private String imageUrlName;
 	
@@ -117,8 +117,7 @@ public class HotelServicesItem {
 		if(hotelServicesCategory.getHotelServicesItems() != null && !hotelServicesCategory.getHotelServicesItems().contains(this)) {
 			hotelServicesCategory.getHotelServicesItems().add(this);
 		}
-	}
-
+	} 
 	public String getImageUrlName() {
 		return this.imageUrlName;
 	}

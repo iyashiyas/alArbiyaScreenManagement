@@ -10,12 +10,10 @@
 <link rel="stylesheet" type="text/css"
 	href="<c:url value="/resources/css/touchspin/jquery.bootstrap-touchspin.min.css" />">
 <link rel="stylesheet" type="text/css"
-	href="<c:url value="/resources/css/dateTimePicker/bootstrap-datetimepicker.css" />">
-
+	href="<c:url value="/resources/css/dateTimePicker/bootstrap-datetimepicker.css" />"> 
 <title>SHMS</title>
 </head>
-<body>
-	<div id="wrapper"> 
+<body> 
 		<jsp:include page="../home/headerfile.jsp"></jsp:include>
 		<div class="container"> 
 			<div class="col-md-10 col-md-offset-1">
@@ -144,6 +142,7 @@
 									</div>
 								</div>
 							</div>
+							
 						</a> <a href="${pageContext.request.contextPath}/action/showCarRental?ServiceId=7">
 							<div class="col-lg-4 col-md-offset-1">
 								<div class="widget style1 lazur-bg">
@@ -182,7 +181,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+ 
 	<div class="modal fade" id="language" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -207,8 +206,7 @@
 		
 		</div>
 	</div>
-	
-	
+	 
 	<div class="modal fade" id="housekeeping" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -221,7 +219,6 @@
 			</button>
 
 		</div>
-	</div>
-
+	</div> 
 </body>
 </html>

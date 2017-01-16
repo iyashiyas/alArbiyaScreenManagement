@@ -9,10 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
- 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-
+ 
 @Entity
 @Table(name="USER_DETAILS")
 public class UserDetails {
@@ -72,10 +72,9 @@ public class UserDetails {
 	
 	@Column(name="DOCUMENTURL")
 	private String documentUrl;
+	
 	 
-   
-	@OneToMany(mappedBy="userDetails", cascade={javax.persistence.CascadeType.MERGE})
-	@JsonManagedReference
+	@OneToMany(mappedBy="userDetails", cascade={javax.persistence.CascadeType.MERGE}) 
 	private List<Booking> bookings;
 
 	public long getId() {

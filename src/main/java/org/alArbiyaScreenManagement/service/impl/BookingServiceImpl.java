@@ -15,9 +15,15 @@ public class BookingServiceImpl implements BookingService{
 	BookingRepository bookingRepository;
 	
 	@Override
-	public List<Booking> roomCustomerName(String roomId) {
+	public List<Booking> roomCustomerName(String roomID) {
 		// TODO Auto-generated method stub
-		return bookingRepository.roomCustomerName(roomId);
+		return bookingRepository.roomCustomerName(roomID);
+	}
+
+	@Override
+	public Booking authenticate(long roomId, int password) {
+		// TODO Auto-generated method stub
+		return bookingRepository.authenticate(roomId,password);
 	}
 
 }

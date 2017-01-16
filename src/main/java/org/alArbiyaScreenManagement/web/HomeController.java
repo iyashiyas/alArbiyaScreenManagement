@@ -62,23 +62,38 @@ public class HomeController {
 		Player getRoomAssignedPlayer = playerService.getRoomAssignedPlayer(
 				player, iPAddrress);
 		if (getRoomAssignedPlayer == null) {
+			model.addAttribute("configured", "notconfigured");
 			return "redirect:/notAssigned";
-		} else {
-		    
-			List<Player> getPlayerRooms = playerService.getPlayerRooms(iPAddrress);  
+		} else { 
+			return "home/authenticationPage";
+		}
+	}
+	@RequestMapping(value = "/checkAuthenticationPassword", method = RequestMethod.GET)
+	public String authenticate(@RequestParam(required=true) long roomId,
+			@RequestParam(required=true) int password, @ModelAttribute Booking booking,Model model) { 
+		System.out.println("roomID" +roomId); 
+		Map<String, Object> attributes = new HashMap<String, Object>();
+		Booking AuthenticatePassword= bookingService.authenticate(roomId,password);
+		if(AuthenticatePassword==null)
+		{ 
+			attributes.put("error","error");
+			return "home/authenticationPage";
+		}
+		else
+		{
+		 
 			List<Language> languages = languageService.getEnableLanguages();
 			List<HotelInfo> hotelInfos = hotelInfoService.getHotelInfo();
-			List<HotelServicesCategory> hotelServiceCategories = actionService
-					.getHotelServiceCategories();
-			Map<String, Object> attributes = new HashMap<String, Object>();
-			attributes.put("getPlayerRooms", getPlayerRooms);
+			List<HotelServicesCategory> hotelServiceCategories = actionService.getHotelServiceCategories(); 
 			attributes.put("languages", languages);
 			attributes.put("hotelInfos", hotelInfos);
 			attributes.put("hotelServiceCategories", hotelServiceCategories);
 			model.addAllAttributes(attributes);
-			return "home/home";
+		return "home/home";
 		}
+		 
 	}
+	
 
 	/*
 	 * @RequestMapping(value = "/shms", method = RequestMethod.GET) public
@@ -106,10 +121,12 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/roomCustomerName", method=RequestMethod.GET)
-	public @ResponseBody List<Booking> roomCustomerName(@RequestParam(required=false) String roomId) {
+	public @ResponseBody List<Booking> roomCustomerName(@RequestParam(required=false) String roomID) {
 		 
-		return bookingService.roomCustomerName(roomId);
+		return bookingService.roomCustomerName(roomID);
 	}
+	
 	 
+	
   
 }
