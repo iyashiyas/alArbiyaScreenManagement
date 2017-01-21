@@ -7,14 +7,10 @@ $( document ).ready(function() {
 	    url:"/alArbiyaScreenManagement/header", 
 	    dataType: "json",
 	    success: function(data) {
-  	    	$.each(data, function (i, getPlayerRooms) { 
+  	    	$.each(data, function (i, getPlayerRooms){ 
           	  $("#roomNumber").html(getPlayerRooms.room.roomCode);   
           	  $("#autheroom").html(getPlayerRooms.room.roomCode);   
-         	  $(".roomId").val(getPlayerRooms.room.id); 
-         	  
-         	  
-         	  
-         	  
+         	  $(".roomId").val(getPlayerRooms.room.id);  
           	}); 
           },
         error:function(xmlHttpRequest, textStatus, errorThrown){

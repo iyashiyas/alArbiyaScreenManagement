@@ -22,47 +22,48 @@
 		</div>
 		<div class="panel-body">
 			 
-			<form:form class="form-horizontal" modelAttribute="newOrder"  method="POST" action="${pageContext.request.contextPath}/action/addOrder">
+			<form:form class="form-horizontal" modelAttribute="parkingOrder" method="POST" action="${pageContext.request.contextPath}/action/parkingRequest">
+				<input type="hidden" name="parking.id" id="parkingId" disabled="disabled" >
+	          	<input type="hidden" id="roomId" value="2" class="roomId" name="room.id">
 				<div class="form-group">
-					<label for="inputEmail" class="col-lg-2 control-label"><spring:message code="label.ParkingID" />
+					<label class="col-lg-2 control-label"><spring:message code="label.ParkingID" />
 						 </label>
 					<div class="col-lg-10">
-						<input type="text" class="form-control" name="Parking ID"
-							id="parkingId" disabled="disabled" placeholder="1EbSTH">
+						<input type="text" class="form-control"  
+							id="parkingName" disabled="disabled" >
 					</div>
 				</div>
 				
-				<div class="form-group">
+	 	  <div class="form-group">
 					<label class="col-lg-2 control-label"><spring:message code="label.SelectTime" /></label>
 					<div class="col-lg-10">
 						<div class="radio">
-							<label> <input type="radio" class="its"
-								name="selectTime" id="now" value="5" checked="checked"> <spring:message code="label.Now" />
+							<label> <form:radiobutton   class="its"
+								name="timeStatus" id="now" value="5" path="timeStatus" checked="checked" /> <spring:message code="label.Now" />
 							</label>
 						</div>
 						<div class="radio">
-							<label> <input type="radio" class="its"
-								name="selectTime" id="later" value="10">
+							<label> <form:radiobutton class="its"
+								name="timeStatus" id="later" value="10" path="timeStatus" />
 								<spring:message code="label.Later" />
 							</label> 
 						</div>
 
 					</div>
-				</div>
+				</div>    
 
 				 <div class="form-group" id="selectTimer" style="display: none;">
 				 	<label class="col-lg-2 control-label"><spring:message code="label.SelectTime" /></label>
                 <div class='input-group date' id='datetimepicker1'>
-                    <input type='text' class="form-control" />
+                    <form:input  class="form-control" name="deliveryTime" path="deliveryTime" />
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
                 </div>
                 </div>  
-					<input type="hidden" id="roomId" name="room.id" value="1">
-													<input type="hidden" value="3"
-														name="hotelServiceCategories.hotelServicesCategoryId">
-												   	<button type="button" class="btn btn-info" data-dismiss="modal">
+					
+												 
+				  	<button type="button" class="btn btn-info" data-dismiss="modal">
 				<spring:message code="label.Close" />
 			</button>
 			<button id="submit" type="submit" class="btn btn-info  ">
@@ -78,7 +79,7 @@
 	<script type="text/javascript">
 		$('#datetimepicker2').datepicker(); 
 		 $(function () {
-		        $("input[name='selectTime']").click(function () {
+		        $("input[name='timeStatus']").click(function () {
 		            if ($("#chkYes").is(":checked")) {
 		                $("#dvPassport").show();
 		            } else {
@@ -88,7 +89,7 @@
 		    });
 		 
 		 $(document).ready(function() {
-			   $('input[name="selectTime"]').click(function() {
+			   $('input[name="timeStatus"]').click(function() {
 			       if($(this).attr('id') == 'later') {
 			            $('#selectTimer').show();           
 			       }

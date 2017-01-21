@@ -10,6 +10,7 @@ import org.alArbiyaScreenManagement.model.Booking;
 import org.alArbiyaScreenManagement.model.HotelInfo;
 import org.alArbiyaScreenManagement.model.HotelServicesCategory;
 import org.alArbiyaScreenManagement.model.Language;
+import org.alArbiyaScreenManagement.model.ParkingOrder;
 import org.alArbiyaScreenManagement.model.Player;
 import org.alArbiyaScreenManagement.service.ActionService;
 import org.alArbiyaScreenManagement.service.BookingService;
@@ -96,6 +97,7 @@ public class HomeController {
 		attributes.put("languages", languages);
 		attributes.put("hotelInfos", hotelInfos);
 		attributes.put("hotelServiceCategories", hotelServiceCategories);
+		attributes.put("parkingOrder", new ParkingOrder());
 		model.addAllAttributes(attributes); 
 		return "home/home";
 	}
@@ -133,8 +135,7 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/roomCustomerName", method=RequestMethod.GET)
-	public @ResponseBody List<Booking> roomCustomerName(@RequestParam(required=false) String roomID) {
-		 
+	public @ResponseBody List<Booking> roomCustomerName(@RequestParam(required=false) String roomID) { 
 		return bookingService.roomCustomerName(roomID);
 	}
 	

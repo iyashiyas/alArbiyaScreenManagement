@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -73,8 +74,9 @@ public class UserDetails {
 	@Column(name="DOCUMENTURL")
 	private String documentUrl;
 	
-	 
-	@OneToMany(mappedBy="userDetails", cascade={javax.persistence.CascadeType.MERGE}) 
+	
+	@OneToMany(mappedBy="userDetails", cascade={javax.persistence.CascadeType.MERGE}, fetch=FetchType.EAGER) 
+	@JsonManagedReference
 	private List<Booking> bookings;
 
 	public long getId() {

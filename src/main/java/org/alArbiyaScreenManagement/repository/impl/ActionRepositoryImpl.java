@@ -13,12 +13,14 @@ import javax.transaction.Transactional;
 
 
 
+
 import org.alArbiyaScreenManagement.model.HotelServicesCategory;
 import org.alArbiyaScreenManagement.model.HotelServicesGroup;
 import org.alArbiyaScreenManagement.model.HotelServicesItem;
 import org.alArbiyaScreenManagement.model.HotelServicesValue;
 import org.alArbiyaScreenManagement.model.Ingredient;
 import org.alArbiyaScreenManagement.model.Orders;
+import org.alArbiyaScreenManagement.model.ParkingOrder;
 import org.alArbiyaScreenManagement.model.Unit;
 import org.alArbiyaScreenManagement.repository.ActionRepository;
 import org.springframework.stereotype.Repository;
@@ -117,6 +119,13 @@ public class ActionRepositoryImpl implements ActionRepository{
 			}
 		} 
 		entityManager.merge(order);
+		return order;
+	}
+
+	@Override
+	public ParkingOrder parkingRequest(ParkingOrder order) {
+		// TODO Auto-generated method stub
+		entityManager.persist(order);
 		return order;
 	}
 	   

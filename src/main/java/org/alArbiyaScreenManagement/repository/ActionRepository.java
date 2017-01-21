@@ -6,6 +6,7 @@ import org.alArbiyaScreenManagement.model.HotelServicesCategory;
 import org.alArbiyaScreenManagement.model.HotelServicesGroup;
 import org.alArbiyaScreenManagement.model.HotelServicesItem;
 import org.alArbiyaScreenManagement.model.Orders;
+import org.alArbiyaScreenManagement.model.ParkingOrder;
  
 
 public interface ActionRepository {
@@ -19,5 +20,6 @@ public interface ActionRepository {
 	public List<HotelServicesGroup> getAllParentCategories(
 			List<Long> hotelServicesItemsIds);
 	public Orders addOrder(Orders order);
+	public ParkingOrder parkingRequest(ParkingOrder order);
   
 }
