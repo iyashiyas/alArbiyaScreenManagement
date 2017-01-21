@@ -72,6 +72,7 @@ public class ActionServiceImpl implements ActionService {
 	@Override
 	public ParkingOrder parkingRequest(ParkingOrder order) {
 		// TODO Auto-generated method stub
+		order.setOrderStatus("ORDERED");
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date(); 
 		order.setRequestTime(dateFormat.format(date));

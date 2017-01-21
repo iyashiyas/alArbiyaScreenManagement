@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne; 
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +21,10 @@ public class ParkingOrder {
 	
 	@Column(name="REQUEST_TIME")
 	private String requestTime;
+	
+	@Column(name="ORDER_STATUS")
+	private String orderStatus;
+ 
 
 	@Column(name="DELIVERY_TIME")
 	private String deliveryTime;
@@ -28,7 +32,7 @@ public class ParkingOrder {
 	@OneToOne
 	@JoinColumn(name="PARKING_ID", nullable=false)
 	private Parking parking;
-	
+	 
 	@OneToOne
 	@JoinColumn(name="ROOM_ID", nullable=false)
 	private Room room;
@@ -48,8 +52,7 @@ public class ParkingOrder {
 	public void setTimeStatus(String timeStatus) {
 		this.timeStatus = timeStatus;
 	}
-
-	 
+ 
 
 	public String getRequestTime() {
 		return requestTime;
@@ -59,7 +62,14 @@ public class ParkingOrder {
 		this.requestTime = requestTime;
 	}
 
-  
+	public String getDelveryTime() {
+		return deliveryTime;
+	}
+
+	public void setDelveryTime(String deliveryTime) {
+		this.deliveryTime = deliveryTime;
+	}
+
 	public Parking getParking() {
 		return parking;
 	}
@@ -67,13 +77,20 @@ public class ParkingOrder {
 	public void setParking(Parking parking) {
 		this.parking = parking;
 	}
-
+	 
 	public Room getRoom() {
 		return room;
 	}
 
 	public void setRoom(Room room) {
 		this.room = room;
+	}
+	public String getOrderStatus() {
+		return orderStatus;
+	}
+
+	public void setOrderStatus(String orderStatus) {
+		this.orderStatus = orderStatus;
 	}
 
 	public String getDeliveryTime() {
@@ -83,6 +100,5 @@ public class ParkingOrder {
 	public void setDeliveryTime(String deliveryTime) {
 		this.deliveryTime = deliveryTime;
 	}
-	 
 	
 }

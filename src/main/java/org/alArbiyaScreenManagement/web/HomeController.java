@@ -85,9 +85,7 @@ public class HomeController {
 			return "redirect:/showHomePage";
 		}
 		 
-	}
-	
-	
+	}  
 	@RequestMapping(value = "/showHomePage")
 	public String showHomePage(Model model) {
 		Map<String, Object> attributes = new HashMap<String, Object>();
@@ -100,21 +98,7 @@ public class HomeController {
 		attributes.put("parkingOrder", new ParkingOrder());
 		model.addAllAttributes(attributes); 
 		return "home/home";
-	}
-	
-	
-
-	/*
-	 * @RequestMapping(value = "/shms", method = RequestMethod.GET) public
-	 * String shms(@ModelAttribute Player player) { String iPAddrress =
-	 * request.getHeader("X-FORWARDED-FOR"); if (iPAddrress == null) {
-	 * iPAddrress = request.getRemoteAddr(); System.out.println(iPAddrress); }
-	 * 
-	 * Player playerDetails = playerService.getPlayerDetails(iPAddrress);
-	 * System.out.println(playerDetails);
-	 * 
-	 * playerService.addPlayer(player, iPAddrress); return "home/home"; }
-	 */
+	} 
 	@RequestMapping(value = "/notAssigned")
 	public String shms() {
 		return "home/notAssignedPage";
@@ -138,8 +122,5 @@ public class HomeController {
 	public @ResponseBody List<Booking> roomCustomerName(@RequestParam(required=false) String roomID) { 
 		return bookingService.roomCustomerName(roomID);
 	}
-	
 	 
-	
-  
 }
