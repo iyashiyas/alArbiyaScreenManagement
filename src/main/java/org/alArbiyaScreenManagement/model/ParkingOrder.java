@@ -13,7 +13,7 @@ import javax.persistence.Table;
 public class ParkingOrder {
 
 	@Id @GeneratedValue 
-	@Column(name="PARKING_ID")
+	@Column(name="PARKING_ORDER_ID")
 	private long id;
 	
 	@Column(name="TIME_STATUS")
@@ -24,15 +24,20 @@ public class ParkingOrder {
 	
 	@Column(name="ORDER_STATUS")
 	private String orderStatus;
- 
-
+  
 	@Column(name="DELIVERY_TIME")
 	private String deliveryTime;
+	
+	@Column(name="ACCEPT_TIME")
+	private String acceptTime;
+	
+	@Column(name="REQUEST_TYPE")
+	private String requestType;
 	 
 	@OneToOne
 	@JoinColumn(name="PARKING_ID", nullable=false)
 	private Parking parking;
-	 
+ 
 	@OneToOne
 	@JoinColumn(name="ROOM_ID", nullable=false)
 	private Room room;
@@ -70,13 +75,6 @@ public class ParkingOrder {
 		this.deliveryTime = deliveryTime;
 	}
 
-	public Parking getParking() {
-		return parking;
-	}
-
-	public void setParking(Parking parking) {
-		this.parking = parking;
-	}
 	 
 	public Room getRoom() {
 		return room;
@@ -85,6 +83,14 @@ public class ParkingOrder {
 	public void setRoom(Room room) {
 		this.room = room;
 	}
+	public Parking getParking() {
+		return parking;
+	}
+
+	public void setParking(Parking parking) {
+		this.parking = parking;
+	}
+
 	public String getOrderStatus() {
 		return orderStatus;
 	}
@@ -99,6 +105,22 @@ public class ParkingOrder {
 
 	public void setDeliveryTime(String deliveryTime) {
 		this.deliveryTime = deliveryTime;
+	}
+
+	public String getAcceptTime() {
+		return acceptTime;
+	}
+
+	public void setAcceptTime(String acceptTime) {
+		this.acceptTime = acceptTime;
+	}
+
+	public String getRequestType() {
+		return requestType;
+	}
+
+	public void setRequestType(String requestType) {
+		this.requestType = requestType;
 	}
 	
 }

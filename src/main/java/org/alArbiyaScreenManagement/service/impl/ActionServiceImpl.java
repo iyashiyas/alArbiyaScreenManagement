@@ -70,17 +70,13 @@ public class ActionServiceImpl implements ActionService {
 	}
 
 	@Override
-	public ParkingOrder parkingRequest(ParkingOrder order) {
+	public ParkingOrder parkingRequest(ParkingOrder parkingOrder) {
 		// TODO Auto-generated method stub
-		order.setOrderStatus("ORDERED");
+		parkingOrder.setOrderStatus("ORDERED");
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date(); 
-		order.setRequestTime(dateFormat.format(date));
-		if(order.getTimeStatus().equals("NOW"))
-		{ 
-		order.setDeliveryTime(dateFormat.format(date));
-		} 
-		return actionRepository.parkingRequest(order);
+		parkingOrder.setRequestTime(dateFormat.format(date)); 
+		return actionRepository.parkingRequest(parkingOrder);
 	}
 	 
 }

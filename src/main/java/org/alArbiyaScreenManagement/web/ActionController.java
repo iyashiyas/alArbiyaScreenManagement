@@ -225,8 +225,8 @@ public class ActionController {
 	}
 	
 	@RequestMapping(value="/parkingRequest", method=RequestMethod.POST)
-	public String parkingRequest(@ModelAttribute ParkingOrder order){ 
-		actionService.parkingRequest(order);
+	public String parkingRequest(@ModelAttribute ParkingOrder parkingOrder){ 
+		actionService.parkingRequest(parkingOrder);
 		return "redirect:/showHomePage";
 	}
 	 

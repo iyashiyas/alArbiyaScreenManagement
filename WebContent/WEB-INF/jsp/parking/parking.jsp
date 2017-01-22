@@ -23,7 +23,7 @@
 		<div class="panel-body">
 			 
 			<form:form class="form-horizontal" modelAttribute="parkingOrder" method="POST" action="${pageContext.request.contextPath}/action/parkingRequest">
-				<input type="hidden" name="parking.id" id="parkingId" disabled="disabled" >
+              	<input type="hidden" id="parkingId" value="2" class="parkingId" name="parking.id">
 	          	<input type="hidden" id="roomId" value="2" class="roomId" name="room.id">
 				<div class="form-group">
 					<label class="col-lg-2 control-label"><spring:message code="label.ParkingID" />
@@ -35,34 +35,22 @@
 				</div>
 				
 	 	  <div class="form-group">
-					<label class="col-lg-2 control-label"><spring:message code="label.SelectTime" /></label>
+					<label class="col-lg-2 control-label">Reason</label>
 					<div class="col-lg-10">
 						<div class="radio">
 							<label> <form:radiobutton   class="its"
-								name="timeStatus" id="now" value="5" path="timeStatus" checked="checked" /> <spring:message code="label.Now" />
+								name="requestType" id="now" value="OUT" path="requestType" checked="checked" /> GoingOut
 							</label>
 						</div>
 						<div class="radio">
 							<label> <form:radiobutton class="its"
-								name="timeStatus" id="later" value="10" path="timeStatus" />
-								<spring:message code="label.Later" />
+								name="requestType" id="later" value="CHECKOUT" path="requestType" />
+								CHECK-OUT
 							</label> 
-						</div>
-
+						</div> 
 					</div>
 				</div>    
-
-				 <div class="form-group" id="selectTimer" style="display: none;">
-				 	<label class="col-lg-2 control-label"><spring:message code="label.SelectTime" /></label>
-                <div class='input-group date' id='datetimepicker1'>
-                    <form:input  class="form-control" name="deliveryTime" path="deliveryTime" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-                </div>  
-					
-												 
+ 
 				  	<button type="button" class="btn btn-info" data-dismiss="modal">
 				<spring:message code="label.Close" />
 			</button>
@@ -72,33 +60,9 @@
 			</form:form>
 		</div>
 	</div>
-	<script type="text/javascript" src="<c:url value="/resources/js/plugins/dateTimePicker/callDateTimepicker.js" />"></script>
-
+	 
 	<script type="text/javascript" src="<c:url value="/resources/js/plugins/touchspin/jquery.bootstrap-touchspin.min.js" />"></script>
 
-	<script type="text/javascript">
-		$('#datetimepicker2').datepicker(); 
-		 $(function () {
-		        $("input[name='timeStatus']").click(function () {
-		            if ($("#chkYes").is(":checked")) {
-		                $("#dvPassport").show();
-		            } else {
-		                $("#dvPassport").hide();
-		            }
-		        });
-		    });
-		 
-		 $(document).ready(function() {
-			   $('input[name="timeStatus"]').click(function() {
-			       if($(this).attr('id') == 'later') {
-			            $('#selectTimer').show();           
-			       }
-
-			       else {
-			            $('#selectTimer').hide();   
-			       }
-			   });
-			});
-	</script>
+	 
 </body>
 </html>

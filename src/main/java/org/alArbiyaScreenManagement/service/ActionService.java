@@ -23,6 +23,6 @@ public interface ActionService {
 
 	public Orders addOrder(Orders order);
 
-	public ParkingOrder parkingRequest(ParkingOrder order);
+	public ParkingOrder parkingRequest(ParkingOrder parkingOrder);
  
 }
