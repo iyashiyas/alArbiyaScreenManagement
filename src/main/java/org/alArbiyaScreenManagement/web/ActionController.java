@@ -7,6 +7,7 @@ import java.util.Map;
  
 
 
+
 import org.alArbiyaScreenManagement.dto.CarRental;
 import org.alArbiyaScreenManagement.dto.CoffeeShop;
 import org.alArbiyaScreenManagement.dto.Laundry;
@@ -14,6 +15,7 @@ import org.alArbiyaScreenManagement.dto.Restaurant;
 import org.alArbiyaScreenManagement.model.HotelServicesGroup;
 import org.alArbiyaScreenManagement.model.HotelServicesItem;
 import org.alArbiyaScreenManagement.model.HotelServicesValue;
+import org.alArbiyaScreenManagement.model.HouseKeeping;
 import org.alArbiyaScreenManagement.model.Ingredient;
 import org.alArbiyaScreenManagement.model.IngredientSupporter;
 import org.alArbiyaScreenManagement.model.Orders;
@@ -227,6 +229,12 @@ public class ActionController {
 	@RequestMapping(value="/parkingRequest", method=RequestMethod.POST)
 	public String parkingRequest(@ModelAttribute ParkingOrder parkingOrder){ 
 		actionService.parkingRequest(parkingOrder);
+		return "redirect:/showHomePage";
+	}
+	
+	@RequestMapping(value="/houseKeepingRequest", method=RequestMethod.POST)
+	public String houseKeepingRequest(@ModelAttribute HouseKeeping houseKeepingOrder){ 
+		actionService.houseKeepingRequest(houseKeepingOrder);
 		return "redirect:/showHomePage";
 	}
 	 

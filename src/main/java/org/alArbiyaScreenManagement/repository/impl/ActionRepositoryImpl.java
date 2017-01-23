@@ -14,10 +14,12 @@ import javax.transaction.Transactional;
 
 
 
+
 import org.alArbiyaScreenManagement.model.HotelServicesCategory;
 import org.alArbiyaScreenManagement.model.HotelServicesGroup;
 import org.alArbiyaScreenManagement.model.HotelServicesItem;
 import org.alArbiyaScreenManagement.model.HotelServicesValue;
+import org.alArbiyaScreenManagement.model.HouseKeeping;
 import org.alArbiyaScreenManagement.model.Ingredient;
 import org.alArbiyaScreenManagement.model.Orders;
 import org.alArbiyaScreenManagement.model.ParkingOrder;
@@ -127,6 +129,13 @@ public class ActionRepositoryImpl implements ActionRepository{
 		// TODO Auto-generated method stub
 		entityManager.persist(order);
 		return order;
+	}
+
+	@Override
+	public HouseKeeping houseKeepingRequest(HouseKeeping houseKeepingOrder) {
+		// TODO Auto-generated method stub
+		entityManager.persist(houseKeepingOrder);
+		return houseKeepingOrder;
 	}
 	   
 	

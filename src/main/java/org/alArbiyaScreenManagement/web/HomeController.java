@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.alArbiyaScreenManagement.model.Booking;
 import org.alArbiyaScreenManagement.model.HotelInfo;
 import org.alArbiyaScreenManagement.model.HotelServicesCategory;
+import org.alArbiyaScreenManagement.model.HouseKeeping;
 import org.alArbiyaScreenManagement.model.Language;
 import org.alArbiyaScreenManagement.model.ParkingOrder;
 import org.alArbiyaScreenManagement.model.Player;
@@ -96,6 +97,7 @@ public class HomeController {
 		attributes.put("hotelInfos", hotelInfos);
 		attributes.put("hotelServiceCategories", hotelServiceCategories);
 		attributes.put("parkingOrder", new ParkingOrder());
+		attributes.put("houseKeepingOrder", new HouseKeeping());
 		model.addAllAttributes(attributes); 
 		return "home/home";
 	} 

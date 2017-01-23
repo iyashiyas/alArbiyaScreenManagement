@@ -91,7 +91,7 @@
 									</div>
 								</div>
 							</div>
-						</a> <a href="#houseKeeping" data-toggle="modal">
+						</a> <a href="#houseKeepingOrder" data-toggle="modal">
 							<div class="col-lg-4 col-md-offset-1">
 								<div class="widget style1 lazur-bg">
 									<div class="row">
@@ -206,19 +206,15 @@
 		
 		</div>
 	</div>
-	 
-	<div class="modal fade" id="housekeeping" tabindex="-1" role="dialog"
+	
+		<div class="modal fade" id="houseKeepingOrder" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
-			<jsp:include page="../housekeeping/housekeeping.jsp"></jsp:include>
-			<button type="button" class="btn btn-info" data-dismiss="modal">
-				<spring:message code="label.Close" />
-			</button>
-			<button id="submit" type="submit" class="btn btn-info">
-				<spring:message code="label.submit" />
-			</button>
-
+		<jsp:include page="../housekeeping/housekeeping.jsp"></jsp:include>
+		
 		</div>
-	</div> 
+	</div>
+	 
+	 
 </body>
 </html>

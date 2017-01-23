@@ -13,9 +13,11 @@ import java.util.List;
 
 
 
+
 import org.alArbiyaScreenManagement.model.HotelServicesCategory;
 import org.alArbiyaScreenManagement.model.HotelServicesGroup;
 import org.alArbiyaScreenManagement.model.HotelServicesItem;
+import org.alArbiyaScreenManagement.model.HouseKeeping;
 import org.alArbiyaScreenManagement.model.Orders;
 import org.alArbiyaScreenManagement.model.ParkingOrder;
 import org.alArbiyaScreenManagement.repository.ActionRepository;
@@ -77,6 +79,16 @@ public class ActionServiceImpl implements ActionService {
 		Date date = new Date(); 
 		parkingOrder.setRequestTime(dateFormat.format(date)); 
 		return actionRepository.parkingRequest(parkingOrder);
+	}
+
+	@Override
+	public HouseKeeping houseKeepingRequest(HouseKeeping houseKeepingOrder) {
+		// TODO Auto-generated method stub
+		houseKeepingOrder.setStatus("ORDERED");
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Date date = new Date(); 
+		houseKeepingOrder.setRequestTime(dateFormat.format(date)); 
+		return actionRepository.houseKeepingRequest(houseKeepingOrder);
 	}
 	 
 }

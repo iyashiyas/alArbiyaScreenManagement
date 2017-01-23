@@ -5,6 +5,7 @@ import java.util.List;
 import org.alArbiyaScreenManagement.model.HotelServicesCategory;
 import org.alArbiyaScreenManagement.model.HotelServicesGroup;
 import org.alArbiyaScreenManagement.model.HotelServicesItem;
+import org.alArbiyaScreenManagement.model.HouseKeeping;
 import org.alArbiyaScreenManagement.model.Orders;
 import org.alArbiyaScreenManagement.model.ParkingOrder;
  
@@ -21,5 +22,6 @@ public interface ActionRepository {
 			List<Long> hotelServicesItemsIds);
 	public Orders addOrder(Orders order);
 	public ParkingOrder parkingRequest(ParkingOrder order);
+	public HouseKeeping houseKeepingRequest(HouseKeeping houseKeepingOrder);
   
 }

@@ -1,6 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,31 +23,39 @@
 			</h3>
 		</div>
 		<div class="panel-body">
-			<form class="form-horizontal" method="POST"> 
+			<form:form class="form-horizontal" modelAttribute="houseKeepingOrder" method="POST" action="${pageContext.request.contextPath}/action/houseKeepingRequest">
+				 <input type="hidden" id="roomId" value="2" class="roomId" name="room.id">
 				 <div class="form-group">
 					<label class="col-lg-2 control-label"><spring:message code="label.Unit" /></label>
 					<div class="col-lg-10">
 						<div class="radio">
 							<label> <input type="radio" class="its"
-								name="optionsRadios" id="optionsRadios1" value="5">
+								name="houseKeepingType" id="optionsRadios1" value="CLEAN">
 								Clean My Room
 							</label>
 						</div>
 						<div class="radio">
 							<label> <input type="radio" class="its"
-								name="optionsRadios" id="optionsRadios2" value="10">
+								name="houseKeepingType" id="optionsRadios2" value="CLEAN GARBAGE">
 								Clean My Garbage
 							</label>
 						</div>
 						<div class="radio">
 							<label> <input type="radio" class="its"
-								name="optionsRadios" id="optionsRadios2" value="15">
+								name="houseKeepingType" id="optionsRadios2" value="CHANGEBED">
 								Change Bed
 							</label>
 						</div>
 					</div>
 				</div> 
-			</form>
+				 
+		     <button type="button" class="btn btn-info" data-dismiss="modal">
+			 <spring:message code="label.Close" />
+			</button>
+			<button id="submit" type="submit" class="btn btn-info  ">
+				<spring:message code="label.submit" />
+			</button>
+			</form:form>
 		</div>
 	</div>
 	 

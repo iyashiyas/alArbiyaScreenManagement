@@ -51,11 +51,11 @@
 					</div>
 				</div>    
  
-				  	<button type="button" class="btn btn-info" data-dismiss="modal">
-				<spring:message code="label.Close" />
+			 <button type="button" class="btn btn-info" data-dismiss="modal">
+			 <spring:message code="label.Close" />
 			</button>
 			<button id="submit" type="submit" class="btn btn-info  ">
-				<spring:message code="label.GetMyCar" />
+			 <spring:message code="label.GetMyCar" />
 			</button>
 			</form:form>
 		</div>
