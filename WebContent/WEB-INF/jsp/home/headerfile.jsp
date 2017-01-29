@@ -49,7 +49,7 @@
 							 <label id="roomNumber" for="roomCode"></label></span></li> 
 					<li><span class="m-r-sm text-muted welcome-message"><spring:message code="label.Welcome" />
 						 <label id="customerName" for="customerName"></label></span></li> 
-					<li class="dropdown"><a class="dropdown-toggle count-info"
+			<%-- 		<li class="dropdown"><a class="dropdown-toggle count-info"
 						data-toggle="dropdown" href="#"> <i class="fa fa-bell"></i> <span
 							class="label label-primary">0</span>
 					</a>
@@ -70,7 +70,7 @@
 									</a>
 								</div>
 							</li>
-						</ul></li> 
+						</ul></li>  --%>
 				</ul>
 
 			</nav>
@@ -118,9 +118,8 @@
 
 	$(document).ready(function() {
 		 var audioElement = document.createElement('audio');
-		    audioElement.setAttribute('src', '/alArbiyaHotelManagement/images/notify.MP3');
-		  
-		    //audioElement.load()
+		    audioElement.setAttribute('src', '/alArbiyaHotelManagement/images/notify.MP3'); 
+		    audioElement.load();
 		    $.get();
 		    
 		 $("#notifications").hide();
