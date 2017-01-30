@@ -13,6 +13,7 @@ import org.alArbiyaScreenManagement.model.HouseKeeping;
 import org.alArbiyaScreenManagement.model.Language;
 import org.alArbiyaScreenManagement.model.ParkingOrder;
 import org.alArbiyaScreenManagement.model.Player;
+import org.alArbiyaScreenManagement.model.ReceptionOrder;
 import org.alArbiyaScreenManagement.service.ActionService;
 import org.alArbiyaScreenManagement.service.BookingService;
 import org.alArbiyaScreenManagement.service.HomeService;
@@ -97,6 +98,7 @@ public class HomeController {
 		attributes.put("hotelInfos", hotelInfos);
 		attributes.put("hotelServiceCategories", hotelServiceCategories);
 		attributes.put("parkingOrder", new ParkingOrder());
+		attributes.put("receptionOrder", new ReceptionOrder());
 		attributes.put("houseKeepingOrder", new HouseKeeping());
 		model.addAllAttributes(attributes); 
 		return "home/home";

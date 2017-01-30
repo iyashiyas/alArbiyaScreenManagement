@@ -15,6 +15,7 @@ import javax.transaction.Transactional;
 
 
 
+
 import org.alArbiyaScreenManagement.model.HotelServicesCategory;
 import org.alArbiyaScreenManagement.model.HotelServicesGroup;
 import org.alArbiyaScreenManagement.model.HotelServicesItem;
@@ -23,6 +24,7 @@ import org.alArbiyaScreenManagement.model.HouseKeeping;
 import org.alArbiyaScreenManagement.model.Ingredient;
 import org.alArbiyaScreenManagement.model.Orders;
 import org.alArbiyaScreenManagement.model.ParkingOrder;
+import org.alArbiyaScreenManagement.model.ReceptionOrder;
 import org.alArbiyaScreenManagement.model.Unit;
 import org.alArbiyaScreenManagement.repository.ActionRepository;
 import org.springframework.stereotype.Repository;
@@ -136,6 +138,13 @@ public class ActionRepositoryImpl implements ActionRepository{
 		// TODO Auto-generated method stub
 		entityManager.persist(houseKeepingOrder);
 		return houseKeepingOrder;
+	}
+
+	@Override
+	public ReceptionOrder receptionRequest(ReceptionOrder receptionOrder) {
+		// TODO Auto-generated method stub
+		entityManager.persist(receptionOrder);
+		return receptionOrder;
 	}
 	   
 	

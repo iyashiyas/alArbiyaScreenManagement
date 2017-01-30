@@ -8,6 +8,7 @@ import org.alArbiyaScreenManagement.model.HotelServicesItem;
 import org.alArbiyaScreenManagement.model.HouseKeeping;
 import org.alArbiyaScreenManagement.model.Orders;
 import org.alArbiyaScreenManagement.model.ParkingOrder;
+import org.alArbiyaScreenManagement.model.ReceptionOrder;
  
   
 public interface ActionService {
@@ -27,5 +28,7 @@ public interface ActionService {
 	public ParkingOrder parkingRequest(ParkingOrder parkingOrder);
 
 	public HouseKeeping houseKeepingRequest(HouseKeeping houseKeepingOrder);
+
+	public ReceptionOrder receptionRequest(ReceptionOrder receptionOrder);
  
 }

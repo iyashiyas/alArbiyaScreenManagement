@@ -160,7 +160,8 @@
 								</div>
 							</div>
 						</a>
-
+                         
+                         <a href="#askOrder" data-toggle="modal">
 						<div class="col-lg-4 col-md-offset-1">
 							<div class="widget style1 lazur-bg">
 								<div class="row">
@@ -177,6 +178,7 @@
 								</div>
 							</div>
 						</div>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -212,8 +214,15 @@
 		<div class="modal-dialog">
 		<jsp:include page="../housekeeping/housekeeping.jsp"></jsp:include>
 		
+		</div> 
+	</div>
+	<div class="modal fade" id="askOrder" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<jsp:include page="../ask/ask.jsp"></jsp:include> 
 		</div>
 	</div>
+		
 	 
 	 
 </body>

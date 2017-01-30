@@ -10,8 +10,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link href="<c:url value="/resources/css/dateTimePicker/bootstrap-datetimepicker.css" />" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/touchspin/jquery.bootstrap-touchspin.min.css" />">
-
-
+ 
 <title>SHMS</title>
 </head>
 <body>
@@ -21,8 +20,11 @@
 			<h3 class="panel-title"><spring:message code="label.CheckOut" /></h3>
 		</div>
 		<div class="panel-body"> 
-			<form:form class="form-horizontal" modelAttribute="newOrder"  method="POST" action="${pageContext.request.contextPath}/action/addOrder">
-			   <div class="form-group">
+			<form:form class="form-horizontal" modelAttribute="receptionOrder"  method="POST" action="${pageContext.request.contextPath}/action/receptionRequest">
+			 <input type="hidden" id="roomId" name="room.id" value="1">
+			 <input type="hidden" id="requestType" name="requestType" value="CHECKOUT">
+			 
+			 <%--   <div class="form-group">
 					<label class="col-lg-2 control-label"><spring:message code="label.SelectTime" /></label>
 					<div class="col-lg-10">
 						<div class="radio">
@@ -47,9 +49,9 @@
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
                 </div>
-                </div>  
-				   <input type="hidden" value="1" name="room.id">
-				  
+                </div>   --%> 
+                
+                  <p>Confirm Checkout?</p>
 				   	<button type="button" class="btn btn-info" data-dismiss="modal">
 				<spring:message code="label.Close" />
 			</button>

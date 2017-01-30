@@ -8,6 +8,7 @@ import java.util.Map;
 
 
 
+
 import org.alArbiyaScreenManagement.dto.CarRental;
 import org.alArbiyaScreenManagement.dto.CoffeeShop;
 import org.alArbiyaScreenManagement.dto.Laundry;
@@ -21,6 +22,7 @@ import org.alArbiyaScreenManagement.model.IngredientSupporter;
 import org.alArbiyaScreenManagement.model.Orders;
 import org.alArbiyaScreenManagement.model.OrderItems;
 import org.alArbiyaScreenManagement.model.ParkingOrder;
+import org.alArbiyaScreenManagement.model.ReceptionOrder;
 import org.alArbiyaScreenManagement.model.Unit;
 import org.alArbiyaScreenManagement.model.UnitSupporter;
 import org.alArbiyaScreenManagement.service.ActionService;
@@ -257,6 +259,12 @@ List<HotelServicesItem> hotelServiceItems = actionService.getHotelServiceItems(S
 	@RequestMapping(value="/houseKeepingRequest", method=RequestMethod.POST)
 	public String houseKeepingRequest(@ModelAttribute HouseKeeping houseKeepingOrder){ 
 		actionService.houseKeepingRequest(houseKeepingOrder);
+		return "redirect:/showHomePage";
+	}
+	
+	@RequestMapping(value="/receptionRequest", method=RequestMethod.POST)
+	public String receptionRequest(@ModelAttribute ReceptionOrder receptionOrder){ 
+		actionService.receptionRequest(receptionOrder);
 		return "redirect:/showHomePage";
 	}
 	 
