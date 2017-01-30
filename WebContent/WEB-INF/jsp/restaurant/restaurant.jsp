@@ -1,6 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page language="java" pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html>
 <html>
@@ -35,6 +36,9 @@
 				</div>
 				<div class="col-md-10">
 					<div class="row ">
+						<c:if test="${fn:length(getHotelServiceItems) == 0}">
+							<div style="text-align: center;font-size:14px;float: left;width: 80%;background-color: wheat;margin-left: 10%;margin-right: 10%;">No Items to display</div>
+						</c:if>
 						<c:forEach items="${getHotelServiceItems}"
 							var="getHotelServiceItem">
 							<div class="hotelServiceItem">

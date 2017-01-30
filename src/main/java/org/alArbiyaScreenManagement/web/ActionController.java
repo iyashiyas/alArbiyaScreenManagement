@@ -95,31 +95,37 @@ public class ActionController {
 	public String showRestaurant(Model model, @RequestParam(required=true) String ServiceId) {
 			 
 		List<HotelServicesItem> hotelServiceItems = actionService.getHotelServiceItems(ServiceId);
-		 
-		for(HotelServicesItem hotelServicesItem: hotelServiceItems) {
-			populateOrderItems(hotelServicesItem);
-		}
-		Map<String, Object> attributes = new HashMap<String, Object>();
-		Restaurant restaurant = new Restaurant(); 
-		attributes.put("getHotelServiceItems",hotelServiceItems); 
 		
-		List<Long> hotelServicesItemsIds = new ArrayList<Long>();
-		for(HotelServicesItem hotelServicesItem: hotelServiceItems) {
-			hotelServicesItemsIds.add(hotelServicesItem.getId());
-		}
-		List<HotelServicesGroup> parentCategories = actionService.getAllParentCategories(hotelServicesItemsIds);
-		List<HotelServicesGroup> uniqueParentCategories = new ArrayList<HotelServicesGroup>();
-		for(HotelServicesGroup hotelServicesGroup: parentCategories) {
-			if(!uniqueParentCategories.contains(hotelServicesGroup)) {
-				uniqueParentCategories.add(hotelServicesGroup);
+		Map<String, Object> attributes = new HashMap<String, Object>();
+		if(hotelServiceItems.isEmpty()) {
+			attributes.put("getHotelServiceItems",new ArrayList<HotelServicesItem>()); 
+			return "restaurant/restaurant";
+		} else {
+			for(HotelServicesItem hotelServicesItem: hotelServiceItems) {
+				populateOrderItems(hotelServicesItem);
 			}
+			Restaurant restaurant = new Restaurant(); 
+			attributes.put("getHotelServiceItems",hotelServiceItems); 
+			
+			List<Long> hotelServicesItemsIds = new ArrayList<Long>();
+			for(HotelServicesItem hotelServicesItem: hotelServiceItems) {
+				hotelServicesItemsIds.add(hotelServicesItem.getId());
+			}
+			List<HotelServicesGroup> parentCategories = actionService.getAllParentCategories(hotelServicesItemsIds);
+			List<HotelServicesGroup> uniqueParentCategories = new ArrayList<HotelServicesGroup>();
+			for(HotelServicesGroup hotelServicesGroup: parentCategories) {
+				if(!uniqueParentCategories.contains(hotelServicesGroup)) {
+					uniqueParentCategories.add(hotelServicesGroup);
+				}
+			}
+		    
+			attributes.put("uniqueParentCategories", uniqueParentCategories);
+			attributes.put("restaurant", restaurant); 
+			attributes.put("newOrder", new Orders());
+			model.addAllAttributes(attributes);
+			return "restaurant/restaurant";
 		}
-	    
-		attributes.put("uniqueParentCategories", uniqueParentCategories);
-		attributes.put("restaurant", restaurant); 
-		attributes.put("newOrder", new Orders());
-		model.addAllAttributes(attributes);
-		return "restaurant/restaurant";
+		
 	} 
 	
 	@RequestMapping(value = "/showCarRental", method = RequestMethod.GET)
