@@ -32,9 +32,8 @@
 						<input type="text" class="form-control"  
 							id="parkingName" disabled="disabled" >
 					</div>
-				</div>
-				
-	 	  <div class="form-group">
+				</div> 
+	 	  <div class="form-group" id="radios">
 					<label class="col-lg-2 control-label">Reason</label>
 					<div class="col-lg-10">
 						<div class="radio">
@@ -54,7 +53,7 @@
 			 <button type="button" class="btn btn-info" data-dismiss="modal">
 			 <spring:message code="label.Close" />
 			</button>
-			<button id="submit" type="submit" class="btn btn-info  ">
+			<button id="submitParking" type="submit" class="btn btn-info  ">
 			 <spring:message code="label.GetMyCar" />
 			</button>
 			</form:form>

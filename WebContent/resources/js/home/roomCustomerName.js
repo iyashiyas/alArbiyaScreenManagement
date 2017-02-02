@@ -1,4 +1,5 @@
 $( document ).ready(function() {  
+
 setInterval(
 		function() {  
 			var roomID=$("#ro").val(); 
@@ -17,10 +18,20 @@ setInterval(
 												 { 
 												 $.each(data, function (i, getBookedItems)
 												{   
-													 $('#parkingName').val(getBookedItems.parking.parkingName);
-													 $('#parkingId').val(getBookedItems.parking.id);
+													 if (getBookedItems.parking==null)
+												     {
+													 $('#submitParking').toggleClass('disabled');
+													 $('#submitParking').hide();
+													 $('#radios').hide();
+													 $('#parkingName').val("You Have No Parking")
+													 
+													 } 
+													 else
+												  {
+												  $('#parkingName').val(getBookedItems.parking.parkingName);
+												  $('#parkingId').val(getBookedItems.parking.id);
 													 /*console.log(getBookedItems.userDetails.id)*/
-													 console.log(getBookedItems.parking.parkingName)
+												  }
 												 });
 												 }
 						},
