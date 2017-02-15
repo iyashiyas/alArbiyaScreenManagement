@@ -18,8 +18,8 @@
 		</div>
 		<div class="panel-body"> 
 			<form:form class="form-horizontal" modelAttribute="receptionOrder" method="POST" action="${pageContext.request.contextPath}/action/receptionRequest">
-			 <input type="hidden" id="roomId" name="room.id" value="1">
- 
+			<input type="hidden" id="roomId" value="2" class="roomId" name="room.id">
+												
 			  <div class="form-group">
             <label class="col-lg-2 control-label">
            <spring:message code="label.Ask" /></label>

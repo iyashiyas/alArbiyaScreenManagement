@@ -42,7 +42,7 @@
 						</div>
 						<div class="radio">
 							<label> <input type="radio" class="its"
-								name="houseKeepingType" id="optionsRadios2" value="CHANGEBED">
+								name="houseKeepingType" id="optionsRadios2" value="CHANGE BED">
 								Change Bed
 							</label>
 						</div>

@@ -10,18 +10,16 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link href="<c:url value="/resources/css/dateTimePicker/bootstrap-datetimepicker.css" />" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/touchspin/jquery.bootstrap-touchspin.min.css" />">
- 
 <title>SHMS</title>
 </head>
 <body>
-
 	<div class="panel panel-info">
 		<div class="panel-heading">
 			<h3 class="panel-title"><spring:message code="label.CheckOut" /></h3>
 		</div>
 		<div class="panel-body"> 
 			<form:form class="form-horizontal" modelAttribute="receptionOrder"  method="POST" action="${pageContext.request.contextPath}/action/receptionRequest">
-			 <input type="hidden" id="roomId" name="room.id" value="1">
+		<input type="hidden" id="roomId" value="2" class="roomId" name="room.id"> 
 			 <input type="hidden" id="requestType" name="requestType" value="CHECKOUT">
 			 
 			 <%--   <div class="form-group">
