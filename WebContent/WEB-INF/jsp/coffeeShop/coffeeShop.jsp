@@ -21,9 +21,11 @@
 				<ul class="nav metismenu" id="side-menu">
 					<c:forEach items="${uniqueParentCategories}"
 						var="uniqueParentCategories">
-						<li><a><i class="fa fa-th-large"></i> <span
-								class="nav-label">${uniqueParentCategories.serviceGroupName}</span>
-						</a></li>
+						<li class="parentCategory">
+							<a><i class="fa fa-th-large"></i> 
+							<span class="nav-label">${uniqueParentCategories.serviceGroupName}</span>
+							</a>
+						</li>
 					</c:forEach>
 				</ul>
 		 </div>
@@ -41,7 +43,7 @@
 						</c:if>
 						<c:forEach items="${getHotelServiceItems}"
 							var="getHotelServiceItem">
-							<div class="hotelServiceItem">
+							<div class="hotelServiceItem ${getHotelServiceItem.hotelServiceParentGroups[0].serviceGroupName }">
 								<div class="col-lg-3 col-lg-offset-1 w3ls-special-img"
 									style="background-image: url('/alArbiyaHotelManagement/images/coffeeShop/${getHotelServiceItem.imageUrlName}');">
 									<div class="wpf-demo-6">
@@ -184,6 +186,16 @@ var total = 0;
 		});  
 	}); }); */
 	$(document).ready(function () {
+		
+		
+		$('li.parentCategory > a > .nav-label').click(function(){ 
+			var text = this.textContent; 
+			$('.hotelServiceItem').hide()
+			$('.'+text).show()
+		})
+		
+		$('li.parentCategory:first-child > a > .nav-label').click();
+		
 	    var $inputs = $('input[type="checkbox"]')
 	    $inputs.on('change', function () {
 	        var sum = 0;
